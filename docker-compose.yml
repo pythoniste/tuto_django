@@ -3,3 +3,8 @@ services:
   tuto_django:
     container_name: tuto_django
     build: .
+    volumes:
+      - .:/opt/app
+      - ./pyproject.toml:/opt/app/pyproject.toml
+    ports:
+      - "8000:8000"
