@@ -4,6 +4,7 @@ version = "0.0.1"
 description = "Tuto for Django"
 authors = ["Sébastien CHAZALLET <pythoniste@protonmail.com>"]
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = ">=3.11.2 <3.13.0"

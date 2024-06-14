@@ -4,8 +4,9 @@ services:
     container_name: tuto_django
     build: .
     user: "1000:1000"
+    command: make dev
     volumes:
-      - .:/opt/app
+      - ./project:/opt/app
       - ./pyproject.toml:/opt/app/pyproject.toml
     ports:
       - "8000:8000"
