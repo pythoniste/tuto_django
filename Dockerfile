@@ -1,8 +1,7 @@
 FROM python:3.12-slim
 
-RUN mkdir /opt/app
-
-WORKDIR /opt/app
+ARG UID=1000
+ARG GID=1000
 
 RUN apt update && apt install -y \
     make \
@@ -10,9 +9,16 @@ RUN apt update && apt install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN pip install --upgrade pip
-
 RUN pip install poetry
-RUN poetry config virtualenvs.create false
 
-COPY pyproject.toml poetry.* /opt/app
+RUN groupadd -g "${GID}" django && useradd --create-home --no-log-init -u "${UID}" -g "${GID}" django
+
+RUN mkdir /opt/app
+RUN chown "${UID}:${GID}" /opt/app
+
+USER django
+
+WORKDIR /opt/app
+
+COPY --chown="${UID}:${GID}" pyproject.toml poetry.* /opt/app
 RUN poetry install --no-interaction --no-ansi

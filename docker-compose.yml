@@ -3,6 +3,7 @@ services:
   tuto_django:
     container_name: tuto_django
     build: .
+    user: "1000:1000"
     volumes:
       - .:/opt/app
       - ./pyproject.toml:/opt/app/pyproject.toml
