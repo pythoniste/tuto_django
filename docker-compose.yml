@@ -10,3 +10,34 @@ services:
       - ./pyproject.toml:/opt/app/pyproject.toml
     ports:
       - "8000:8000"
+    depends_on:
+      tuto_django_postgres:
+        condition: service_healthy
+    environment:
+      - POSTGRES_HOST=tuto_django_postgres
+      - POSTGRES_DB=project
+      - POSTGRES_USER=django
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_PORT=5432
+
+  tuto_django_postgres:
+    container_name: tuto_django_postgres
+    image: postgres:14.6-alpine
+    environment:
+      - POSTGRES_DB=project
+      - POSTGRES_USER=django
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_PORT=5432
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: pg_isready -d django
+      interval: 30s
+      timeout: 60s
+      retries: 5
+      start_period: 80s
+
+volumes:
+  pg_data:
