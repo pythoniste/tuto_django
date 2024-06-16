@@ -189,6 +189,11 @@ class Question(models.Model):
         verbose_name=gettext("points"),
     )
 
+    order = models.PositiveSmallIntegerField(
+        verbose_name=gettext("order"),
+        default=0,
+    )
+
     def __str__(self):
         return self.text[:47] + "[…]" if len(self.text) > 50 else self.text
 
@@ -197,6 +202,7 @@ class Question(models.Model):
 
         verbose_name = gettext("question")
         verbose_name_plural = gettext("questions")
+        ordering = ("order",)
 
 
 class Answer(models.Model):
@@ -220,6 +226,11 @@ class Answer(models.Model):
         default=0,
     )
 
+    order = models.PositiveSmallIntegerField(
+        verbose_name=gettext("order"),
+        default=0,
+    )
+
     def __str__(self):
         return self.text[:47] + "[…]" if len(self.text) > 50 else self.text
 
@@ -228,3 +239,4 @@ class Answer(models.Model):
 
         verbose_name = gettext("answer")
         verbose_name_plural = gettext("answers")
+        ordering = ("order",)

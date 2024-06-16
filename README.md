@@ -15,3 +15,4 @@ Each tag is a particular step.
   * v0.1.1 Introduction to some tools
   * v0.1.2 Firsts models
   * v0.1.3 Foreign keys
+  * v0.1.4 Exercice: ordering items
