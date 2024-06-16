@@ -1,8 +1,8 @@
-from functools import partial
 from pathlib import Path
 from uuid import uuid4
 
 from django.db import models
+from django.conf import settings
 from django.utils.timezone import now
 from django.utils.translation import gettext_lazy as gettext
 
@@ -34,21 +34,13 @@ def compute_avatar_path(current_object, filename):
 
 class Player(models.Model):
 
-    name = models.CharField(
-        verbose_name=gettext("name"),
-        max_length=32,
-        blank=False,
-        # null=False,
+    user = models.OneToOneField(
+        verbose_name=gettext("user"),
+        related_name="player",
+        to=settings.AUTH_USER_MODEL,
+        null=False,
         db_index=True,
-        unique=True,
-    )
-
-    email = models.EmailField(
-        verbose_name=gettext("email"),
-        blank=True,
-        null=True,
-        db_index=True,
-        unique=True,
+        on_delete=models.PROTECT,
     )
 
     description = models.TextField(
@@ -96,14 +88,14 @@ class Player(models.Model):
     )
 
     def __str__(self):
-        return self.name
+        return self.user.username
 
     class Meta:  # pylint: disable=too-few-public-methods
         """Test Meta class"""
 
         verbose_name = gettext("player")
         verbose_name_plural = gettext("players")
-        ordering = ("name",)
+        ordering = ("user__username",)
 
 
 class GameStatus(models.TextChoices):

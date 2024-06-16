@@ -18,3 +18,7 @@ update:
 .PHONY: check
 check:
 	poetry run python manage.py check
+
+.PHONY: create_admin
+create_admin:
+	DJANGO_SUPERUSER_PASSWORD=adminadmin poetry run python manage.py createsuperuser --noinput --username admin --email admin@example.com
