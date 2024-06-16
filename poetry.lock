@@ -257,6 +257,35 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-debug-toolbar"
+version = "4.4.2"
+description = "A configurable set of panels that display various debug information about the current request/response."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "django_debug_toolbar-4.4.2-py3-none-any.whl", hash = "sha256:5d7afb2ea5f8730241e5b0735396e16cd1fd8c6b53a2f3e1e30bbab9abb23728"},
+    {file = "django_debug_toolbar-4.4.2.tar.gz", hash = "sha256:9204050fcb1e4f74216c5b024bc76081451926a6303993d6c513f5e142675927"},
+]
+
+[package.dependencies]
+django = ">=4.2.9"
+sqlparse = ">=0.2"
+
+[[package]]
+name = "django-extensions"
+version = "3.2.3"
+description = "Extensions for Django"
+optional = false
+python-versions = ">=3.6"
+files = [
+    {file = "django-extensions-3.2.3.tar.gz", hash = "sha256:44d27919d04e23b3f40231c4ab7af4e61ce832ef46d610cc650d53e68328410a"},
+    {file = "django_extensions-3.2.3-py3-none-any.whl", hash = "sha256:9600b7562f79a92cbf1fde6403c04fee314608fefbb595502e34383ae8203401"},
+]
+
+[package.dependencies]
+Django = ">=3.2"
+
+[[package]]
 name = "greenlet"
 version = "3.0.3"
 description = "Lightweight in-process concurrent programming"
@@ -547,4 +576,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.11.2 <3.13.0"
-content-hash = "e139a68601fe4d2ea3fe87da95a986ede94579f013523d82be02da6d52b51fcd"
+content-hash = "c47d0424e2c1cda3e1b42dec0473559010862a2fae264c0099544a1ead67b329"

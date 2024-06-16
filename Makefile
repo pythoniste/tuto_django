@@ -9,7 +9,7 @@ MAKEFLAGS+="-j 2"
 build:
 	docker compose build
 
-.PHONY: build
+.PHONY: build-dev
 build-dev:
 	docker compose build --progress=plain --no-cache
 
@@ -34,7 +34,15 @@ bash:
 python:
 	docker compose exec tuto_django poetry run bpython
 
+.PHONY: shell
+shell:
+	docker compose run tuto_django poetry run python manage.py shell_plus
+
 .PHONY: lock
 lock:
 	docker compose exec tuto_django poetry lock
 	docker compose cp tuto_django:/opt/app/poetry.lock ./poetry.lock
+
+.PHONY: django_ip
+django_ip:
+	docker inspect   -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' tuto_django > project/internal_django_ip_address.txt
