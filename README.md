@@ -17,3 +17,4 @@ Each tag is a particular step.
   * v0.1.3 Foreign keys
   * v0.1.4 Exercice: ordering items
   * v0.1.5 One-to-one relationships
+  * v0.1.6 Many-to-many relationships

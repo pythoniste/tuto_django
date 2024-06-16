@@ -232,3 +232,45 @@ class Answer(models.Model):
         verbose_name = gettext("answer")
         verbose_name_plural = gettext("answers")
         ordering = ("order",)
+
+
+class Play(models.Model):
+
+    player = models.ForeignKey(
+        verbose_name=gettext("player"),
+        related_name="play",
+        to=Player,
+        null=False,
+        db_index=True,
+        on_delete=models.PROTECT,
+    )
+
+    game = models.ForeignKey(
+        verbose_name=gettext("game"),
+        related_name="play",
+        to=Game,
+        null=False,
+        db_index=True,
+        on_delete=models.PROTECT,
+    )
+
+    creation_datetime = models.DateTimeField(
+        verbose_name=gettext("creation datetime"),
+        auto_now_add=True,
+    )
+
+    entry_set = models.ManyToManyField(
+        verbose_name=gettext("entries"),
+        related_name="play_set",
+        to=Answer,
+    )
+
+    class Meta:  # pylint: disable=too-few-public-methods
+        """Test Meta class"""
+
+        verbose_name = gettext("play")
+        verbose_name_plural = gettext("plays")
+        ordering = ("player", "game")
+        unique_together = (
+            ("player", "game"),
+        )
