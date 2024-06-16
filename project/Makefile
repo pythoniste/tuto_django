@@ -13,4 +13,8 @@ dev:
 update:
 	poetry run python manage.py makemigrations
 	poetry run python manage.py migrate
-	poetry run python manage.py collectstatic
+	poetry run python manage.py collectstatic --noinput
+
+.PHONY: check
+check:
+	poetry run python manage.py check

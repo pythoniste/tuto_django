@@ -164,3 +164,7 @@ cython_debug/
 
 project/poetry.lock
 project/internal_django_ip_address.txt
+static
+!static/README.md
+media
+!media/README.md
