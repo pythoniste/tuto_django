@@ -49,6 +49,7 @@ class Player(models.Model):
 
     score = models.PositiveIntegerField(
         verbose_name=gettext("score"),
+        default=0,
     )
 
     creation_datetime = models.DateTimeField(
@@ -69,6 +70,7 @@ class Player(models.Model):
 
     profile_activated = models.BooleanField(
         verbose_name=gettext("profile activated"),
+        default=False,
     )
 
     signed_engagement = models.FileField(

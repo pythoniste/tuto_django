@@ -11,6 +11,7 @@ Each tag is a particular step.
   * v0.0.3 Docker for linux
   * v0.0.4 Project started
   * v0.0.5 Using Postgres
+* Modèles
   * v0.1.0 Creating first app
   * v0.1.1 Introduction to some tools
   * v0.1.2 Firsts models
@@ -18,3 +19,5 @@ Each tag is a particular step.
   * v0.1.4 Exercice: ordering items
   * v0.1.5 One-to-one relationships
   * v0.1.6 Many-to-many relationships
+* ORM
+  * v0.2.0 Outils SQL
