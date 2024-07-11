@@ -21,3 +21,5 @@ Each tag is a particular step.
   * v0.1.6 Many-to-many relationships
 * ORM
   * v0.2.0 Outils SQL
+  * v0.2.0 Admin IHM
+  * v0.2.0 Managers

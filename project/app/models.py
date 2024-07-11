@@ -6,6 +6,15 @@ from django.conf import settings
 from django.utils.timezone import now
 from django.utils.translation import gettext_lazy as gettext
 
+from .enums import GameStatus, GameLevel
+from .managers import (
+    PlayerManager,
+    GameManager,
+    QuestionManager,
+    AnswerManager,
+    PlayManager,
+)
+
 
 def compute_upload_path(current_object, sub_path, filename) -> str:
     """Describe an uploaded document storage path"""
@@ -33,6 +42,8 @@ def compute_avatar_path(current_object, filename):
 
 
 class Player(models.Model):
+
+    objects = PlayerManager()
 
     user = models.OneToOneField(
         verbose_name=gettext("user"),
@@ -100,26 +111,9 @@ class Player(models.Model):
         ordering = ("user__username",)
 
 
-class GameStatus(models.TextChoices):
-    """Statuses of a game"""
-
-    DRAFT = "draft", gettext("draft")
-    READY = "ready", gettext("ready")
-    ONGOING = "ongoing", gettext("ongoing")
-    DONE = "done", gettext("done")
-
-
-class GameLevel(models.IntegerChoices):
-    """Level of difficulty of a game"""
-
-    EASY = 1, gettext("easy")
-    MEDIUM = 2, gettext("medium")
-    HARD = 3, gettext("hard")
-    EXTREME = 4, gettext("extreme")
-    NIGHTMARE = 5, gettext("nightmare")
-
-
 class Game(models.Model):
+
+    objects = GameManager()
 
     name = models.CharField(
         verbose_name=gettext("name"),
@@ -165,6 +159,8 @@ class Game(models.Model):
 
 class Question(models.Model):
 
+    objects = QuestionManager()
+
     game = models.ForeignKey(
         verbose_name=gettext("game"),
         related_name="question_set",
@@ -200,6 +196,8 @@ class Question(models.Model):
 
 
 class Answer(models.Model):
+
+    objects = AnswerManager()
 
     question = models.ForeignKey(
         verbose_name=gettext("question"),
@@ -237,6 +235,8 @@ class Answer(models.Model):
 
 
 class Play(models.Model):
+
+    objects = PlayManager()
 
     player = models.ForeignKey(
         verbose_name=gettext("player"),
