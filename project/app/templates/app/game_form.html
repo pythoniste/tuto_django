@@ -11,9 +11,9 @@
     {% if object %}
     <input type="submit" value="Update">
     {% else %}
-    <input type="submit" name="submit" value="Create and add another">
-    <input type="submit" name="submit" value="Create and continue modification">
-    <input type="submit" value="Create and go back to the list">
+    <input type="submit" name="submit" value="{% translate 'Create and add another' %}">
+    <input type="submit" name="submit" value="{% translate 'Create and continue modification' %}">
+    <input type="submit" value="{% translate 'Create and go back to the list' %}">
     {% endif %}
 </form>
 

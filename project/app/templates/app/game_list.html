@@ -2,6 +2,7 @@
 {% load i18n %}
 
 {% block content %}
+
 <table>
   <tr>
     <th>{% translate "Name" %}</th>
@@ -14,8 +15,11 @@
     <td>{{ game.name }}</td>
     <td>{{ game.duration }}</td>
     <td>{{ game.status }}</td>
-    <td><a href="{% url 'game:detail' game.pk %}">{% translate "Voir" %}</a></td>
-    <td><a href="{% url 'game:update' game.pk %}">{% translate "Edit" %}</a></td>
+    <td>
+      <a href="{% url 'game:detail' game.pk %}">{% translate "Voir" %}</a>
+      <a href="{% url 'game:update' game.pk %}">{% translate "Edit" %}</a>
+      <a href="{% url 'game:delete' game.pk %}">{% translate "Delete" %}</a>
+    </td>
   </tr>
   {% empty %}
   <tr>
@@ -23,4 +27,7 @@
   </tr>
   {% endfor %}
 </table>
+
+<a href="{% url 'game:create' %}">{% translate "Create" %}</a>
+
 {% endblock %}

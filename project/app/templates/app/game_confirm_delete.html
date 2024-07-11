@@ -1,0 +1,14 @@
+{% extends "master.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<h3>{{ game.name }}</h3>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Confirm">
+</form>
+<a href="{% url 'game:list' %}">{% translate "Go back to the list" %}</a>
+{% endblock %}
