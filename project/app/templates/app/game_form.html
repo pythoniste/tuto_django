@@ -8,7 +8,13 @@
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
+    {% if object %}
     <input type="submit" value="Update">
+    {% else %}
+    <input type="submit" name="submit" value="Create and add another">
+    <input type="submit" name="submit" value="Create and continue modification">
+    <input type="submit" value="Create and go back to the list">
+    {% endif %}
 </form>
 
 {% endblock %}

@@ -27,6 +27,6 @@ Each tag is a particular step.
   * v0.3.0 Vue template
   * v0.3.1 Vue liste
   * v0.3.2 Vue détail
-  * v0.3.3 Vue création
-  * v0.3.4 Vue modification
+  * v0.3.3 Vue modification
+  * v0.3.4 Vue création
   * v0.3.5 Vue suppression
