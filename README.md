@@ -21,5 +21,12 @@ Each tag is a particular step.
   * v0.1.6 Many-to-many relationships
 * ORM
   * v0.2.0 Outils SQL
-  * v0.2.0 Admin IHM
-  * v0.2.0 Managers
+  * v0.2.1 Admin IHM
+  * v0.2.2 Managers
+* Vues
+  * v0.3.0 Vue template
+  * v0.3.1 Vue liste
+  * v0.3.2 Vue détail
+  * v0.3.3 Vue création
+  * v0.3.4 Vue modification
+  * v0.3.5 Vue suppression

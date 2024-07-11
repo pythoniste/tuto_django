@@ -1,0 +1,29 @@
+{% extends "master.html" %}
+{% load i18n %}
+
+{% block content %}
+<table>
+  <tr>
+    <td>{% translate "Nb of players" %}</td>
+    <td>{{ nb_players }}</td>
+  </tr>
+  <tr>
+    <td>{% translate "Nb of games" %}</td>
+    <td>{{ nb_games }}</td>
+  </tr>
+</table>
+<table>
+  <tr>
+    <th>{% translate "First name" %}</th>
+    <th>{% translate "Last name" %}</th>
+    <th>{% translate "Score" %}</th>
+  </tr>
+  {% for player in best_players %}
+  <tr>
+    <td>{{ player.user.first_name }}</td>
+    <td>{{ player.user.last_name }}</td>
+    <td>{{ player.score }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
