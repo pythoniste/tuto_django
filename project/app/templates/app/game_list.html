@@ -7,12 +7,14 @@
     <th>{% translate "Name" %}</th>
     <th>{% translate "Duration" %}</th>
     <th>{% translate "Status" %}</th>
+    <th>{% translate "Actions" %}</th>
   </tr>
   {% for game in game_list %}
   <tr>
     <td>{{ game.name }}</td>
     <td>{{ game.duration }}</td>
     <td>{{ game.status }}</td>
+    <td><a href="{% url 'game:detail' game.pk %}">{% translate "Voir" %}</a></td>
   </tr>
   {% empty %}
   <tr>

@@ -1,6 +1,7 @@
 from django.views.generic import (
     TemplateView,
     ListView,
+    DetailView,
 )
 from django.utils.translation import gettext_lazy as gettext
 
@@ -29,4 +30,14 @@ class GameListView(ListView):
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
         data['page_title'] = gettext("Player's list")
+        return data
+
+
+class GameDetailView(DetailView):
+    model = Game
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        obj = self.get_object()
+        data['page_title'] = str(gettext("Player: {}")).format(obj.name)
         return data
