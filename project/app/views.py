@@ -2,11 +2,15 @@ from django.views.generic import (
     TemplateView,
     ListView,
     DetailView,
+    UpdateView,
 )
+from django.urls import reverse_lazy, reverse
 from django.utils.translation import gettext_lazy as gettext
 
 from .models import Player, Game
 from .enums import GameStatus
+from .forms import GameForm
+
 
 class HomeView(TemplateView):
     template_name = "home.html"
@@ -41,3 +45,24 @@ class GameDetailView(DetailView):
         obj = self.get_object()
         data['page_title'] = str(gettext("Player: {}")).format(obj.name)
         return data
+
+
+class GameUpdateView(UpdateView):
+    model = Game
+    form = GameForm
+    fields = (
+        "name",
+        "duration",
+        "status",
+        "level"
+    )
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        obj = self.get_object()
+        data['page_title'] = str(gettext("Update Player: {}")).format(obj.name)
+        return data
+
+    def get_success_url(self):
+        return reverse("game:update", kwargs={"pk": self.kwargs["pk"]})
+        # return reverse_lazy('game:update', kwargs={'pk': self.object.pk})
