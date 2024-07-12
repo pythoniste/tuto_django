@@ -16,6 +16,10 @@ django-debug-toolbar = "^4.4.2"
 pillow = "^10.3.0"
 pyparsing = "^3.1.2"
 pydot = "^2.0.0"
+djangorestframework = "^3.15.2"
+markdown = "^3.6"
+django-filter = "^24.2"
+django-ninja = "^1.2.1"
 
 [build-system]
 requires = ["poetry-core"]

@@ -8,10 +8,15 @@ from django.views.generic import (
 )
 from django.urls import reverse_lazy, reverse
 from django.utils.translation import gettext_lazy as gettext
+from rest_framework import viewsets
 
-from .models import Player, Game
+from project.ninja import api
+
+from .models import Player, Game, Question, Answer
 from .enums import GameStatus
 from .forms import GameForm
+from .serializers import GameSerializer, QuestionSerializer, AnswerSerializer
+from .schemas import GameSchema
 
 
 class HomeView(TemplateView):
@@ -105,3 +110,24 @@ class GameDeleteView(DeleteView):
 
     def get_success_url(self):
         return reverse_lazy('game:list')
+
+
+class GameViewSet(viewsets.ModelViewSet):
+    queryset = Game.objects.all()
+    serializer_class = GameSerializer
+
+
+class QuestionViewSet(viewsets.ModelViewSet):
+    queryset = Question.objects.all()
+    serializer_class = QuestionSerializer
+
+
+class AnswerViewSet(viewsets.ModelViewSet):
+    queryset = Answer.objects.all()
+    serializer_class = AnswerSerializer
+
+
+@api.get("/games/", response=list[GameSchema])
+def game_list(request):
+    queryset = Game.objects.prefetch_related("question_set__answer_set").all()
+    return list(queryset)

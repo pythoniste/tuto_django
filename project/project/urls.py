@@ -16,8 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from rest_framework import routers
 
-from app.views import HomeView
+from app.views import HomeView, GameViewSet, QuestionViewSet, AnswerViewSet
+from .ninja import api
+
+router = routers.DefaultRouter()
+router.register(r'games', GameViewSet)
+router.register(r'questions', QuestionViewSet)
+router.register(r'answers', AnswerViewSet)
 
 
 urlpatterns = [
@@ -25,4 +32,7 @@ urlpatterns = [
     path('game/', include("app.urls")),
     path('admin/', admin.site.urls),
     path("__debug__/", include("debug_toolbar.urls")),
+    path('api-drf/', include(router.urls)),
+    path('api-auth/', include('rest_framework.urls')),
+    path('api-ninja/', api.urls),
 ]
