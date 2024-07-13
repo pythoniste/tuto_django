@@ -1,0 +1,328 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-13 13:22+0200\n"
+"PO-Revision-Date: 2024-07-13 13:22+0200\n"
+"Last-Translator:   <admin@example.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.10.0\n"
+
+#: app/admin.py:47
+msgid "Contract information"
+msgstr "Informations de contact"
+
+#: app/admin.py:53
+msgid "Personal information"
+msgstr "Informations personnelles"
+
+#: app/admin.py:70
+msgid "username"
+msgstr "nom d'utilisateur"
+
+#: app/admin.py:74
+msgid "first name"
+msgstr "prénom"
+
+#: app/admin.py:78
+msgid "last name"
+msgstr "nom"
+
+#: app/admin.py:85
+msgid "No row updated"
+msgstr "Aucune colonne mise à jour"
+
+#: app/admin.py:87
+msgid "1 row updated"
+msgstr "1 colonne mise à jour"
+
+#: app/admin.py:89
+msgid "{} rows updated"
+msgstr "{} colonnes mises à jour"
+
+#: app/admin.py:94
+msgid "Reset scores"
+msgstr "Réinitialiser les scores"
+
+#: app/admin.py:168
+msgid "Open"
+msgstr "Ouvrir"
+
+#: app/apps.py:10
+msgid "My app"
+msgstr "Mon app"
+
+#: app/enums.py:8
+msgid "draft"
+msgstr "brouillon"
+
+#: app/enums.py:9
+msgid "ready"
+msgstr "prêt"
+
+#: app/enums.py:10
+msgid "ongoing"
+msgstr "en cours"
+
+#: app/enums.py:11
+msgid "done"
+msgstr "terminé"
+
+#: app/enums.py:17
+msgid "easy"
+msgstr "facile"
+
+#: app/enums.py:18
+msgid "medium"
+msgstr "moyen"
+
+#: app/enums.py:19
+msgid "hard"
+msgstr "difficile"
+
+#: app/enums.py:20
+msgid "extreme"
+msgstr "extrême"
+
+#: app/enums.py:21
+msgid "nightmare"
+msgstr "cauchemard"
+
+#: app/filters.py:54
+msgid "creation date"
+msgstr "date de création"
+
+#: app/filters.py:56
+msgid "last modification date"
+msgstr "date de dernière modification"
+
+#: app/filters.py:58 app/models.py:77
+msgid "subscription date"
+msgstr "date de souscription"
+
+#: app/models.py:49
+msgid "user"
+msgstr "utilisateur"
+
+#: app/models.py:58
+msgid "description"
+msgstr "description"
+
+#: app/models.py:62
+msgid "score"
+msgstr "score"
+
+#: app/models.py:67 app/models.py:260
+msgid "creation datetime"
+msgstr "date de création"
+
+#: app/models.py:72
+msgid "last modification datetime"
+msgstr "date de dernière modification"
+
+#: app/models.py:83
+msgid "profile activated"
+msgstr "profil activé"
+
+#: app/models.py:88
+msgid "signed engagement"
+msgstr "engagement signé"
+
+#: app/models.py:96
+msgid "avatar"
+msgstr "avatar"
+
+#: app/models.py:109 app/models.py:242
+msgid "player"
+msgstr "joueur"
+
+#: app/models.py:110
+msgid "players"
+msgstr "joueurs"
+
+#: app/models.py:119
+msgid "name"
+msgstr "nom"
+
+#: app/models.py:127
+msgid "duration"
+msgstr "durée"
+
+#: app/models.py:133
+msgid "status"
+msgstr "statut"
+
+#: app/models.py:142
+msgid "level"
+msgstr "niveau"
+
+#: app/models.py:155 app/models.py:165 app/models.py:251
+msgid "game"
+msgstr "jeu"
+
+#: app/models.py:156
+msgid "games"
+msgstr "jeux"
+
+#: app/models.py:174
+msgid "question content"
+msgstr "contenu de la question"
+
+#: app/models.py:179 app/models.py:217
+msgid "points"
+msgstr "nb de points"
+
+#: app/models.py:183 app/models.py:222
+msgid "order"
+msgstr "ordre"
+
+#: app/models.py:193 app/models.py:203
+msgid "question"
+msgstr "question"
+
+#: app/models.py:194
+msgid "questions"
+msgstr "questions"
+
+#: app/models.py:212
+msgid "answer content"
+msgstr "contenu de la réponse"
+
+#: app/models.py:232
+msgid "answer"
+msgstr "réponse"
+
+#: app/models.py:233
+msgid "answers"
+msgstr "réponses"
+
+#: app/models.py:265
+msgid "entries"
+msgstr "entrées"
+
+#: app/models.py:273
+msgid "play"
+msgstr "partie"
+
+#: app/models.py:274
+msgid "plays"
+msgstr "parties"
+
+#: app/templates/app/game_confirm_delete.html:13
+msgid "Go back to the list"
+msgstr "revenir à la liste"
+
+#: app/templates/app/game_detail.html:8 app/templates/app/game_list.html:9
+msgid "Duration"
+msgstr "Durée"
+
+#: app/templates/app/game_detail.html:15 app/templates/app/game_detail.html:17
+msgid "This should be easy enough"
+msgstr "Ceci devrait être relativement simple"
+
+#: app/templates/app/game_detail.html:19
+msgid "Now, we are talking !"
+msgstr "Là, on parle !"
+
+#: app/templates/app/game_form.html:14 app/views.py:95
+msgid "Create and add another"
+msgstr "Créer et ajouter un autre"
+
+#: app/templates/app/game_form.html:15 app/views.py:97
+msgid "Create and continue modification"
+msgstr "Créer et continuer la modification"
+
+#: app/templates/app/game_form.html:16
+msgid "Create and go back to the list"
+msgstr "Créer et retourner à la liste"
+
+#: app/templates/app/game_list.html:8
+msgid "Name"
+msgstr "nom"
+
+#: app/templates/app/game_list.html:10
+msgid "Status"
+msgstr "statut"
+
+#: app/templates/app/game_list.html:11
+msgid "Actions"
+msgstr "actions"
+
+#: app/templates/app/game_list.html:19
+msgid "Voir"
+msgstr "voir"
+
+#: app/templates/app/game_list.html:20
+msgid "Edit"
+msgstr "éditer"
+
+#: app/templates/app/game_list.html:21
+msgid "Delete"
+msgstr "supprimer"
+
+#: app/templates/app/game_list.html:26
+msgid "There is no game yet!"
+msgstr "Il n'y a pas encore de jeu"
+
+#: app/templates/app/game_list.html:31
+msgid "Create"
+msgstr "créer"
+
+#: app/templates/home.html:7
+msgid "Nb of players"
+msgstr "nombre de joueurs"
+
+#: app/templates/home.html:11
+msgid "Nb of games"
+msgstr "nombre de parties"
+
+#: app/templates/home.html:17
+msgid "First name"
+msgstr "Prénom"
+
+#: app/templates/home.html:18
+msgid "Last name"
+msgstr "Nom"
+
+#: app/templates/home.html:19
+msgid "Score"
+msgstr "Score"
+
+#: app/templates/home.html:29
+msgid "Games"
+msgstr "Jeux"
+
+#: app/views.py:27
+msgid "Home"
+msgstr "Accueil"
+
+#: app/views.py:43
+msgid "Player's list"
+msgstr "Liste de joueurs"
+
+#: app/views.py:53
+msgid "Player: {}"
+msgstr "Joueur: {}"
+
+#: app/views.py:70
+msgid "Update Player: {}"
+msgstr "Mise à jour de la fiche du joueur: {}"
+
+#: app/views.py:90
+msgid "Create a new Player"
+msgstr "Créer un nouveau joueur"
+
+#: app/views.py:108
+msgid "Delete Player: {}"
+msgstr "Suppression de la fiche du joueur: {}"

@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from pathlib import Path
 
+from django.utils.translation import gettext_lazy as gettext
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -48,9 +50,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rosetta',
     'django_extensions',
     'debug_toolbar',
-
 ]
 
 MIDDLEWARE = [
@@ -123,6 +125,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
 LANGUAGE_CODE = 'fr-fr'
+
+LANGUAGES = [
+    ("fr", gettext("French")),
+    ("en", gettext("English")),
+]
 
 TIME_ZONE = 'Europe/Paris'
 

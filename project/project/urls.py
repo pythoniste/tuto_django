@@ -35,6 +35,7 @@ urlpatterns = [
     path('game/', include("app.urls")),
     path('admin/', admin.site.urls),
     path("__debug__/", include("debug_toolbar.urls")),
+    path(r'rosetta/', include('rosetta.urls')),
     path('api-drf/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls')),
     path('api-ninja/', api.urls),

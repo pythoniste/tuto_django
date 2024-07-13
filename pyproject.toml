@@ -21,6 +21,7 @@ markdown = "^3.6"
 django-filter = "^24.2"
 django-ninja = "^1.2.1"
 celery = "^5.4.0"
+django-rosetta = "^0.10.0"
 
 [build-system]
 requires = ["poetry-core"]

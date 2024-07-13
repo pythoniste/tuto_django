@@ -486,6 +486,22 @@ doc = ["markdown-include", "mkdocs", "mkdocs-material", "mkdocstrings"]
 test = ["django-stubs", "mypy (==1.7.1)", "psycopg2-binary", "pytest", "pytest-asyncio", "pytest-cov", "pytest-django", "ruff (==0.4.2)"]
 
 [[package]]
+name = "django-rosetta"
+version = "0.10.0"
+description = "A Django application that eases the translation of Django projects"
+optional = false
+python-versions = "*"
+files = [
+    {file = "django-rosetta-0.10.0.tar.gz", hash = "sha256:e0380c456e807b5954afaa54ed43c1dbaf29a2af8dd773ec332c8c2fe5465418"},
+    {file = "django_rosetta-0.10.0-py3-none-any.whl", hash = "sha256:a42ed265a976a8e5e907f20bad56239e701084a4b9936810e85ffb27bf9a1f15"},
+]
+
+[package.dependencies]
+Django = ">=4.2"
+polib = ">=1.1.0"
+requests = ">=2.30.0"
+
+[[package]]
 name = "djangorestframework"
 version = "3.15.2"
 description = "Web APIs for Django, made easy."
@@ -738,6 +754,17 @@ mic = ["olefile"]
 tests = ["check-manifest", "coverage", "defusedxml", "markdown2", "olefile", "packaging", "pyroma", "pytest", "pytest-cov", "pytest-timeout"]
 typing = ["typing-extensions"]
 xmp = ["defusedxml"]
+
+[[package]]
+name = "polib"
+version = "1.2.0"
+description = "A library to manipulate gettext files (po and mo files)."
+optional = false
+python-versions = "*"
+files = [
+    {file = "polib-1.2.0-py2.py3-none-any.whl", hash = "sha256:1c77ee1b81feb31df9bca258cbc58db1bbb32d10214b173882452c73af06d62d"},
+    {file = "polib-1.2.0.tar.gz", hash = "sha256:f3ef94aefed6e183e342a8a269ae1fc4742ba193186ad76f175938621dbfc26b"},
+]
 
 [[package]]
 name = "prompt-toolkit"
@@ -1137,4 +1164,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.11.2 <3.13.0"
-content-hash = "4174f1bea786e78be94c58aabcf2d5d3c65ed28ae246d2d4d45cc80c08b78a9f"
+content-hash = "8705df23311f084d405e9ac135de3a7ac4be8e72e343a0e9c8ffb603896314d1"
