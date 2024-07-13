@@ -32,3 +32,4 @@ Each tag is a particular step.
   * v0.3.5 Vue suppression
 * Modules tierces
   * v0.4.0 DRF + Ninja (web services)
+  * v0.4.1 Celery (tâches asynchrones)

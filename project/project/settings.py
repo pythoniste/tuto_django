@@ -146,6 +146,16 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+# Celery
+CELERY_BROKER_URL = 'amqp://guest:guest@tuto_django_rabbitmq:5672//'
+CELERY_RESULT_BACKEND = 'rpc://'
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Europe/Paris'
+CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
+
+
 # Dev tools
 
 DEBUG_TOOLBAR_CONFIG = {

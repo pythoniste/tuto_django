@@ -11,6 +11,8 @@ services:
     ports:
       - "8000:8000"
     depends_on:
+      tuto_django_celery:
+        condition: service_healthy
       tuto_django_postgres:
         condition: service_healthy
     environment:
@@ -35,9 +37,50 @@ services:
     healthcheck:
       test: pg_isready -d django
       interval: 30s
-      timeout: 60s
+      timeout: 10s
       retries: 5
       start_period: 80s
+
+  tuto_django_rabbitmq:
+    container_name: tuto_django_rabbitmq
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  tuto_django_celery:
+    container_name: tuto_django_celery
+    build:
+      context: .
+      dockerfile: ./Dockerfile-celery
+    command: poetry run celery -A project worker --loglevel=debug
+    volumes:
+      - ./project:/opt/app
+      - ./pyproject.toml:/opt/app/pyproject.toml
+    depends_on:
+      tuto_django_rabbitmq:
+        condition: service_healthy
+      tuto_django_postgres:
+        condition: service_healthy
+    environment:
+      - CELERY_BROKER_URL=amqp://guest:guest@tuto_django_rabbitmq:5672/
+      - CELERY_RESULT_BACKEND=rpc://
+      - POSTGRES_HOST=tuto_django_postgres
+      - POSTGRES_DB=project
+      - POSTGRES_USER=django
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_PORT=5432
+    healthcheck:
+      test: celery -b amqp://guest:guest@tuto_django_rabbitmq:5672/ inspect ping
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
 
 volumes:
   pg_data:
