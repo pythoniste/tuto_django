@@ -26,3 +26,12 @@ create_admin:
 .PHONY: test_unit
 test_unit:
 	poetry run python manage.py test
+
+.PHONY: test_behave
+test_behave:
+	poetry run python manage.py behave
+
+.PHONY: test_all
+test_all:
+	make test_unit
+	make test_behave

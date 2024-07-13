@@ -1,9 +1,5 @@
-from unittest import mock
-from PIL import Image, ImageDraw, ImageFont
-
 from django.test import TestCase
 
-from ..models import Player
 from ..tasks import create_avatar
 from ..factories import PlayerFactory
 
