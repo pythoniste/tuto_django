@@ -11,8 +11,8 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      tuto_django_celery:
-        condition: service_healthy
+#      tuto_django_celery:
+#        condition: service_healthy
       tuto_django_postgres:
         condition: service_healthy
     environment:

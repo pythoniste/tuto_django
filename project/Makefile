@@ -22,3 +22,7 @@ check:
 .PHONY: create_admin
 create_admin:
 	DJANGO_SUPERUSER_PASSWORD=adminadmin poetry run python manage.py createsuperuser --noinput --username admin --email admin@example.com
+
+.PHONY: test_unit
+test_unit:
+	poetry run python manage.py test

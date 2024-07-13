@@ -33,3 +33,6 @@ Each tag is a particular step.
 * Modules tierces
   * v0.4.0 DRF + Ninja (web services)
   * v0.4.1 Celery (tâches asynchrones)
+  * v0.4.2 Rosetta (traduction)
+* Tests
+  * v0.5.0 Tests unitaires
