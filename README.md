@@ -36,3 +36,5 @@ Each tag is a particular step.
   * v0.4.2 Rosetta (traduction)
 * Tests
   * v0.5.0 Tests unitaires
+  * v0.5.1 Test d'intégration
+  * v0.5.2 Test d'intégration avec lecture page web

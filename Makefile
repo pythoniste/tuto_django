@@ -50,3 +50,9 @@ django_ip:
 .PHONY: logs
 logs:
 	docker compose logs tuto_django -f
+
+.PHONY: tests
+tests:
+	docker compose up -d
+	docker compose run tuto_django make update
+	docker compose run tuto_django make test_all

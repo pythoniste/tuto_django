@@ -1,5 +1,7 @@
 Feature: Avatar management
 
 Scenario: Create automatically an avatar if None is provided
-    When a new player is created without an avatar
-    Then the player's avatar is generated
+    Given I build a new player
+    And It doesn't have an avatar
+    When I save the new player
+    Then It does have an avatar
