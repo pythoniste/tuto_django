@@ -6,7 +6,7 @@ from django.conf import settings
 from django.utils.timezone import now
 from django.utils.translation import gettext_lazy as gettext
 
-from .enums import GameStatus, GameLevel
+from .enums import GameStatus, GameLevel, RewardCategory
 from .managers import (
     PlayerManager,
     GameManager,
@@ -276,3 +276,31 @@ class Play(models.Model):
         unique_together = (
             ("player", "game"),
         )
+
+
+class Reward(models.Model):
+
+    objects = PlayerManager()
+
+    name = models.CharField(
+        verbose_name=gettext("name"),
+        max_length=32,
+        blank=False,
+        db_index=True,
+        unique=True,
+    )
+
+    category = models.PositiveSmallIntegerField(
+        verbose_name=gettext("category"),
+        choices=RewardCategory,
+        blank=False,
+        null=False,
+        db_index=True,
+    )
+
+    verbose_name = gettext("reward")
+    verbose_name_plural = gettext("rewards")
+    ordering = ("name", "category")
+    unique_together = (
+        ("name", "category"),
+    )

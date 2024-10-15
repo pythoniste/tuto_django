@@ -19,3 +19,10 @@ class GameLevel(models.IntegerChoices):
     HARD = 3, gettext("hard")
     EXTREME = 4, gettext("extreme")
     NIGHTMARE = 5, gettext("nightmare")
+
+
+class RewardCategory(models.IntegerChoices):
+    """Category of rewards"""
+
+    BADGE = 1, gettext("badge")
+    PRIZE = 2, gettext("prix")
