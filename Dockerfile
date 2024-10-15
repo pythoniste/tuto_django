@@ -25,4 +25,5 @@ USER django
 WORKDIR /opt/app
 
 COPY --chown="${UID}:${GID}" pyproject.toml poetry.* /opt/app
+RUN poetry lock --no-update
 RUN poetry install --no-interaction --no-ansi

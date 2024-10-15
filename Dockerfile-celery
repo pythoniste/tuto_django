@@ -17,4 +17,5 @@ WORKDIR /opt/app
 
 COPY pyproject.toml poetry.* /opt/app
 
+RUN poetry lock --no-update
 RUN poetry install --no-interaction --no-ansi
