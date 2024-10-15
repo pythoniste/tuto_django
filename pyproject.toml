@@ -29,7 +29,7 @@ behavex = "^3.2.0"
 behave-django = "^1.4.0"
 pyhamcrest = "^2.1.0"
 beautifulsoup4 = "^4.12.3"
-django-polymorphic = "^3.1.0"
+django-polymorphic = {git = "https://github.com/jazzband/django-polymorphic.git", rev = "v4.0.0a"}
 
 [build-system]
 requires = ["poetry-core"]

@@ -612,17 +612,21 @@ test = ["django-stubs", "mypy (==1.7.1)", "psycopg2-binary", "pytest", "pytest-a
 
 [[package]]
 name = "django-polymorphic"
-version = "3.1.0"
+version = "4.0.0a0"
 description = "Seamless polymorphic inheritance for Django models"
 optional = false
 python-versions = "*"
-files = [
-    {file = "django-polymorphic-3.1.0.tar.gz", hash = "sha256:d6955b5308bf6e41dcb22ba7c96f00b51dfa497a8a5ab1e9c06c7951bf417bf8"},
-    {file = "django_polymorphic-3.1.0-py3-none-any.whl", hash = "sha256:08bc4f4f4a773a19b2deced5a56deddd1ef56ebd15207bf4052e2901c25ef57e"},
-]
+files = []
+develop = false
 
 [package.dependencies]
-Django = ">=2.1"
+Django = ">=3.2"
+
+[package.source]
+type = "git"
+url = "https://github.com/jazzband/django-polymorphic.git"
+reference = "v4.0.0a"
+resolved_reference = "1039f882b99f97bf657bd958c949ee6a3b00377a"
 
 [[package]]
 name = "django-rosetta"
@@ -1573,4 +1577,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.11.2 <3.13.0"
-content-hash = "195bbfb7dc244eee77348867a74d74d940a4d4519ffc4d507e865290cc886134"
+content-hash = "ee7a9bd803261139eae0123b747f2134e2c101b9b4a430f1544640fac8d8d07b"

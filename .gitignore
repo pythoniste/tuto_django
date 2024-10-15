@@ -162,9 +162,8 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 .idea/
 
-project/poetry.lock
 project/internal_django_ip_address.txt
-static
-!static/README.md
-media
-!media/README.md
+project/static/*
+!project/static/README.md
+project/media/*
+!project/media/README.md
