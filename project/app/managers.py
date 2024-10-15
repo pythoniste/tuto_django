@@ -2,6 +2,8 @@ from django.db import models
 
 from typing import TYPE_CHECKING
 
+from polymorphic.managers import PolymorphicManager
+
 from .enums import GameStatus, GameLevel
 
 if TYPE_CHECKING:
@@ -13,7 +15,7 @@ if TYPE_CHECKING:
     )
 
 
-class PlayerManager(models.Manager):
+class PlayerManager(PolymorphicManager):
 
     def get_queryset(self):
         queryset = super().get_queryset()

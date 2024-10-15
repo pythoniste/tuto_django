@@ -6,6 +6,8 @@ from django.conf import settings
 from django.utils.timezone import now
 from django.utils.translation import gettext_lazy as gettext
 
+from polymorphic.models import PolymorphicModel
+
 from .enums import GameStatus, GameLevel, RewardCategory
 from .managers import (
     PlayerManager,
@@ -41,7 +43,7 @@ def compute_avatar_path(current_object, filename):
     return compute_upload_path(current_object, "avatar", filename)
 
 
-class Player(models.Model):
+class Player(PolymorphicModel):
 
     objects = PlayerManager()
 
@@ -115,6 +117,90 @@ class Player(models.Model):
         ordering = ("user__username",)
 
 
+class Guest(Player):
+    """Player invited by another player."""
+
+    invited_by = models.ForeignKey(
+        verbose_name=gettext("invited by"),
+        related_name="invited_by_set",
+        to=Player,
+        blank=False,
+        null=False,
+        db_index=True,
+        on_delete=models.CASCADE,
+    )
+
+    class Meta:  # pylint: disable=too-few-public-methods
+        """Test Meta class"""
+
+        verbose_name = gettext("guest")
+        verbose_name_plural = gettext("guests")
+        ordering = ("user__username",)
+
+
+class Subscriber(Player):
+    """Player that pays a subscription."""
+
+    registration_date= models.DateTimeField(
+        verbose_name=gettext("First registration date"),
+    )
+
+    sponsor = models.ForeignKey(
+        verbose_name=gettext("sponsor"),
+        related_name="sponsored_set",
+        to=Player,
+        blank=False,
+        null=False,
+        db_index=True,
+        on_delete=models.CASCADE,
+    )
+
+    class Meta:  # pylint: disable=too-few-public-methods
+        """Test Meta class"""
+
+        verbose_name = gettext("subscriber")
+        verbose_name_plural = gettext("subscribers")
+        ordering = ("user__username",)
+
+
+class TeamMate(Player):
+    """Player that pays a subscription."""
+
+    registration_date= models.DateTimeField(
+        verbose_name=gettext("First registration date"),
+    )
+
+    team_member_date= models.DateTimeField(
+        verbose_name=gettext("First membership date"),
+    )
+
+    class Meta:  # pylint: disable=too-few-public-methods
+        """Test Meta class"""
+
+        verbose_name = gettext("team mate")
+        verbose_name_plural = gettext("team mates")
+        ordering = ("user__username",)
+
+
+class GameMaster(Player):
+    """Player that pays a subscription."""
+
+    registration_date= models.DateTimeField(
+        verbose_name=gettext("First registration date"),
+    )
+
+    team_member_date= models.DateTimeField(
+        verbose_name=gettext("First membership date"),
+    )
+
+    class Meta:  # pylint: disable=too-few-public-methods
+        """Test Meta class"""
+
+        verbose_name = gettext("team mate")
+        verbose_name_plural = gettext("team mates")
+        ordering = ("user__username",)
+
+
 class Game(models.Model):
 
     objects = GameManager()
@@ -125,6 +211,16 @@ class Game(models.Model):
         blank=False,
         db_index=True,
         unique=True,
+    )
+
+    master = models.ForeignKey(
+        verbose_name=gettext("master"),
+        related_name="own_game_set",
+        to=GameMaster,
+        blank=True,
+        null=True,
+        db_index=True,
+        on_delete=models.SET_NULL,
     )
 
     duration = models.DurationField(
@@ -320,3 +416,5 @@ class Reward(models.Model):
     unique_together = (
         ("name", "category"),
     )
+
+
