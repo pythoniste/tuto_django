@@ -49,5 +49,12 @@ All tag but those in italic are also git tags.
   * v0.6.1 Model metadata
   * v0.6.2 Model manager
   * v0.6.3 Natural keys
-  * v0.6.4 Model Mixins
+  * v0.6.4 _Model Mixins_
   * v0.6.5 Polymorphism
+* IHM Admin
+  * v0.6.0 _Widgets_
+  * v0.6.1 _View list features_
+  * v0.6.2 _Search filters_
+  * v0.6.3 Polymorphic view
+  * v0.6.4 View customizations
+  * v0.6.5 Home page

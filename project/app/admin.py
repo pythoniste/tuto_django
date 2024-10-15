@@ -1,7 +1,20 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as gettext
 
-from .models import Player, Game, Question, Answer, Play
+from polymorphic.admin import PolymorphicParentModelAdmin, PolymorphicChildModelAdmin, PolymorphicChildModelFilter
+
+from .models import (
+    Player,
+    Guest,
+    Subscriber,
+    TeamMate,
+    GameMaster,
+    Game,
+    Question,
+    Answer,
+    Play,
+)
+
 from .filters import (
     CreationMonthListFilter,
     ModificationMonthListFilter,
@@ -9,10 +22,12 @@ from .filters import (
 )
 
 
-@admin.register(Player)
-class PlayerAdmin(admin.ModelAdmin):
-    search_fields = ("user__username", "user__first_name", "user__last_name", "description")
-    list_filter = (
+# @admin.register(Player)
+class PlayerChildAdmin(PolymorphicChildModelAdmin):
+    base_model = Player
+
+    base_search_fields = ("user__username", "user__first_name", "user__last_name", "description")
+    base_list_filter = (
         "profile_activated",
         "subscription_date",
         "score",
@@ -20,7 +35,7 @@ class PlayerAdmin(admin.ModelAdmin):
         ModificationMonthListFilter,
         SubscriptionMonthListFilter,
     )
-    list_display = (
+    base_list_display = (
         "user_username",
         "user_first_name",
         "user_last_name",
@@ -30,14 +45,14 @@ class PlayerAdmin(admin.ModelAdmin):
         "subscription_date",
         "score",
     )
-    list_display_links = (
+    base_list_display_links = (
         "user_username",
         "user_first_name",
         "user_last_name",
     )
-    list_editable = ("description", "profile_activated")
+    base_list_editable = ("description", "profile_activated")
 
-    fieldsets = (
+    base_fieldsets = (
         (None, {
             "fields": (
                 ("user", "avatar",),
@@ -94,6 +109,47 @@ class PlayerAdmin(admin.ModelAdmin):
     reset_scores.short_description = gettext("Reset scores")
 
     actions = [reset_scores]
+
+
+@admin.register(Guest)
+class GuestAdmin(PlayerChildAdmin):
+    base_model = Guest
+    fieldsets = (
+        (gettext("Invitation"), {
+            "fields": (
+                ("invited_by",),
+            )
+        }),
+    )
+
+    def get_fieldsets(self, request, obj=None) -> tuple:
+        """Permet de rajouter automatiquement les champs spécifiques des modèles de référence."""
+        return self.base_fieldsets + self.fieldsets
+
+
+@admin.register(Subscriber)
+class SubscriberAdmin(PlayerChildAdmin):
+    base_model = Subscriber
+
+
+@admin.register(TeamMate)
+class TeamMateAdmin(PlayerChildAdmin):
+    base_model = TeamMate
+
+    def has_module_permission(self, request):
+        return False
+
+@admin.register(GameMaster)
+class GameMasterAdmin(PlayerChildAdmin):
+    base_model = GameMaster
+    show_in_index = True
+
+
+@admin.register(Player)
+class PlayerParentAdmin(PolymorphicParentModelAdmin):
+    base_model = Player
+    child_models = (Guest, Subscriber, TeamMate, GameMaster)
+    list_filter = (PolymorphicChildModelFilter, )
 
 
 class AnswerInline(admin.TabularInline):

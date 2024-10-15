@@ -196,8 +196,8 @@ class GameMaster(Player):
     class Meta:  # pylint: disable=too-few-public-methods
         """Test Meta class"""
 
-        verbose_name = gettext("team mate")
-        verbose_name_plural = gettext("team mates")
+        verbose_name = gettext("game master")
+        verbose_name_plural = gettext("game masters")
         ordering = ("user__username",)
 
 
