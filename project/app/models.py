@@ -100,7 +100,11 @@ class Player(models.Model):
         blank=True,
     )
 
-    def __str__(self):
+    def natural_key(self) -> tuple[str]:
+        """Renvoie la clé naturelle de l'objet."""
+        return (self.user.username, )
+
+    def __str__(self) -> str:
         return self.user.username
 
     class Meta:  # pylint: disable=too-few-public-methods
@@ -146,6 +150,10 @@ class Game(models.Model):
         db_index=True,
     )
 
+    def natural_key(self) -> tuple[str]:
+        """Renvoie la clé naturelle de l'objet."""
+        return (self.name, )
+
     def __str__(self):
         return self.name
 
@@ -183,6 +191,10 @@ class Question(models.Model):
         verbose_name=gettext("order"),
         default=0,
     )
+
+    def natural_key(self) -> tuple[str, str]:
+        """Renvoie la clé naturelle de l'objet."""
+        return self.game.name, self.text
 
     def __str__(self):
         return self.text[:47] + "[…]" if len(self.text) > 50 else self.text
@@ -222,6 +234,10 @@ class Answer(models.Model):
         verbose_name=gettext("order"),
         default=0,
     )
+
+    def natural_key(self) -> tuple[str, str, str]:
+        """Renvoie la clé naturelle de l'objet."""
+        return self.question.game.name, self.question.text, self.text
 
     def __str__(self):
         return self.text[:47] + "[…]" if len(self.text) > 50 else self.text
