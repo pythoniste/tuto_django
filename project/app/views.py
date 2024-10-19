@@ -19,6 +19,20 @@ from .serializers import GameSerializer, QuestionSerializer, AnswerSerializer
 from .schemas import GameSchema
 
 
+class GamePlayView(DetailView):
+    model = Game
+    template_name = "admin/app/game/play.html"
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['app_label'] = "app"
+        data['app_verbose_name'] = gettext("My app")
+        # data['nb_players'] = Player.objects.count()
+        # data['best_players'] = Player.objects.order_by("-score")[:5]
+        # data['nb_games'] = Game.objects.count()
+        return data
+
+
 class HomeView(TemplateView):
     template_name = "home.html"
 

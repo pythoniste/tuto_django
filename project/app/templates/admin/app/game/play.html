@@ -1,0 +1,32 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+    {% block breadcrumbs %}
+    <div class="breadcrumbs">
+        <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+        &rsaquo; <a href="{% url 'admin:app_list' app_label=app_label %}">{{ app_verbose_name }}</a>
+        &rsaquo; <a href="{% url 'admin:app_game_changelist' %}">{% trans 'Game' %}</a>
+        &rsaquo; <a href="{% url 'admin:app_game_change' object_id=game.pk %}">{{ game }}</a>
+        &rsaquo; {% translate "Playing" %}
+    </div>
+    {% endblock %}
+
+{% block content %}
+
+<h3>{{ game.name }}</h3>
+
+<pre>{% translate "Duration" %}: {{ game.duration }}</pre>
+
+<p class="{% if game.status == 'draft' %}text-danger{% elif game.status == 'ready' %}text-warning{% elif game.status == 'ongoing' %}text-success{% elif game.status == 'done' %}text-error{% endif %}">{{ game.status }}</p>
+
+<p><strong>Level:</strong> {{ game.level }}</p>
+
+{% if game.status.level == 1 %}
+<p>{% translate "This should be easy enough" %}</p>
+{% elif game.status.level < 5 %}
+<p>{% translate "This should be easy enough" %}</p>
+{% else %}
+<p>{% translate "Now, we are talking !" %}</p>
+{% endif %}
+
+{% endblock %}

@@ -1,10 +1,10 @@
 from django.contrib.admin.templatetags.admin_urls import add_preserved_filters
 from django.http import HttpResponseRedirect
-from django.urls import reverse
+from django.urls import reverse, path
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as gettext
 from django.utils.safestring import mark_safe
-from django.forms import ModelForm, TextInput
+from django.utils.html import format_html
 
 from polymorphic.admin import PolymorphicParentModelAdmin, PolymorphicChildModelAdmin, PolymorphicChildModelFilter
 
@@ -26,8 +26,9 @@ from .filters import (
     SubscriptionMonthListFilter,
 )
 
+from .views import GamePlayView
 
-# @admin.register(Player)
+
 class PlayerChildAdmin(PolymorphicChildModelAdmin):
     base_model = Player
 
@@ -230,6 +231,7 @@ class GameAdmin(admin.ModelAdmin):
         "duration",
         "level",
         "link",
+        "play",
     )
     list_display_links = (
         "link",
@@ -261,6 +263,20 @@ class GameAdmin(admin.ModelAdmin):
                 )
                 for question in obj.question_set.all()
             )
+
+    def get_urls(self):
+        return [
+            path(
+                "<path:pk>/play/",
+                self.admin_site.admin_view(GamePlayView.as_view()),
+                name="game_play",
+            ),
+            *super().get_urls(),
+        ]
+
+    def play(self, obj):
+        url = reverse("admin:game_play", args=[obj.pk])
+        return format_html(f'<a href="{url}">📝</a>')
 
 
 class EntryInline(admin.TabularInline):
