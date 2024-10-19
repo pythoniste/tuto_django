@@ -70,13 +70,7 @@ class GameDetailView(DetailView):
 
 class GameUpdateView(UpdateView):
     model = Game
-    form = GameForm
-    fields = (
-        "name",
-        "duration",
-        "status",
-        "level"
-    )
+    form_class = GameForm
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
@@ -91,13 +85,7 @@ class GameUpdateView(UpdateView):
 
 class GameCreateView(CreateView):
     model = Game
-    form = GameForm
-    fields = (
-        "name",
-        "duration",
-        "status",
-        "level"
-    )
+    form_class = GameForm
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
