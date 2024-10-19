@@ -15,6 +15,7 @@ from .managers import (
     QuestionManager,
     AnswerManager,
     PlayManager,
+    RewardManager,
 )
 
 
@@ -392,7 +393,7 @@ class Play(models.Model):
 
 class Reward(models.Model):
 
-    objects = PlayerManager()
+    objects = RewardManager()
 
     name = models.CharField(
         verbose_name=gettext("name"),

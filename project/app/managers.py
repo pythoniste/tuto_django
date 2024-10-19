@@ -17,10 +17,6 @@ if TYPE_CHECKING:
 
 class PlayerManager(PolymorphicManager):
 
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        return queryset.select_related("user")
-
     def get_by_natural_key(self, username: str) -> "Player":
         """Gestion des clés naturelles."""
         return self.get(user__username=username)
@@ -81,3 +77,7 @@ class PlayManager(models.Manager):
     def get_queryset(self):
         queryset = super().get_queryset()
         return queryset.select_related("player").select_related("game").prefetch_related("entry_set")
+
+
+class RewardManager(models.Manager):
+    pass

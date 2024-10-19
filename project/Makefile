@@ -15,6 +15,14 @@ update:
 	poetry run python manage.py migrate
 	poetry run python manage.py collectstatic --noinput
 
+.PHONY: dump
+dump:
+	poetry run python manage.py dumpdata app  -o app/fixtires/test_data.json --indent 4
+
+.PHONY: load
+load:
+	poetry run python manage.py loaddata test_data
+
 .PHONY: check
 check:
 	poetry run python manage.py check
