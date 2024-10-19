@@ -8,6 +8,7 @@ services:
     volumes:
       - ./project:/opt/app
       - ./pyproject.toml:/opt/app/pyproject.toml
+      - ./poetry.lock:/opt/app/poetry.lock
     ports:
       - "8000:8000"
     depends_on:

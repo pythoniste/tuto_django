@@ -43,6 +43,9 @@ INTERNAL_IPS = [internal_ip]
 
 INSTALLED_APPS = [
     'app.apps.AppConfig',
+    "django_bootstrap5",
+    "crispy_forms",
+    "crispy_bootstrap5",
     'polymorphic',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -56,6 +59,10 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'behave_django',
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

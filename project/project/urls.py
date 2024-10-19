@@ -24,8 +24,6 @@ from rest_framework import routers
 from app.views import HomeView, GameViewSet, QuestionViewSet, AnswerViewSet
 from .ninja import api
 
-from django.contrib import admin
-
 admin.site.site_header = "Administration de l'application"  # default: "Django Administration"
 admin.site.index_title = "Accueil du Back-Office"           # default: "Site administration"
 admin.site.site_title = "Back-Office jeux"                  # default: "Django site admin"

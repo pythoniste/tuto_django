@@ -30,6 +30,9 @@ behave-django = "^1.4.0"
 pyhamcrest = "^2.1.0"
 beautifulsoup4 = "^4.12.3"
 django-polymorphic = {git = "https://github.com/jazzband/django-polymorphic.git", rev = "v4.0.0a"}
+crispy-bootstrap5 = "^2024.10"
+django-crispy-forms = "^2.3"
+django-bootstrap5 = "^24.3"
 
 [build-system]
 requires = ["poetry-core"]

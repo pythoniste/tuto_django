@@ -23,6 +23,10 @@ dump:
 load:
 	poetry run python manage.py loaddata test_data
 
+.PHONY: shell
+shell:
+	poetry run python manage.py shell_plus
+
 .PHONY: check
 check:
 	poetry run python manage.py check

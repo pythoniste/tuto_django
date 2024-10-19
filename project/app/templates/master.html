@@ -1,11 +1,24 @@
+{# Load the tag library #}
+{% load django_bootstrap5 %}
 <!DOCTYPE html>
 <html lang="fr">
-<head>
+  <head>
     <meta charset="UTF-8">
     <title>{{ page_title }}</title>
-</head>
-<body>
-    <h1>{{ page_title }}</h1>
-    {% block content %}{% endblock %}
-</body>
+    {# Load CSS and JavaScript #}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+  </head>
+  <body>
+    {# Display django.contrib.messages as Bootstrap alerts #}
+    {% bootstrap_messages %}
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col-6">
+          <h1>{{ page_title }}</h1>
+        </div>
+      </div>
+      {% block content %}{% endblock %}
+    </div>
+    </body>
 </html>
