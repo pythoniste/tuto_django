@@ -336,7 +336,7 @@ class Answer(models.Model):
         return self.question.game.name, self.question.text, self.text
 
     def __str__(self):
-        return self.text[:47] + "[…]" if len(self.text) > 50 else self.text
+        return (self.text[:47] + "[…]" if len(self.text) > 50 else self.text) + f"( {self.points})"
 
     class Meta:  # pylint: disable=too-few-public-methods
         """Test Meta class"""

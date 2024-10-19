@@ -1,5 +1,10 @@
+from django.contrib.admin.templatetags.admin_urls import add_preserved_filters
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as gettext
+from django.utils.safestring import mark_safe
+from django.forms import ModelForm, TextInput
 
 from polymorphic.admin import PolymorphicParentModelAdmin, PolymorphicChildModelAdmin, PolymorphicChildModelFilter
 
@@ -160,6 +165,7 @@ class AnswerInline(admin.TabularInline):
     extra = 1
 
 
+
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
     inlines = [AnswerInline]
@@ -177,14 +183,34 @@ class QuestionAdmin(admin.ModelAdmin):
     def has_add_permission(self, request):
         return True
 
+    def changeform_view(self, request, object_id=None, form_url='', extra_context=None):
+        if extra_context is None:
+            extra_context = {}
+        extra_context['show_save_and_add_another'] = False
+        return super().changeform_view(request, object_id, extra_context=extra_context)
+
+    def _response_post_save(self, request, obj):
+        post_url = reverse("admin:app_game_change", kwargs={"object_id": obj.game.pk})
+        preserved_filters = self.get_preserved_filters(request)
+        post_url = add_preserved_filters(
+            {"preserved_filters": preserved_filters, "opts": self.opts}, post_url
+        )
+        return HttpResponseRedirect(post_url)
+
 
 class QuestionInline(admin.TabularInline):
     model = Question
-    fields = ("text", "points", "order")
+    fields = ("text", "points", "set_of_answers", "order")
+    readonly_fields = ("set_of_answers", )
     min_num = 2
     max_num = 5
     extra = 1
     show_change_link = True
+
+    @admin.display(description="Answers")
+    def set_of_answers(self, obj):
+        data = "</li><li>".join(str(answer) for answer in obj.answer_set.all())
+        return mark_safe(f"<ul><li>{data}</li></ul>")
 
 
 @admin.register(Game)
