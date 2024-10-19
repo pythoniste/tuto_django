@@ -57,4 +57,4 @@ All tag but those in italic are also git tags.
   * v0.6.2 _Search filters_
   * v0.6.3 Polymorphic view
   * v0.6.4 View customizations
-  * v0.6.5 Home page
+  * v0.6.5 Ajout de vues dans l'IHM Admin
