@@ -19,6 +19,7 @@
       <a href="{% url 'game:detail' game.pk %}">{% translate "Voir" %}</a>
       <a href="{% url 'game:update' game.pk %}">{% translate "Edit" %}</a>
       <a href="{% url 'game:delete' game.pk %}">{% translate "Delete" %}</a>
+      <a href="{% url 'game:create_play' game.pk %}">{% translate "Jouer" %}</a>
     </td>
   </tr>
   {% empty %}

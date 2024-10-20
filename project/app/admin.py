@@ -280,7 +280,7 @@ class GameAdmin(admin.ModelAdmin):
 
 
 class EntryInline(admin.TabularInline):
-    model = Play.entry_set.through
+    model = Play.answer_set.through
     fields = ("answer",)
     min_num = 2
     max_num = 5

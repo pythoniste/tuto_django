@@ -79,5 +79,12 @@ class PlayManager(models.Manager):
         return queryset.select_related("player").select_related("game").prefetch_related("entry_set")
 
 
+class EntryManager(models.Manager):
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.select_related("play", "question__game")
+
+
 class RewardManager(models.Manager):
     pass

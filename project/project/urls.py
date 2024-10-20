@@ -36,6 +36,7 @@ router.register(r'answers', AnswerViewSet)
 
 urlpatterns = [
     path('', HomeView.as_view(), name="home"),
+    path("accounts/", include("django.contrib.auth.urls")),
     path('game/', include("app.urls")),
     path('admin/', admin.site.urls),
     path("__debug__/", include("debug_toolbar.urls")),

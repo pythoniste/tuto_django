@@ -15,6 +15,7 @@ from .managers import (
     QuestionManager,
     AnswerManager,
     PlayManager,
+    EntryManager,
     RewardManager,
 )
 
@@ -270,6 +271,7 @@ class Question(models.Model):
         verbose_name=gettext("game"),
         related_name="question_set",
         to=Game,
+        blank=False,
         null=False,
         db_index=True,
         on_delete=models.CASCADE,
@@ -312,6 +314,7 @@ class Answer(models.Model):
         verbose_name=gettext("question"),
         related_name="answer_set",
         to=Question,
+        blank=False,
         null=False,
         db_index=True,
         on_delete=models.CASCADE,
@@ -355,6 +358,7 @@ class Play(models.Model):
         verbose_name=gettext("player"),
         related_name="play",
         to=Player,
+        blank=False,
         null=False,
         db_index=True,
         on_delete=models.PROTECT,
@@ -364,6 +368,7 @@ class Play(models.Model):
         verbose_name=gettext("game"),
         related_name="play",
         to=Game,
+        blank=False,
         null=False,
         db_index=True,
         on_delete=models.PROTECT,
@@ -374,7 +379,7 @@ class Play(models.Model):
         auto_now_add=True,
     )
 
-    entry_set = models.ManyToManyField(
+    answer_set = models.ManyToManyField(
         verbose_name=gettext("entries"),
         related_name="play_set",
         to=Answer,
@@ -389,6 +394,49 @@ class Play(models.Model):
         unique_together = (
             ("player", "game"),
         )
+
+
+class Entry(models.Model):
+
+    objects = EntryManager()
+
+    play = models.ForeignKey(
+        verbose_name=gettext("play"),
+        related_name="entry_set",
+        to=Play,
+        blank=False,
+        null=False,
+        db_index=True,
+        on_delete=models.CASCADE,
+    )
+
+    question = models.ForeignKey(
+        verbose_name=gettext("question"),
+        related_name="entry_set",
+        to=Question,
+        blank=False,
+        null=False,
+        db_index=True,
+        on_delete=models.CASCADE,
+    )
+
+    answer = models.ForeignKey(
+        verbose_name=gettext("answer"),
+        related_name="entry_set",
+        to=Answer,
+        blank=True,
+        null=True,
+        on_delete=models.CASCADE,
+    )
+
+    def __str__(self):
+        return f"{self.question} > {self.answer}"
+
+    class Meta:  # pylint: disable=too-few-public-methods
+        """Test Meta class"""
+
+        verbose_name = gettext("entry")
+        verbose_name_plural = gettext("entries")
 
 
 class Reward(models.Model):
@@ -417,5 +465,3 @@ class Reward(models.Model):
     unique_together = (
         ("name", "category"),
     )
-
-

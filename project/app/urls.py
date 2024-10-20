@@ -22,6 +22,8 @@ from .views import (
     GameUpdateView,
     GameCreateView,
     GameDeleteView,
+    create_play,
+    PlayView
 )
 
 app_name = "game"
@@ -32,4 +34,6 @@ urlpatterns = [
     path('create/', GameCreateView.as_view(), name="create"),
     path('<int:pk>/update/', GameUpdateView.as_view(), name="update"),
     path('<int:pk>/delete/', GameDeleteView.as_view(), name="delete"),
+    path('<int:game_pk>/play/create/', create_play, name="create_play"),
+    path('play/<int:pk>/', PlayView.as_view(), name="play"),
 ]
