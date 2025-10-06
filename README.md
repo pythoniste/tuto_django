@@ -12,4 +12,5 @@ The tutorial has several steps. Each one is matched to a particular step.
 Only steps of the current branch are displayed here. Change branch to see other tags.
 
 * Introduction
-  * v1.0.0: Git initialisation
+  * v1.0.0: Git initialisation 
+  * v1.0.1: Docker initialisation
