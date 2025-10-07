@@ -3,3 +3,7 @@ services:
   tuto_django:
     container_name: tuto_django
     build: .
+    volumes:
+      - .:/opt/app
+    ports:
+      - "8000:8000"

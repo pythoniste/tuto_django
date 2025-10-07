@@ -19,6 +19,10 @@ stop:
 
 .PHONY: bash
 bash:
-	docker compose exec tuto_django bash
+	docker compose run tuto_django bash
+
+.PHONY: lock
+lock:
+	docker compose run tuto_django poetry lock
 
 # end

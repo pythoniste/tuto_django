@@ -14,3 +14,4 @@ Only steps of the current branch are displayed here. Change branch to see other 
 * Introduction
   * v1.0.0: Git initialisation 
   * v1.0.1: Docker initialisation
+  * v1.0.2: Poetry initialisation

@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "tuto-django"
+version = "0.0.1"
+description = "Tuto for Django"
+authors = ["Sébastien CHAZALLET <pythoniste@protonmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.13"
+Django = "~5"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
