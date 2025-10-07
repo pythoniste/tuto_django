@@ -19,3 +19,5 @@ Only steps of the current branch are displayed here. Change branch to see other 
   * v1.0.4: Project initialisation
   * v1.0.5: Using PostGreSQL
   * v1.0.6: Add some useful tools
+* Models
+  * v1.1.0 Creating the first app
