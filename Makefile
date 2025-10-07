@@ -25,6 +25,10 @@ stop:
 bash:
 	docker compose run tuto_django bash
 
+.PHONY: python
+python:
+	docker compose exec tuto_django poetry run bpython
+
 .PHONY: lock
 lock:
 	docker compose run tuto_django poetry lock
