@@ -29,4 +29,12 @@ bash:
 lock:
 	docker compose run tuto_django poetry lock
 
+.PHONY: check
+check:
+	docker compose run tuto_django make check
+
+.PHONY: update
+update:
+	docker compose run tuto_django make update
+
 # end
