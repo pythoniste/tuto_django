@@ -27,3 +27,5 @@ WORKDIR /opt/app
 COPY --chown="${UID}:${GID}" . /opt/app
 
 RUN poetry install --no-interaction --no-ansi
+
+WORKDIR /opt/app/project
