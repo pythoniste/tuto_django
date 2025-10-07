@@ -7,6 +7,10 @@ MAKEFLAGS+="-j 2"
 
 .PHONY: build
 build:
+	docker compose build
+
+.PHONY: build-dev
+build-dev:
 	docker compose build --progress=plain --no-cache
 
 .PHONY: dev
