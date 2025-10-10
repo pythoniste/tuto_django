@@ -146,3 +146,64 @@ class Game(models.Model):
         verbose_name = gettext("game")
         verbose_name_plural = gettext("games")
         ordering = ("name",)
+
+
+class Question(models.Model):
+
+    game = models.ForeignKey(
+        verbose_name=gettext("game"),
+        related_name="question_set",
+        to=Game,
+        null=False,
+        db_index=True,
+        on_delete=models.CASCADE,
+    )
+
+    text = models.TextField(
+        verbose_name=gettext("question content"),
+        blank=False,
+    )
+
+    points = models.PositiveSmallIntegerField(
+        verbose_name=gettext("points"),
+    )
+
+    def __str__(self):
+        return self.text[:47] + "[…]" if len(self.text) > 50 else self.text
+
+    class Meta:  # pylint: disable=too-few-public-methods
+        """Test Meta class"""
+
+        verbose_name = gettext("question")
+        verbose_name_plural = gettext("questions")
+
+
+class Answer(models.Model):
+
+    question = models.ForeignKey(
+        verbose_name=gettext("question"),
+        related_name="answer_set",
+        to=Question,
+        null=False,
+        db_index=True,
+        on_delete=models.CASCADE,
+    )
+
+    text = models.TextField(
+        verbose_name=gettext("answer content"),
+        blank=False,
+    )
+
+    points = models.PositiveSmallIntegerField(
+        verbose_name=gettext("points"),
+        default=0,
+    )
+
+    def __str__(self):
+        return self.text[:47] + "[…]" if len(self.text) > 50 else self.text
+
+    class Meta:  # pylint: disable=too-few-public-methods
+        """Test Meta class"""
+
+        verbose_name = gettext("answer")
+        verbose_name_plural = gettext("answers")
