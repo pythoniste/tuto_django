@@ -23,3 +23,4 @@ Only steps of the current branch are displayed here. Change branch to see other 
   * v1.1.0 Creating the first app
   * v1.1.1 First models
   * v1.1.2 Example of fields
+  * v1.1.3 Enumeration fields
