@@ -21,3 +21,4 @@ Only steps of the current branch are displayed here. Change branch to see other 
   * v1.0.6: Add some useful tools
 * Models
   * v1.1.0 Creating the first app
+  * v1.1.1 First models
