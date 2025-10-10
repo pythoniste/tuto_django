@@ -39,7 +39,7 @@ logs:
 
 .PHONY: create_admin
 create_admin:
-	docker compose run DJANGO_SUPERUSER_PASSWORD=adminadmin poetry run python manage.py createsuperuser --noinput --username admin --email admin@example.com
+	docker compose run tuto_django make create_admin
 
 .PHONY: lock
 lock:

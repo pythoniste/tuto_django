@@ -18,3 +18,7 @@ update:
 	poetry run python manage.py makemigrations
 	poetry run python manage.py migrate
 	poetry run python manage.py collectstatic --no-input
+
+.PHONY: create_admin
+create_admin:
+	DJANGO_SUPERUSER_PASSWORD=adminadmin poetry run python manage.py createsuperuser --noinput --username admin --email admin@example.com
