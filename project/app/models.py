@@ -7,6 +7,9 @@ from django.utils.timezone import now
 from django.utils.translation import gettext_lazy as gettext
 
 
+from .enums import GameLevel, GameStatus
+
+
 def compute_upload_path(current_object, filename, sub_path) -> str:
     """Describe an uploaded document storage path"""
 
@@ -109,6 +112,23 @@ class Game(models.Model):
         blank=False,
         db_index=True,
         unique=True,
+    )
+
+    status = models.CharField(
+        verbose_name=gettext("status"),
+        choices=GameStatus,
+        default=GameStatus.DRAFT,
+        max_length=8,
+        blank=False,
+        db_index=True,
+    )
+
+    level = models.SmallIntegerField(
+        verbose_name=gettext("level"),
+        choices=GameLevel,
+        blank=True,
+        null=True,
+        db_index=True,
     )
 
     duration = models.DurationField(
