@@ -11,6 +11,11 @@ python = "^3.13"
 Django = "~5"
 bpython = "^0.24"
 psycopg2-binary = "^2.9.9"
+django-extensions = "^3.2.3"
+django-debug-toolbar = "^4.4.2"
+pillow = "^10.3.0"
+pyparsing = "^3.2.5"
+pydot = "^4.0.1"
 
 [build-system]
 requires = ["poetry-core"]

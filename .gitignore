@@ -167,3 +167,5 @@ project/static/*
 !project/static/media
 project/static/media/*
 !project/static/media/README.md
+
+project/internal_django_ip_address.txt
