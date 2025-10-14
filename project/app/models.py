@@ -2,6 +2,7 @@ from functools import partial
 from pathlib import Path
 from uuid import uuid4
 
+from django.conf import settings
 from django.db import models
 from django.utils.timezone import now
 from django.utils.translation import gettext_lazy as gettext
@@ -35,21 +36,13 @@ def compute_upload_path(current_object, filename, sub_path) -> str:
 
 class Player(models.Model):
 
-    name = models.CharField(
-        verbose_name=gettext("name"),
-        max_length=32,
-        blank=False,  # Mandatory field
-        # null=False,  # Implicit, because Blank is False
-        db_index=True,
-        unique=True,
-    )
-
-    email = models.EmailField(
-        verbose_name=gettext("email"),
-        blank=True,  # Optional field
-        null=True,  # Because Blank is True, null can be allowed or not (else, blank value will be "")
-        db_index=True,
-        unique=True,
+    user = models.OneToOneField(
+        verbose_name = gettext("user"),
+        related_name = "player",
+        to = settings.AUTH_USER_MODEL,
+        null = False,
+        db_index = True,
+        on_delete = models.PROTECT,
     )
 
     score = models.PositiveSmallIntegerField(
@@ -94,14 +87,14 @@ class Player(models.Model):
     )
 
     def __str__(self):
-        return self.name
+        return self.user.username
 
     class Meta:  # pylint: disable=too-few-public-methods
         """Test Meta class"""
 
         verbose_name = gettext("player")
         verbose_name_plural = gettext("players")
-        ordering = ("name",)
+        ordering = ("user__username",)
 
 
 class Game(models.Model):
