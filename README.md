@@ -22,3 +22,4 @@ Only steps of the current branch are displayed here. Change branch to see other 
 * Models
   * v1.1.0 Creating the first app
   * v1.1.1 First models
+  * v1.1.2 Example of fields
