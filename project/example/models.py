@@ -596,6 +596,7 @@ class Mapping(Model):
 
     order = PositiveSmallIntegerField(
         verbose_name=gettext("order"),
+        default=0,
     )
 
     info = CharField(
@@ -612,6 +613,9 @@ class Mapping(Model):
         indexes = [
             Index(fields=["test", "tag", "order"], name="mapping_natural_keys_idx"),
         ]
-        unique_together = (
-            ("test", "tag", "order"),
-        )
+        constraints = [
+            UniqueConstraint(
+                fields=["test", "tag", "order"],
+                name="mapping_natural_keys_uni_constraint"
+            ),
+        ]
