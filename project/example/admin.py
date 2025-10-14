@@ -4,6 +4,7 @@ from .models import (
     Category,
     Mapping,
     Tag,
+    Sticker,
     Theme,
     Test,
 )
@@ -21,6 +22,11 @@ class MappingAdmin(ModelAdmin):
 
 @register(Tag)
 class TagAdmin(ModelAdmin):
+    pass
+
+
+@register(Sticker)
+class StickerAdmin(ModelAdmin):
     pass
 
 

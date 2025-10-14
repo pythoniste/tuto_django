@@ -31,9 +31,12 @@ from django.db.models import (
     CASCADE,
     PROTECT,
     Index,
+    UniqueConstraint,
 )
 from django.utils.timezone import now
 from django.utils.translation import gettext_lazy as gettext
+
+from .enums import StickerCategory
 
 
 def compute_upload_path(current_object, filename, sub_path):
@@ -79,6 +82,46 @@ class Tag(Model):
         verbose_name = gettext("tag")
         verbose_name_plural = gettext("tags")
         ordering = ("label",)
+
+
+class Sticker(Model):
+
+    label = CharField(
+        verbose_name=gettext("label"),
+        max_length=127,
+        blank=False,
+        db_index=True,
+    )
+
+    category = CharField(
+        verbose_name=gettext("category"),
+        choices=StickerCategory,
+        max_length=8,
+        blank=False,
+        db_index=True,
+    )
+
+    def __str__(self):
+        """Return a string that represent the current object to an end user."""
+        return self.label
+
+    class Meta:  # pylint: disable=too-few-public-methods
+        """Tag Meta class"""
+
+        verbose_name = gettext("sticker")
+        verbose_name_plural = gettext("stickers")
+        ordering = ("category", "label")
+        indexes = [
+            Index(
+                fields=["category", "label"],
+                name="sticker_main_index"),
+        ]
+        constraints = [
+            UniqueConstraint(
+                fields=["category", "label"],
+                name="sticker_unicity_constraint"
+            ),
+        ]
 
 
 class Theme(Model):
@@ -292,6 +335,36 @@ class Test(Model):
         to=Tag,
         through="Mapping",
         blank=True,
+    )
+
+    color = ForeignKey(
+        verbose_name=gettext("Sticker color"),
+        related_name="color_set",
+        to=Sticker,
+        limit_choices_to={"category": "color"},
+        null=True,
+        blank=True,
+        on_delete=CASCADE,
+    )
+
+    quality = ForeignKey(
+        verbose_name=gettext("Sticker quality"),
+        related_name="quality_set",
+        to=Sticker,
+        limit_choices_to={"category": "quality"},
+        null=True,
+        blank=True,
+        on_delete=CASCADE,
+    )
+
+    size = ForeignKey(
+        verbose_name=gettext("Sticker size"),
+        related_name="size_set",
+        to=Sticker,
+        limit_choices_to={"category": "size"},
+        null=True,
+        blank=True,
+        on_delete=CASCADE,
     )
 
     number = PositiveSmallIntegerField(

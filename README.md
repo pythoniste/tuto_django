@@ -26,3 +26,4 @@ Only steps of the current branch are displayed here. Change branch to see other 
   * v1.1.3 Enumeration fields
   * v1.1.4 Foreign keys
   * v1.1.5 Ordering items
+  * v1.1.6 Selective Foreign keys
