@@ -124,6 +124,22 @@ class Sticker(Model):
         ]
 
 
+class ColoredSticker(Sticker):
+
+    color = CharField(
+        verbose_name=gettext("color"),
+        max_length=7,
+        blank=False,
+        db_index=True,
+    )
+
+    class Meta:  # pylint: disable=too-few-public-methods
+        """Tag Meta class"""
+
+        verbose_name = gettext("colored sticker")
+        verbose_name_plural = gettext("colored stickers")
+
+
 class Theme(Model):
 
     COLORS = (
