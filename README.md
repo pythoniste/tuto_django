@@ -32,3 +32,4 @@ Only steps of the current branch are displayed here. Change branch to see other 
   * v1.1.9 Many-to-many relationships
 * ORM
   * v1.2.0 Models and queries
+  * v1.2.1 Managers

@@ -9,6 +9,13 @@ from django.utils.translation import gettext_lazy as gettext
 
 
 from .enums import GameLevel, GameStatus
+from .managers import (
+    PlayerManager,
+    GameManager,
+    QuestionManager,
+    AnswerManager,
+    PlayManager,
+)
 
 
 def compute_upload_path(current_object, filename, sub_path) -> str:
@@ -35,6 +42,8 @@ def compute_upload_path(current_object, filename, sub_path) -> str:
 
 
 class Player(models.Model):
+
+    objects = PlayerManager()
 
     user = models.OneToOneField(
         verbose_name = gettext("user"),
@@ -99,6 +108,8 @@ class Player(models.Model):
 
 class Game(models.Model):
 
+    objects = GameManager()
+
     name = models.CharField(
         verbose_name=gettext("name"),
         max_length=32,
@@ -143,6 +154,8 @@ class Game(models.Model):
 
 class Question(models.Model):
 
+    objects = QuestionManager()
+
     game = models.ForeignKey(
         verbose_name=gettext("game"),
         related_name="question_set",
@@ -178,6 +191,8 @@ class Question(models.Model):
 
 
 class Answer(models.Model):
+
+    objects = AnswerManager()
 
     question = models.ForeignKey(
         verbose_name=gettext("question"),
@@ -215,6 +230,8 @@ class Answer(models.Model):
 
 
 class Play(models.Model):
+
+    objects = PlayManager()
 
     player = models.ForeignKey(
         verbose_name=gettext("player"),
