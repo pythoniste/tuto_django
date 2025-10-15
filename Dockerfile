@@ -9,6 +9,9 @@ ARG GID=1000
 RUN apt update && apt install -y \
     vim \
     make \
+    gcc \
+    graphviz \
+    graphviz-dev \
     && apt clean \
     && rm -rf /var/lib/apt/lists/*
 
