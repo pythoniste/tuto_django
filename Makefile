@@ -57,4 +57,12 @@ update:
 django_ip:
 	docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}' tuto_django > project/internal_django_ip_address.txt
 
+.PHONY: graph_app_models
+graph_app_models:
+	docker compose run tuto_django poetry run python manage.py graph_models app --pydot -o doc/models/app.png
+
+.PHONY: graph_app_models
+graph_project_models:
+	docker compose run tuto_django poetry run python manage.py graph_models --pydot -a -g -o doc/models/project.png
+
 # end
