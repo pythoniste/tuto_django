@@ -22,3 +22,20 @@ update:
 .PHONY: create_admin
 create_admin:
 	DJANGO_SUPERUSER_PASSWORD=adminadmin poetry run python manage.py createsuperuser --noinput --username admin --email admin@example.com
+
+.PHONY: save
+save:
+	poetry run python manage.py dumpdata app --indent 4 -o app/fixtures/test_data.json
+	poetry run python manage.py dumpdata auth --indent 4 -o app/fixtures/auth_data.json
+
+.PHONY: load
+load:
+	poetry run python manage.py loaddata app/fixtures/auth_data.json
+	poetry run python manage.py loaddata app/fixtures/test_data.json
+
+.PHONY: create_db
+create_db:
+	make update
+	make load
+
+# end

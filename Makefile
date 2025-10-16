@@ -65,4 +65,19 @@ graph_app_models:
 graph_project_models:
 	docker compose run tuto_django poetry run python manage.py graph_models --pydot -a -g -o doc/models/project.png
 
+.PHONY: save
+save:
+	docker compose run tuto_django make save
+
+.PHONY: load
+load:
+	docker compose run tuto_django make load
+
+.PHONY: reset
+reset:
+	make stop
+	docker volume rm tuto_django_pg_data
+	docker compose run tuto_django make create_db
+	make dev
+
 # end
