@@ -82,6 +82,15 @@ class PlayerAdmin(admin.ModelAdmin):
         return formfield
 
 
+class QuestionInline(admin.TabularInline):
+    model = Question
+    fields = ("text", "points", "order")
+    min_num = 2
+    max_num = 5
+    extra = 1
+    show_change_link = True
+
+
 @admin.register(Game)
 class GameAdmin(admin.ModelAdmin):
     search_fields = (
@@ -123,6 +132,15 @@ class GameAdmin(admin.ModelAdmin):
             )
         }),
     )
+    inlines = [QuestionInline]
+
+
+class AnswerInline(admin.TabularInline):
+    model = Answer
+    fields = ("text", "points", "order")
+    min_num = 2
+    max_num = 5
+    extra = 1
 
 
 @admin.register(Question)
@@ -131,11 +149,20 @@ class QuestionAdmin(admin.ModelAdmin):
         "text",
         "points",
     )
+    inlines = [AnswerInline]
 
 
 @admin.register(Answer)
 class AnswerAdmin(admin.ModelAdmin):
     pass
+
+
+class EntryInline(admin.TabularInline):
+    model = Play.entry_set.through
+    fields = ("answer",)
+    min_num = 2
+    max_num = 5
+    extra = 1
 
 
 @admin.register(Play)
@@ -148,3 +175,4 @@ class PlayAdmin(admin.ModelAdmin):
         "player",
         "game",
     )
+    inlines = [EntryInline]
