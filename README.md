@@ -36,3 +36,4 @@ Only steps of the current branch are displayed here. Change branch to see other 
   * v1.2.2 Fixtures
 * CRUD
   * v1.3.0 Lists
+  * v1.3.1 Forms
