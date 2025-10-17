@@ -81,6 +81,9 @@ class PlayerAdmin(admin.ModelAdmin):
             formfield.queryset = formfield.queryset.filter(player__isnull=True)
         return formfield
 
+    def has_view_permission(self, request, obj=None):
+        return request.user.is_superuser
+
 
 class QuestionInline(admin.TabularInline):
     model = Question
@@ -151,10 +154,14 @@ class QuestionAdmin(admin.ModelAdmin):
     )
     inlines = [AnswerInline]
 
+    def has_module_permission(self, request):
+        return False
+
 
 @admin.register(Answer)
 class AnswerAdmin(admin.ModelAdmin):
-    pass
+    def has_module_permission(self, request):
+        return False
 
 
 class EntryInline(admin.TabularInline):
@@ -176,3 +183,30 @@ class PlayAdmin(admin.ModelAdmin):
         "game",
     )
     inlines = [EntryInline]
+
+    def has_module_permission(self, request):
+        return True
+
+    def has_view_permission(self, request, obj=None):
+        if obj is None or request.user.is_superuser:
+            return True
+        return obj.player.user == request.user
+
+    def has_change_permission(self, request, obj=None):
+        return self.has_view_permission(request, obj)
+
+    def has_add_permission(self, request):
+        return True
+
+    def get_queryset(self, request):
+        queryset = super().get_queryset(request)
+        if not request.user.is_superuser:
+            queryset = queryset.filter(player__user=request.user)
+        return queryset
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        formfield = super().formfield_for_foreignkey(db_field, request, **kwargs)
+        if db_field.name == "player" and not request.user.is_superuser:
+            formfield.queryset = formfield.queryset.filter(user=request.user)
+            formfield.initial = Player.objects.get(user=request.user)
+        return formfield

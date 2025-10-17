@@ -38,3 +38,4 @@ Only steps of the current branch are displayed here. Change branch to see other 
   * v1.3.0 Lists
   * v1.3.1 Forms
   * v1.3.2 Inlines
+  * v1.3.3 Security
