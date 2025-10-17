@@ -84,6 +84,21 @@ class PlayerAdmin(admin.ModelAdmin):
     def has_view_permission(self, request, obj=None):
         return request.user.is_superuser
 
+    def action_message(self, request, rows_updated):
+        if rows_updated == 0:
+            self.message_user(request, gettext("No row updated"))
+        elif rows_updated == 1:
+            self.message_user(request, gettext("1 row updated"))
+        else:
+            self.message_user(request, gettext("{} rows updated").format(rows_updated))
+
+    @admin.action(description=gettext("Reset scores"))
+    def reset_scores(self, request, queryset):
+        rows_updated = queryset.update(score=0)
+        self.action_message(request, rows_updated)
+
+    actions = [reset_scores]
+
 
 class QuestionInline(admin.TabularInline):
     model = Question
