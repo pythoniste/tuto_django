@@ -45,3 +45,4 @@ Only steps of the current branch are displayed here. Change branch to see other 
   * v1.4.1 List views
   * v1.4.2 Detail views
   * v1.4.3 Update views
+  * v1.4.4 Create views

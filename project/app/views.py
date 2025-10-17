@@ -3,6 +3,7 @@ from django.views.generic import (
     ListView,
     DetailView,
     UpdateView,
+    CreateView,
 )
 from django.urls import reverse_lazy, reverse
 from django.utils.translation import gettext_lazy as gettext
@@ -74,3 +75,21 @@ class GameUpdateView(UpdateView):
     def get_success_url(self):
         return reverse("game:update", kwargs={"pk": self.kwargs["pk"]})
         # return reverse_lazy('game:update', kwargs={'pk': self.object.pk})
+
+
+class GameCreateView(CreateView):
+    model = Game
+    form_class = GameForm
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['page_title'] = gettext("Create a new game")
+        return data
+
+    def get_success_url(self):
+        submit = self.request.POST.get("submit")
+        if submit == str(gettext("Create and add another")):
+            return reverse_lazy('game:create')
+        if submit == str(gettext("Create and continue modification")):
+            return reverse_lazy('game:update', kwargs={'pk': self.object.pk})
+        return reverse_lazy('game:list')
