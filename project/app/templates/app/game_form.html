@@ -1,0 +1,17 @@
+{% extends "master.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<a href="{% url 'home' %}">{% translate "Home" %}</a>
+>
+<a href="{% url 'game:list' %}">{% translate "Games" %}</a>
+<h3>{{ game.name }}</h3>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Update">
+</form>
+
+{% endblock %}

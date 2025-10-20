@@ -15,7 +15,10 @@
     <td>{{ game.name }}</td>
     <td>{{ game.duration }}</td>
     <td>{{ game.status }}</td>
-    <td><a href="{% url 'game:detail' game.pk %}">{% translate "Voir" %}</a></td>
+    <td>
+      <a href="{% url 'game:detail' game.pk %}">{% translate "Voir" %}</a>
+      <a href="{% url 'game:update' game.pk %}">{% translate "Edit" %}</a>
+    </td>
   </tr>
   {% empty %}
   <tr>
