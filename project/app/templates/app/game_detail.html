@@ -1,0 +1,25 @@
+{% extends "master.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<a href="{% url 'home' %}">{% translate "Home" %}</a>
+>
+<a href="{% url 'game:list' %}">{% translate "Games" %}</a>
+<h3>{{ game.name }}</h3>
+
+<pre>{% translate "Duration" %}: {{ game.duration }}</pre>
+
+<p class="{% if game.status == 'draft' %}text-danger{% elif game.status == 'ready' %}text-warning{% elif game.status == 'ongoing' %}text-success{% elif game.status == 'done' %}text-error{% endif %}">{{ game.status }}</p>
+
+<p><strong>Level:</strong> {{ game.level }}</p>
+
+{% if game.status.level == 1 %}
+<p>{% translate "This should be easy enough" %}</p>
+{% elif game.status.level < 5 %}
+<p>{% translate "This should be easy enough" %}</p>
+{% else %}
+<p>{% translate "Now, we are talking !" %}</p>
+{% endif %}
+
+{% endblock %}
