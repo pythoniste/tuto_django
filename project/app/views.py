@@ -4,6 +4,7 @@ from django.views.generic import (
     DetailView,
     UpdateView,
     CreateView,
+    DeleteView,
 )
 from django.urls import reverse_lazy, reverse
 from django.utils.translation import gettext_lazy as gettext
@@ -93,3 +94,14 @@ class GameCreateView(CreateView):
         if submit == str(gettext("Create and continue modification")):
             return reverse_lazy('game:update', kwargs={'pk': self.object.pk})
         return reverse_lazy('game:list')
+
+
+class GameDeleteView(DeleteView):
+    model = Game
+    success_url = reverse_lazy('game:list')
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        obj = self.get_object()
+        data['page_title'] = str(gettext("Delete Game: {}")).format(obj.name)
+        return data
