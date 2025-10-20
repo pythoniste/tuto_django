@@ -1,4 +1,7 @@
-from django.views.generic import TemplateView
+from django.views.generic import (
+    TemplateView,
+    ListView,
+)
 from django.utils.translation import gettext_lazy as gettext
 
 from .models import Player, Game
@@ -15,4 +18,13 @@ class HomeView(TemplateView):
             'best_players': Player.objects.order_by("-score")[:5],
             'nb_games': Game.objects.count(),
         }
+        return data
+
+
+class GameListView(ListView):
+    queryset = Game.objects.playable
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['page_title'] = gettext("Games list")
         return data

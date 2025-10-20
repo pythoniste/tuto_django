@@ -21,7 +21,8 @@ from app.views import HomeView
 
 
 urlpatterns = [
-    path('', HomeView.as_view()),
+    path('', HomeView.as_view(), name="home"),
+    path('game/', include("app.urls")),
     path('admin/', admin.site.urls),
     path("__debug__/", include("debug_toolbar.urls")),
 ]

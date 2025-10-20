@@ -1,0 +1,24 @@
+{% extends "master.html" %}
+{% load i18n %}
+
+{% block content %}
+<a href="{% url 'home' %}">{% translate "Home" %}</a>
+<table>
+  <tr>
+    <th>{% translate "Name" %}</th>
+    <th>{% translate "Duration" %}</th>
+    <th>{% translate "Status" %}</th>
+  </tr>
+  {% for game in game_list %}
+  <tr>
+    <td>{{ game.name }}</td>
+    <td>{{ game.duration }}</td>
+    <td>{{ game.status }}</td>
+  </tr>
+  {% empty %}
+  <tr>
+    <td colspan="3">{% translate "There is no game yet!" %}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
