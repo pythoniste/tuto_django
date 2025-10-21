@@ -1,0 +1,13 @@
+{% extends "master.html" %}
+{% load i18n %}
+
+{% block title %}<h1>{% translate "Log in" %}</h1>{% endblock %}
+
+{% block content %}
+<a href="{% url 'home' %}">{% translate "Home" %}</a>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% translate 'Log in' %}</button>
+</form>
+{% endblock %}

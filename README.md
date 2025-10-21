@@ -47,3 +47,4 @@ Only steps of the current branch are displayed here. Change branch to see other 
   * v1.4.3 Update views
   * v1.4.4 Create views
   * v1.4.5 Delete views
+  * v1.4.6 Authentication views

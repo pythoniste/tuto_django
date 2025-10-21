@@ -1,0 +1,20 @@
+{% extends "master.html" %}
+{% load i18n %}
+
+{% block title %}<h1>{% translate "Log in" %}</h1>{% endblock %}
+
+{% block content %}
+<a href="{% url 'home' %}">{% translate "Home" %}</a>
+<form method="post">
+    {% csrf_token %}
+    <p>
+        <label for="id_username">Nom d’utilisateur&nbsp;:</label>
+        <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username" style="">
+    </p>
+    <p>
+        <label for="id_password">Mot de passe&nbsp;:</label>
+        <input type="password" name="password" autocomplete="current-password" required="" id="id_password">
+    </p>
+    <button type="submit">{% translate 'Log in' %}</button>
+</form>
+{% endblock %}
