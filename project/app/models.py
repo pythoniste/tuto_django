@@ -98,6 +98,9 @@ class Player(models.Model):
     def __str__(self):
         return self.user.username
 
+    def natural_key(self) -> tuple[str]:
+        return (self.user.username,)
+
     class Meta:  # pylint: disable=too-few-public-methods
         """Test Meta class"""
 
@@ -144,6 +147,9 @@ class Game(models.Model):
     def __str__(self):
         return self.name
 
+    def natural_key(self) -> tuple[str]:
+        return (self.name,)
+
     class Meta:  # pylint: disable=too-few-public-methods
         """Test Meta class"""
 
@@ -182,12 +188,30 @@ class Question(models.Model):
     def __str__(self):
         return self.text[:47] + "[…]" if len(self.text) > 50 else self.text
 
+    def natural_key(self) -> tuple[str, str]:
+        return self.game.name, self.text
+    natural_key.dependencies = ["app.game"]
+
     class Meta:  # pylint: disable=too-few-public-methods
         """Test Meta class"""
 
         verbose_name = gettext("question")
         verbose_name_plural = gettext("questions")
-        ordering = ("game_id", "order",)
+        ordering = ("game_id", "order")
+        indexes = [
+            models.Index(
+                fields=["game_id", "text"],
+                name="question_natural_key_index"),
+            models.Index(
+                fields=["game_id", "order"],
+                name="question_ordering_index"),
+        ]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["game_id", "text"],
+                name="question_natural_key_constraint"
+            ),
+        ]
 
 
 class Answer(models.Model):
@@ -221,12 +245,30 @@ class Answer(models.Model):
     def __str__(self):
         return self.text[:47] + "[…]" if len(self.text) > 50 else self.text
 
+    def natural_key(self) -> tuple[str, str, str]:
+        return self.question.game.name, self.question.text, self.text
+    natural_key.dependencies = ["app.game", "app.question"]
+
     class Meta:  # pylint: disable=too-few-public-methods
         """Test Meta class"""
 
         verbose_name = gettext("answer")
         verbose_name_plural = gettext("answers")
         ordering = ("question_id", "order",)
+        indexes = [
+            models.Index(
+                fields=["question_id", "text"],
+                name="answer_natural_key_index"),
+            models.Index(
+                fields=["question_id", "order"],
+                name="answer_ordering_index"),
+        ]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["question_id", "text"],
+                name="answer_natural_key_constraint"
+            ),
+        ]
 
 
 class Play(models.Model):
@@ -262,6 +304,10 @@ class Play(models.Model):
         to=Answer,
     )
 
+    def natural_key(self) -> tuple[str, str]:
+        return self.player.natural_key() + self.game.natural_key()
+    natural_key.dependencies = ["app.game"]
+
     class Meta:  # pylint: disable=too-few-public-methods
         """Test Meta class"""
 
@@ -271,11 +317,11 @@ class Play(models.Model):
         indexes = [
             models.Index(
                 fields=["player", "game"],
-                name="play_main_index"),
+                name="play_natural_key_index"),
         ]
         constraints = [
             models.UniqueConstraint(
                 fields=["player", "game"],
-                name="play_unicity_constraint"
+                name="play_natural_key_constraint"
             ),
         ]

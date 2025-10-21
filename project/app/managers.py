@@ -18,6 +18,9 @@ class PlayerManager(models.Manager):
             profile_activated=True,
         )
 
+    def get_by_natural_key(self, user_username: str):
+        return self.get(user__username=user_username)
+
 
 class GameManager(models.Manager):
 
@@ -30,12 +33,21 @@ class GameManager(models.Manager):
         queryset = self.get_queryset()
         return queryset.filter(status=GameStatus.ONGOING)
 
+    def get_by_natural_key(self, game_name: str):
+        return self.get(name=game_name)
+
 
 class QuestionManager(models.Manager):
 
     def get_queryset(self):
         queryset = super().get_queryset()
         return queryset.prefetch_related("answer_set").select_related("game")
+
+    def get_by_natural_key(self, game_name: str, question_text: str):
+        return self.get(
+            game__name=game_name,
+            text=question_text,
+        )
 
 
 class AnswerManager(models.Manager):
@@ -44,9 +56,22 @@ class AnswerManager(models.Manager):
         queryset = super().get_queryset()
         return queryset.select_related("question__game")
 
+    def get_by_natural_key(self, game_name: str, question_text: str, answer_text: str):
+        return self.get(
+            question__game__name=game_name,
+            question__text=question_text,
+            text=answer_text,
+        )
+
 
 class PlayManager(models.Manager):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        return queryset.select_related("player", "game").prefetch_related("entry_set")
+        return queryset.select_related("player__user", "game").prefetch_related("entry_set")
+
+    def get_by_natural_key(self, user_username, game_name):
+        return self.get(
+            player__user__username=user_username,
+            game__name=game_name,
+        )

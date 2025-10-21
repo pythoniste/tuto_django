@@ -1,9 +1,10 @@
 [
 {
     "model": "app.player",
-    "pk": 1,
     "fields": {
-        "user": 1,
+        "user": [
+            "admin"
+        ],
         "score": 42,
         "subscription_date": "2025-10-16",
         "creation_datetime": "2025-10-16T09:52:59.538Z",
@@ -15,9 +16,10 @@
 },
 {
     "model": "app.player",
-    "pk": 2,
     "fields": {
-        "user": 2,
+        "user": [
+            "test"
+        ],
         "score": 0,
         "subscription_date": "2025-10-16",
         "creation_datetime": "2025-10-16T12:44:06.274Z",
@@ -29,7 +31,6 @@
 },
 {
     "model": "app.game",
-    "pk": 1,
     "fields": {
         "name": "test",
         "status": "done",
@@ -39,7 +40,6 @@
 },
 {
     "model": "app.game",
-    "pk": 2,
     "fields": {
         "name": "Quizz",
         "status": "ongoing",
@@ -49,7 +49,6 @@
 },
 {
     "model": "app.game",
-    "pk": 4,
     "fields": {
         "name": "Autre",
         "status": "ready",
@@ -59,9 +58,10 @@
 },
 {
     "model": "app.question",
-    "pk": 1,
     "fields": {
-        "game": 2,
+        "game": [
+            "Quizz"
+        ],
         "text": "1+1",
         "points": 1,
         "order": 0
@@ -69,9 +69,10 @@
 },
 {
     "model": "app.question",
-    "pk": 2,
     "fields": {
-        "game": 2,
+        "game": [
+            "Quizz"
+        ],
         "text": "1*1",
         "points": 1,
         "order": 0
@@ -79,9 +80,11 @@
 },
 {
     "model": "app.answer",
-    "pk": 7,
     "fields": {
-        "question": 1,
+        "question": [
+            "Quizz",
+            "1+1"
+        ],
         "text": "0",
         "points": 0,
         "order": 0
@@ -89,9 +92,11 @@
 },
 {
     "model": "app.answer",
-    "pk": 8,
     "fields": {
-        "question": 1,
+        "question": [
+            "Quizz",
+            "1+1"
+        ],
         "text": "1",
         "points": 0,
         "order": 0
@@ -99,9 +104,11 @@
 },
 {
     "model": "app.answer",
-    "pk": 9,
     "fields": {
-        "question": 1,
+        "question": [
+            "Quizz",
+            "1+1"
+        ],
         "text": "2",
         "points": 1,
         "order": 0
@@ -109,9 +116,11 @@
 },
 {
     "model": "app.answer",
-    "pk": 10,
     "fields": {
-        "question": 2,
+        "question": [
+            "Quizz",
+            "1*1"
+        ],
         "text": "0",
         "points": 0,
         "order": 0
@@ -119,9 +128,11 @@
 },
 {
     "model": "app.answer",
-    "pk": 11,
     "fields": {
-        "question": 2,
+        "question": [
+            "Quizz",
+            "1*1"
+        ],
         "text": "1",
         "points": 1,
         "order": 0
@@ -129,9 +140,11 @@
 },
 {
     "model": "app.answer",
-    "pk": 12,
     "fields": {
-        "question": 2,
+        "question": [
+            "Quizz",
+            "1*1"
+        ],
         "text": "2",
         "points": 0,
         "order": 0
@@ -139,14 +152,25 @@
 },
 {
     "model": "app.play",
-    "pk": 1,
     "fields": {
-        "player": 1,
-        "game": 2,
+        "player": [
+            "admin"
+        ],
+        "game": [
+            "Quizz"
+        ],
         "creation_datetime": "2025-10-16T09:54:36.596Z",
         "entry_set": [
-            8,
-            11
+            [
+                "Quizz",
+                "1+1",
+                "1"
+            ],
+            [
+                "Quizz",
+                "1*1",
+                "1"
+            ]
         ]
     }
 }
