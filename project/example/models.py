@@ -504,7 +504,7 @@ class Test(Model):
     )
 
     ip = GenericIPAddressField(
-        verbose_name=gettext("IP v4 ou 6"),
+        verbose_name=gettext("IP v4 or 6"),
         protocol="both",
         blank=True,
         null=True,

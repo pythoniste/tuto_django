@@ -84,4 +84,12 @@ reset:
 show_urls:
 	docker compose run tuto_django make show_urls
 
+.PHONY: messages
+messages:
+	docker compose run tuto_django make messages
+
+.PHONY: compile_messages
+compile_messages:
+	docker compose run tuto_django make compile_messages
+
 # end

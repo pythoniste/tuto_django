@@ -140,7 +140,7 @@ class GameAdmin(admin.ModelAdmin):
     )
 
     def link(self, obj):
-        return gettext("Ouvrir")
+        return gettext("Open")
 
     fieldsets = (
         (None, {

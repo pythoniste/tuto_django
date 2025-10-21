@@ -286,6 +286,23 @@ files = [
 Django = ">=3.2"
 
 [[package]]
+name = "django-rosetta"
+version = "0.10.2"
+description = "A Django application that eases the translation of Django projects"
+optional = false
+python-versions = "*"
+groups = ["main"]
+files = [
+    {file = "django_rosetta-0.10.2-py3-none-any.whl", hash = "sha256:44bd2b9ff2b88322d1a1f0cae62d8dfd4996b465f4a22a31f016cfd64d022352"},
+    {file = "django_rosetta-0.10.2.tar.gz", hash = "sha256:7e02427fe43b578dc12e02d6ce2cb4d045cc751a91b6e7f2c5ef4f706e1fb3d0"},
+]
+
+[package.dependencies]
+Django = ">=4.2"
+polib = ">=1.1.0"
+requests = ">=2.30.0"
+
+[[package]]
 name = "greenlet"
 version = "3.2.4"
 description = "Lightweight in-process concurrent programming"
@@ -481,6 +498,18 @@ mic = ["olefile"]
 tests = ["check-manifest", "coverage", "defusedxml", "markdown2", "olefile", "packaging", "pyroma", "pytest", "pytest-cov", "pytest-timeout"]
 typing = ["typing-extensions ; python_version < \"3.10\""]
 xmp = ["defusedxml"]
+
+[[package]]
+name = "polib"
+version = "1.2.0"
+description = "A library to manipulate gettext files (po and mo files)."
+optional = false
+python-versions = "*"
+groups = ["main"]
+files = [
+    {file = "polib-1.2.0-py2.py3-none-any.whl", hash = "sha256:1c77ee1b81feb31df9bca258cbc58db1bbb32d10214b173882452c73af06d62d"},
+    {file = "polib-1.2.0.tar.gz", hash = "sha256:f3ef94aefed6e183e342a8a269ae1fc4742ba193186ad76f175938621dbfc26b"},
+]
 
 [[package]]
 name = "psycopg2-binary"
@@ -733,4 +762,4 @@ files = [
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.13"
-content-hash = "e489f049e7fb7ea443ec2ce8655fc6c064e6e58a9ea2b0728afba39d0e4e5da4"
+content-hash = "8d3d803d39e10f80b44f9e80f4d5ad2077ca87719633a5795675ecd6e3ca6f7d"

@@ -15,6 +15,8 @@ from pathlib import Path
 
 import pygments.formatters
 
+from django.utils.translation import gettext_lazy as gettext
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -44,6 +46,7 @@ INTERNAL_IPS = [internal_ip]
 INSTALLED_APPS = [
     'app.apps.AppConfig',
     'example.apps.ExampleConfig',
+    'rosetta',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -129,6 +132,10 @@ TIME_ZONE = 'Europe/Paris'
 USE_I18N = True
 
 USE_TZ = True
+
+LANGUAGES = [
+    ('fr', gettext('French')),
+]
 
 
 # Static files (CSS, JavaScript, Images)

@@ -10,6 +10,7 @@ RUN apt update && apt install -y \
     vim \
     make \
     gcc \
+    gettext \
     graphviz \
     graphviz-dev \
     && apt clean \

@@ -1,0 +1,462 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-10-21 17:22+0200\n"
+"PO-Revision-Date: 2025-10-21 17:22+0200\n"
+"Last-Translator: The Admin <admin@example.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.10.2\n"
+
+#: app/admin.py:43
+msgid "Contract information"
+msgstr "Informations contactuelles"
+
+#: app/admin.py:49
+msgid "Personal information"
+msgstr "Informations personnelles"
+
+#: app/admin.py:66
+msgid "username"
+msgstr "Nom d'utilisateur"
+
+#: app/admin.py:70
+msgid "first name"
+msgstr "Prénom"
+
+#: app/admin.py:74
+msgid "last name"
+msgstr "Nom"
+
+#: app/admin.py:89
+msgid "No row updated"
+msgstr "Aucune ligne modifiée"
+
+#: app/admin.py:91
+msgid "1 row updated"
+msgstr "1 ligne modifiée"
+
+#: app/admin.py:93
+msgid "{} rows updated"
+msgstr "{} lignes modifiées"
+
+#: app/admin.py:95
+msgid "Reset scores"
+msgstr "Remettre les scores à 0"
+
+#: app/admin.py:143
+msgid "Open"
+msgstr "Ouvert"
+
+#: app/apps.py:9
+msgid "My app"
+msgstr "Mon appli"
+
+#: app/enums.py:14
+msgid "draft"
+msgstr "brouillon"
+
+#: app/enums.py:15
+msgid "ready"
+msgstr "prêt"
+
+#: app/enums.py:16
+msgid "ongoing"
+msgstr "en cours"
+
+#: app/enums.py:17
+msgid "done"
+msgstr "terminé"
+
+#: app/enums.py:23
+msgid "easy"
+msgstr "facile"
+
+#: app/enums.py:24
+msgid "medium"
+msgstr "moyen"
+
+#: app/enums.py:25
+msgid "hard"
+msgstr "dur"
+
+#: app/enums.py:26
+msgid "extreme"
+msgstr "extrême"
+
+#: app/enums.py:27
+msgid "nightmare"
+msgstr "cauchemard"
+
+#: app/models.py:49
+msgid "user"
+msgstr "utilisateur"
+
+#: app/models.py:58
+msgid "score"
+msgstr "score"
+
+#: app/models.py:63
+msgid "subscription date"
+msgstr "date de souscription"
+
+#: app/models.py:69 app/models.py:255
+msgid "creation datetime"
+msgstr "date de création"
+
+#: app/models.py:74
+msgid "last modification datetime"
+msgstr "date de dernière modification"
+
+#: app/models.py:79
+msgid "profile activated"
+msgstr "profil activé"
+
+#: app/models.py:83
+msgid "avatar"
+msgstr "avatar"
+
+#: app/models.py:91
+msgid "signed_engagement"
+msgstr "engagement signé"
+
+#: app/models.py:104 app/models.py:237
+msgid "player"
+msgstr "joueur"
+
+#: app/models.py:105
+msgid "players"
+msgstr "joueurs"
+
+#: app/models.py:114
+msgid "name"
+msgstr "nom"
+
+#: app/models.py:122
+msgid "status"
+msgstr "statut"
+
+#: app/models.py:131
+msgid "level"
+msgstr "niveau"
+
+#: app/models.py:139
+msgid "duration"
+msgstr "durée"
+
+#: app/models.py:150 app/models.py:160 app/models.py:246
+msgid "game"
+msgstr "jeu"
+
+#: app/models.py:151
+msgid "games"
+msgstr "jeux"
+
+#: app/models.py:169
+msgid "question content"
+msgstr "contenu de la question"
+
+#: app/models.py:174 app/models.py:212
+msgid "points"
+msgstr "points"
+
+#: app/models.py:178 app/models.py:217
+msgid "order"
+msgstr "ordre"
+
+#: app/models.py:188 app/models.py:198
+msgid "question"
+msgstr "question"
+
+#: app/models.py:189
+msgid "questions"
+msgstr "questions"
+
+#: app/models.py:207
+msgid "answer content"
+msgstr "contenu de la réponse"
+
+#: app/models.py:227
+msgid "answer"
+msgstr "réponse"
+
+#: app/models.py:228
+msgid "answers"
+msgstr "réponses"
+
+#: app/models.py:260
+msgid "entries"
+msgstr "entriées"
+
+#: app/models.py:268
+msgid "play"
+msgstr "partie"
+
+#: app/models.py:269
+msgid "plays"
+msgstr "parties"
+
+#: app/templates/app/game_confirm_delete.html:6
+#: app/templates/app/game_detail.html:6 app/templates/app/game_form.html:6
+#: app/templates/app/game_list.html:5 app/templates/registration/login.html:7
+#: app/templates/registration/login_custom.html:7
+#: app/templates/registration/logout.html:7
+#: app/templates/registration/password_change_done.html:7
+#: app/templates/registration/password_change_form.html:7
+#: app/templates/registration/password_reset_complete.html:7
+#: app/templates/registration/password_reset_confirm.html:7
+#: app/templates/registration/password_reset_done.html:7
+#: app/templates/registration/password_reset_form.html:7 app/views.py:22
+msgid "Home"
+msgstr "Accueil"
+
+#: app/templates/app/game_confirm_delete.html:8
+#: app/templates/app/game_detail.html:8 app/templates/app/game_form.html:8
+#: app/templates/home.html:41
+msgid "Games"
+msgstr "Jeux"
+
+#: app/templates/app/game_detail.html:11 app/templates/app/game_list.html:9
+msgid "Duration"
+msgstr "Durée"
+
+#: app/templates/app/game_detail.html:18 app/templates/app/game_detail.html:20
+msgid "This should be easy enough"
+msgstr "Cela devrait passer tout seul"
+
+#: app/templates/app/game_detail.html:22
+msgid "Now, we are talking !"
+msgstr "Maintenant, on parle !"
+
+#: app/templates/app/game_form.html:15
+msgid "Update"
+msgstr "Mettre à jour"
+
+#: app/templates/app/game_form.html:17 app/views.py:92
+msgid "Create and add another"
+msgstr "Créer et en ajouter un autre"
+
+#: app/templates/app/game_form.html:18 app/views.py:94
+msgid "Create and continue modification"
+msgstr "Créer et continuer les modifications"
+
+#: app/templates/app/game_form.html:19
+msgid "Create and go back to the list"
+msgstr "Créer et retourner à la liste"
+
+#: app/templates/app/game_list.html:8
+msgid "Name"
+msgstr "Nom"
+
+#: app/templates/app/game_list.html:10
+msgid "Status"
+msgstr "Statut"
+
+#: app/templates/app/game_list.html:11
+msgid "Actions"
+msgstr "Actions"
+
+#: app/templates/app/game_list.html:19
+msgid "Voir"
+msgstr "Voir"
+
+#: app/templates/app/game_list.html:20
+msgid "Edit"
+msgstr "Éditer"
+
+#: app/templates/app/game_list.html:21
+msgid "Delete"
+msgstr "Supprimer"
+
+#: app/templates/app/game_list.html:26 app/templates/home.html:37
+msgid "There is no game yet!"
+msgstr "Il n'y a pas encore de jeu !"
+
+#: app/templates/app/game_list.html:30
+msgid "Create a new Game"
+msgstr "Créer un nouveau jeu"
+
+#: app/templates/home.html:8
+msgid "Nb of players"
+msgstr "Nombre de joueurs"
+
+#: app/templates/home.html:11
+msgid "There are non players yet !"
+msgstr "Il n'y a pas encore de joueurs !"
+
+#: app/templates/home.html:16
+msgid "Nb of games"
+msgstr "Nombre de jeux"
+
+#: app/templates/home.html:19
+msgid "No games have been played yet !"
+msgstr "Aucune partie n'a encore été faite !"
+
+#: app/templates/home.html:25
+msgid "First name"
+msgstr "Prénom"
+
+#: app/templates/home.html:26
+msgid "Last name"
+msgstr "Nom"
+
+#: app/templates/home.html:27
+msgid "Score"
+msgstr "Score"
+
+#: app/templates/master.html:11
+msgid "Welcome"
+msgstr "Bienvenue"
+
+#: app/templates/master.html:14 app/templates/registration/logout.html:4
+#: app/templates/registration/logout.html:11
+msgid "Log out"
+msgstr "Se déconnecter"
+
+#: app/templates/master.html:16
+msgid "Change password"
+msgstr "Changer son mot de passe"
+
+#: app/templates/master.html:18 app/templates/registration/login.html:4
+#: app/templates/registration/login.html:11
+#: app/templates/registration/login_custom.html:4
+#: app/templates/registration/login_custom.html:18
+msgid "Log in"
+msgstr "Se connecter"
+
+#: app/templates/master.html:19
+msgid "Reset password"
+msgstr "Réinitialiser son mot de passe"
+
+#: app/templates/registration/password_change_done.html:4
+#: app/templates/registration/password_change_form.html:4
+msgid "Password change"
+msgstr "Changer son mot de passe"
+
+#: app/templates/registration/password_change_done.html:8
+msgid "Your password was changed."
+msgstr "Votre mot de passe a été changé"
+
+#: app/templates/registration/password_change_form.html:8
+msgid ""
+"Please enter your old password, for security’s sake, and then enter your new"
+" password twice so we can verify you typed it in correctly."
+msgstr ""
+"Entrez votre ancien mot de passe pour des raisons de sécurité, et ensuite "
+"entrez votre nouveau mot de passe de fois, de manière à s'assurer qu'il n'y "
+"a pas de faute de frappe."
+
+#: app/templates/registration/password_change_form.html:12
+msgid "Change my password"
+msgstr "Changer mon mot de passe"
+
+#: app/templates/registration/password_reset_complete.html:4
+#: app/templates/registration/password_reset_confirm.html:4
+#: app/templates/registration/password_reset_done.html:4
+#: app/templates/registration/password_reset_form.html:4
+msgid "Password reset"
+msgstr "Réinitialisation du mot de passe"
+
+#: app/templates/registration/password_reset_complete.html:8
+msgid "Your password has been set. You may go ahead and log in now."
+msgstr ""
+"Votre mot de passe a été enregistré. Vous pouvez maintenant vous connecter."
+
+#: app/templates/registration/password_reset_confirm.html:9
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+"Veuillez entrer votre mot de passe de fois de manière à ce qu'il n'y ait pas"
+" de faute de frappe"
+
+#: app/templates/registration/password_reset_confirm.html:13
+#: app/templates/registration/password_reset_form.html:11
+msgid "Reset"
+msgstr "Réinitialiser"
+
+#: app/templates/registration/password_reset_confirm.html:16
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used. Please request a new password reset."
+msgstr ""
+"Le lien de réinitialisation du mot de passe était invalide, possiblement car"
+" il a déjà été utilisé. Merci de recommencer la procédure."
+
+#: app/templates/registration/password_reset_done.html:8
+msgid ""
+"We’ve emailed you instructions for setting your password, if an account "
+"exists with the email you entered. You should receive them shortly."
+msgstr ""
+"Nous vous avons envoyé par mail des instructions pour mettre à jour votre "
+"mot de passe, si un compte existe avec l'email que vous avez renseigné. Vous"
+" devrier les recevoir sous peu."
+
+#: app/templates/registration/password_reset_done.html:9
+msgid ""
+"If you don’t receive an email, please make sure you’ve entered the address "
+"you registered with, and check your spam folder."
+msgstr ""
+"Si vous ne recevez pas cet email, assurez-vous d'avoir saisi l'adresse avec "
+"laquelle vous avez créé votre compte, et vérifier votre dossier de spams."
+
+#: app/templates/registration/password_reset_email.html:2
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+"Vous recevez ce courrier électronique parce que vous avez demander la "
+"réinitialisation de votre mot de passe, pour votre compte sur %(site_name)s."
+
+#: app/templates/registration/password_reset_email.html:4
+msgid "Please go to the following page and choose a new password:"
+msgstr ""
+"Merci de suivre le lien suivant et de vous choisir un nouveau mot de passe"
+
+#: app/templates/registration/password_reset_email.html:8
+msgid "In case you’ve forgotten, you are:"
+msgstr "Au cas où vous auriez oublié, votre compte est:"
+
+#: app/templates/registration/password_reset_email.html:10
+msgid "Thanks for using our site!"
+msgstr "Merci pour utiliser notre site !"
+
+#: app/templates/registration/password_reset_email.html:12
+#, python-format
+msgid "The %(site_name)s team"
+msgstr "L'équipe de %(site_name)s."
+
+#: app/views.py:35
+msgid "Games list"
+msgstr "Liste de jeux"
+
+#: app/views.py:45
+msgid "Game: {}"
+msgstr "Jeu: {}"
+
+#: app/views.py:62 app/views.py:73
+msgid "Update Game: {}"
+msgstr "Modifier le jeu: {}"
+
+#: app/views.py:87
+msgid "Create a new game"
+msgstr "Créer un nouveau jeu"
+
+#: app/views.py:106
+msgid "Delete Game: {}"
+msgstr "Supprimer le jeu: {}"
+
+#~ msgid "Ouvrir"
+#~ msgstr "Ouvrir"

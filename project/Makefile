@@ -42,4 +42,12 @@ create_db:
 show_urls:
 	poetry run python manage.py show_urls
 
+.PHONY: messages
+messages:
+	poetry run python manage.py makemessages -l fr
+
+.PHONY: compile_messages
+compile_messages:
+	poetry run python manage.py compilemessages
+
 # end

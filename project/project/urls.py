@@ -15,8 +15,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf import settings
 from django.contrib.auth.views import LoginView, LogoutView
-from django.urls import include, path
+from django.urls import include, path, re_path
 
 from app.views import HomeView
 from example.views import (
@@ -38,5 +39,14 @@ urlpatterns = [
     path('func/logout/', logout_view, name='logout_ter'),
     path('game/', include("app.urls")),
     path('admin/', admin.site.urls),
-    path("__debug__/", include("debug_toolbar.urls")),
 ]
+
+if 'rosetta' in settings.INSTALLED_APPS:
+    urlpatterns += [
+        re_path(r'^rosetta/', include('rosetta.urls'))
+    ]
+
+if 'debug_toolbar' in settings.INSTALLED_APPS:
+    urlpatterns += [
+        path("__debug__/", include("debug_toolbar.urls")),
+    ]
