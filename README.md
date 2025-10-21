@@ -40,3 +40,5 @@ Only steps of the current branch are displayed here. Change branch to see other 
   * v1.3.2 Inlines
   * v1.3.3 Security
   * v1.3.4 Actions
+* Views
+  * v1.4.0 Template views

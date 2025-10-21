@@ -80,4 +80,8 @@ reset:
 	docker compose run tuto_django make create_db
 	make dev
 
+.PHONY: show_urls
+show_urls:
+	docker compose run tuto_django make show_urls
+
 # end

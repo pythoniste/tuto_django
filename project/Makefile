@@ -38,4 +38,8 @@ create_db:
 	make update
 	make load
 
+.PHONY: show_urls
+show_urls:
+	poetry run python manage.py show_urls
+
 # end
