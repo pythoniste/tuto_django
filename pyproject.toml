@@ -23,6 +23,7 @@ django-rosetta = "^0.10.2"
 djangorestframework = "^3.16.1"
 markdown = "^3.9"
 django-filter = "^25.2"
+django-ninja = "^1.4.5"
 
 [build-system]
 requires = ["poetry-core"]

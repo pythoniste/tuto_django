@@ -56,3 +56,4 @@ Only steps of the current branch are displayed here. Change branch to see other 
     * v1.6.0-alpha2 Using a reverse FK
     * v1.6.0-alpha3 Creating a new endpoint
     * v1.6.0-alpha4 Using depth
+  * v1.6.1 Django Ninja

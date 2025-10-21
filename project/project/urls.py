@@ -34,6 +34,9 @@ from example.views import (
     logout_view,
 )
 
+from .ninja import api
+
+
 router = routers.DefaultRouter()
 router.register(r'games', GameViewSet)
 router.register(r'questions', QuestionViewSet)
@@ -51,6 +54,7 @@ urlpatterns = [
     path('func/logout/', logout_view, name='logout_ter'),
     path('game/', include("app.urls")),
     path('admin/', admin.site.urls),
+    path('api-ninja/', api.urls),
 ]
 
 if 'rest_framework' in settings.INSTALLED_APPS:
