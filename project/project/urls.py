@@ -24,6 +24,7 @@ from rest_framework import routers
 from app.views import (
     HomeView,
     GameViewSet,
+    QuestionViewSet,
 )
 from example.views import (
     LoginView as CustomLoginView,
@@ -34,6 +35,7 @@ from example.views import (
 
 router = routers.DefaultRouter()
 router.register(r'games', GameViewSet)
+router.register(r'questions', QuestionViewSet)
 
 
 urlpatterns = [

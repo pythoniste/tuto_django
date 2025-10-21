@@ -54,3 +54,4 @@ Only steps of the current branch are displayed here. Change branch to see other 
   * v1.6.0 DRF
     * v1.6.0-alpha1 Basic usage
     * v1.6.0-alpha2 Using a reverse FK
+    * v1.6.0-alpha3 Creating a new endpoint
