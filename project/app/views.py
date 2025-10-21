@@ -11,9 +11,9 @@ from django.utils.translation import gettext_lazy as gettext
 
 from rest_framework import viewsets
 
-from .models import Player, Game, Question
+from .models import Player, Game, Question, Answer
 from .forms import GameForm
-from .serializers import GameSerializer, QuestionSerializer
+from .serializers import GameSerializer, QuestionSerializer, AnswerSerializer
 
 
 class HomeView(TemplateView):
@@ -118,3 +118,8 @@ class GameViewSet(viewsets.ModelViewSet):
 class QuestionViewSet(viewsets.ModelViewSet):
     queryset = Question.objects.all()
     serializer_class = QuestionSerializer
+
+
+class AnswerViewSet(viewsets.ModelViewSet):
+    queryset = Answer.objects.all()
+    serializer_class = AnswerSerializer
