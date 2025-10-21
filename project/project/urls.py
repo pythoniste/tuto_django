@@ -19,13 +19,21 @@ from django.conf import settings
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import include, path, re_path
 
-from app.views import HomeView
+from rest_framework import routers
+
+from app.views import (
+    HomeView,
+    GameViewSet,
+)
 from example.views import (
     LoginView as CustomLoginView,
     LogoutView as CustomLogoutView,
     login_view,
     logout_view,
 )
+
+router = routers.DefaultRouter()
+router.register(r'games', GameViewSet)
 
 
 urlpatterns = [
@@ -40,6 +48,12 @@ urlpatterns = [
     path('game/', include("app.urls")),
     path('admin/', admin.site.urls),
 ]
+
+if 'rest_framework' in settings.INSTALLED_APPS:
+    urlpatterns += [
+        path('api-drf/', include(router.urls)),
+        path('api-auth/', include('rest_framework.urls')),
+    ]
 
 if 'rosetta' in settings.INSTALLED_APPS:
     urlpatterns += [

@@ -20,6 +20,9 @@ pydotplus = "^2.0.2"
 pygraphviz = "^1.14"
 pygments = "^2.19.2"
 django-rosetta = "^0.10.2"
+djangorestframework = "^3.16.1"
+markdown = "^3.9"
+django-filter = "^25.2"
 
 [build-system]
 requires = ["poetry-core"]

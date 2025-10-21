@@ -9,8 +9,11 @@ from django.views.generic import (
 from django.urls import reverse_lazy, reverse
 from django.utils.translation import gettext_lazy as gettext
 
+from rest_framework import viewsets
+
 from .models import Player, Game
 from .forms import GameForm
+from .serializers import GameSerializer
 
 
 class HomeView(TemplateView):
@@ -105,3 +108,8 @@ class GameDeleteView(DeleteView):
         obj = self.get_object()
         data['page_title'] = str(gettext("Delete Game: {}")).format(obj.name)
         return data
+
+
+class GameViewSet(viewsets.ModelViewSet):
+    queryset = Game.objects.all()
+    serializer_class = GameSerializer

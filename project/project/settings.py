@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'app.apps.AppConfig',
     'example.apps.ExampleConfig',
     'rosetta',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

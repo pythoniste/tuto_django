@@ -50,3 +50,6 @@ Only steps of the current branch are displayed here. Change branch to see other 
   * v1.4.6 Authentication views
 * I18N
   * v1.5.0 Rosetta
+* Web services
+  * v1.6.0 DRF
+    * v1.6.0-alpha1 Basic usage
