@@ -1,3 +1,4 @@
+from django.contrib.postgres.search import TrigramSimilarity
 from django.db import models
 
 from .enums import GameStatus, GameLevel
@@ -36,6 +37,14 @@ class GameManager(models.Manager):
     def get_by_natural_key(self, game_name: str):
         return self.get(name=game_name)
 
+    def search_by_name(self, game_name: str, *, similarity=0.3):
+        return self.annotate(
+            similarity=TrigramSimilarity("name", game_name)
+        ).filter(
+            similarity__gt=similarity
+        ).order_by(
+            "-similarity"
+        )
 
 class QuestionManager(models.Manager):
 
