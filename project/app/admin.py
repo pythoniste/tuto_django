@@ -37,7 +37,7 @@ class PlayerAdmin(admin.ModelAdmin):
         (None, {
             "fields": (
                 ("user", "avatar",),
-                ("creation_datetime", "last_modification_datetime"),
+                ("created_at", "updated_at"),
             )
         }),
         (gettext("Contract information"), {
@@ -53,8 +53,8 @@ class PlayerAdmin(admin.ModelAdmin):
         }),
     )
     readonly_fields = (
-        "creation_datetime",
-        "last_modification_datetime",
+        "created_at",
+        "updated_at",
     )
 
     def get_readonly_fields(self, request, obj=None):
@@ -137,6 +137,8 @@ class GameAdmin(admin.ModelAdmin):
     )
     readonly_fields = (
         "link",
+        "created_at",
+        "updated_at",
     )
 
     def link(self, obj):
@@ -147,6 +149,7 @@ class GameAdmin(admin.ModelAdmin):
             "fields": (
                 ("name", "status",),
                 ("duration", "level"),
+                ("created_at", "updated_at"),
             )
         }),
     )

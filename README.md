@@ -59,3 +59,4 @@ Only steps of the current branch are displayed here. Change branch to see other 
   * v1.6.1 Django Ninja
 * Advanced models
   * v1.7.0 Natural keys
+  * v1.7.1 Mixins

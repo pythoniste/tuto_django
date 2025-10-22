@@ -2,13 +2,13 @@
 {
     "model": "app.player",
     "fields": {
+        "created_at": "2025-10-16T09:52:59.538Z",
+        "updated_at": "2025-10-16T09:52:59.538Z",
         "user": [
             "admin"
         ],
         "score": 42,
         "subscription_date": "2025-10-16",
-        "creation_datetime": "2025-10-16T09:52:59.538Z",
-        "last_modification_datetime": "2025-10-16T09:52:59.538Z",
         "profile_activated": true,
         "avatar": "",
         "signed_engagement": ""
@@ -17,13 +17,13 @@
 {
     "model": "app.player",
     "fields": {
+        "created_at": "2025-10-16T12:44:06.274Z",
+        "updated_at": "2025-10-16T12:44:06.274Z",
         "user": [
             "test"
         ],
         "score": 0,
         "subscription_date": "2025-10-16",
-        "creation_datetime": "2025-10-16T12:44:06.274Z",
-        "last_modification_datetime": "2025-10-16T12:44:06.274Z",
         "profile_activated": true,
         "avatar": "",
         "signed_engagement": ""
@@ -32,6 +32,8 @@
 {
     "model": "app.game",
     "fields": {
+        "created_at": "2025-10-22T08:09:52.413Z",
+        "updated_at": "2025-10-22T08:09:52.521Z",
         "name": "test",
         "status": "done",
         "level": null,
@@ -41,8 +43,10 @@
 {
     "model": "app.game",
     "fields": {
+        "created_at": "2025-10-22T08:09:52.413Z",
+        "updated_at": "2025-10-22T08:09:52.521Z",
         "name": "Quizz",
-        "status": "ongoing",
+        "status": "draft",
         "level": 4,
         "duration": null
     }
@@ -50,6 +54,8 @@
 {
     "model": "app.game",
     "fields": {
+        "created_at": "2025-10-22T08:09:52.413Z",
+        "updated_at": "2025-10-22T08:09:52.521Z",
         "name": "Autre",
         "status": "ready",
         "level": 2,
@@ -57,102 +63,131 @@
     }
 },
 {
+    "model": "app.game",
+    "fields": {
+        "created_at": "2025-10-22T08:09:52.413Z",
+        "updated_at": "2025-10-22T08:09:52.521Z",
+        "name": "Quizz 2",
+        "status": "draft",
+        "level": null,
+        "duration": null
+    }
+},
+{
     "model": "app.question",
     "fields": {
+        "order": 0,
+        "created_at": "2025-10-22T08:09:52.413Z",
+        "updated_at": "2025-10-22T08:09:52.551Z",
         "game": [
             "Quizz"
         ],
         "text": "1+1",
-        "points": 1,
-        "order": 0
+        "points": 1
     }
 },
 {
     "model": "app.question",
     "fields": {
+        "order": 0,
+        "created_at": "2025-10-22T08:09:52.413Z",
+        "updated_at": "2025-10-22T08:09:52.551Z",
         "game": [
             "Quizz"
         ],
         "text": "1*1",
-        "points": 1,
-        "order": 0
+        "points": 1
     }
 },
 {
     "model": "app.answer",
     "fields": {
+        "order": 0,
+        "created_at": "2025-10-22T08:09:52.413Z",
+        "updated_at": "2025-10-22T08:09:52.507Z",
         "question": [
             "Quizz",
             "1+1"
         ],
         "text": "0",
-        "points": 0,
-        "order": 0
+        "points": 0
     }
 },
 {
     "model": "app.answer",
     "fields": {
+        "order": 0,
+        "created_at": "2025-10-22T08:09:52.413Z",
+        "updated_at": "2025-10-22T08:09:52.507Z",
         "question": [
             "Quizz",
             "1+1"
         ],
         "text": "1",
-        "points": 0,
-        "order": 0
+        "points": 0
     }
 },
 {
     "model": "app.answer",
     "fields": {
+        "order": 0,
+        "created_at": "2025-10-22T08:09:52.413Z",
+        "updated_at": "2025-10-22T08:09:52.507Z",
         "question": [
             "Quizz",
             "1+1"
         ],
         "text": "2",
-        "points": 1,
-        "order": 0
+        "points": 1
     }
 },
 {
     "model": "app.answer",
     "fields": {
+        "order": 0,
+        "created_at": "2025-10-22T08:09:52.413Z",
+        "updated_at": "2025-10-22T08:09:52.507Z",
         "question": [
             "Quizz",
             "1*1"
         ],
         "text": "0",
-        "points": 0,
-        "order": 0
+        "points": 0
     }
 },
 {
     "model": "app.answer",
     "fields": {
+        "order": 0,
+        "created_at": "2025-10-22T08:09:52.413Z",
+        "updated_at": "2025-10-22T08:09:52.507Z",
         "question": [
             "Quizz",
             "1*1"
         ],
         "text": "1",
-        "points": 1,
-        "order": 0
+        "points": 1
     }
 },
 {
     "model": "app.answer",
     "fields": {
+        "order": 0,
+        "created_at": "2025-10-22T08:09:52.413Z",
+        "updated_at": "2025-10-22T08:09:52.507Z",
         "question": [
             "Quizz",
             "1*1"
         ],
         "text": "2",
-        "points": 0,
-        "order": 0
+        "points": 0
     }
 },
 {
     "model": "app.play",
     "fields": {
+        "created_at": "2025-10-22T08:09:52.413Z",
+        "updated_at": "2025-10-22T08:09:52.539Z",
         "player": [
             "admin"
         ],

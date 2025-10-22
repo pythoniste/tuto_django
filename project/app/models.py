@@ -16,6 +16,10 @@ from .managers import (
     AnswerManager,
     PlayManager,
 )
+from .mixins import (
+    OrderingMixin,
+    TrackingMixin,
+)
 
 
 def compute_upload_path(current_object, filename, sub_path) -> str:
@@ -41,7 +45,7 @@ def compute_upload_path(current_object, filename, sub_path) -> str:
     )
 
 
-class Player(models.Model):
+class Player(TrackingMixin, models.Model):
 
     objects = PlayerManager()
 
@@ -63,16 +67,6 @@ class Player(models.Model):
         verbose_name=gettext("subscription date"),
         blank=True,
         null=True,
-    )
-
-    creation_datetime = models.DateTimeField(
-        verbose_name=gettext("creation datetime"),
-        auto_now_add=True,
-    )
-
-    last_modification_datetime = models.DateTimeField(
-        verbose_name=gettext("last modification datetime"),
-        auto_now=True,
     )
 
     profile_activated = models.BooleanField(
@@ -109,7 +103,7 @@ class Player(models.Model):
         ordering = ("user__username",)
 
 
-class Game(models.Model):
+class Game(TrackingMixin, models.Model):
 
     objects = GameManager()
 
@@ -158,7 +152,7 @@ class Game(models.Model):
         ordering = ("name",)
 
 
-class Question(models.Model):
+class Question(TrackingMixin, OrderingMixin, models.Model):
 
     objects = QuestionManager()
 
@@ -178,11 +172,6 @@ class Question(models.Model):
 
     points = models.PositiveSmallIntegerField(
         verbose_name=gettext("points"),
-    )
-
-    order = models.PositiveSmallIntegerField(
-        verbose_name = gettext("order"),
-        default = 0,
     )
 
     def __str__(self):
@@ -214,7 +203,7 @@ class Question(models.Model):
         ]
 
 
-class Answer(models.Model):
+class Answer(TrackingMixin, OrderingMixin, models.Model):
 
     objects = AnswerManager()
 
@@ -235,11 +224,6 @@ class Answer(models.Model):
     points = models.PositiveSmallIntegerField(
         verbose_name=gettext("points"),
         default=0,
-    )
-
-    order = models.PositiveSmallIntegerField(
-        verbose_name = gettext("order"),
-        default = 0,
     )
 
     def __str__(self):
@@ -271,7 +255,7 @@ class Answer(models.Model):
         ]
 
 
-class Play(models.Model):
+class Play(TrackingMixin, models.Model):
 
     objects = PlayManager()
 
