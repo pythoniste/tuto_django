@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-21 16:22+0200\n"
+"POT-Creation-Date: 2025-10-23 13:02+0200\n"
 "PO-Revision-Date: 2025-10-21 16:26+0200\n"
 "Last-Translator: The Admin <admin@example.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.2\n"
 
-#: project/settings.py:137
+#: project/settings.py:139
 msgid "French"
 msgstr "Français"

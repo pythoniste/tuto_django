@@ -154,6 +154,10 @@ class GameAdmin(admin.ModelAdmin):
         }),
     )
     inlines = [QuestionInline]
+    def get_inlines(self, request, obj):
+        if obj is None:
+            return []
+        return super().get_inlines(request, obj)
 
 
 class AnswerInline(admin.TabularInline):

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-21 17:22+0200\n"
-"PO-Revision-Date: 2025-10-21 17:22+0200\n"
+"POT-Creation-Date: 2025-10-23 13:05+0200\n"
+"PO-Revision-Date: 2025-10-23 13:05+0200\n"
 "Last-Translator: The Admin <admin@example.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -55,11 +55,11 @@ msgstr "{} lignes modifiées"
 msgid "Reset scores"
 msgstr "Remettre les scores à 0"
 
-#: app/admin.py:143
+#: app/admin.py:145
 msgid "Open"
 msgstr "Ouvert"
 
-#: app/apps.py:9
+#: app/apps.py:11
 msgid "My app"
 msgstr "Mon appli"
 
@@ -99,113 +99,127 @@ msgstr "extrême"
 msgid "nightmare"
 msgstr "cauchemard"
 
-#: app/models.py:49
-msgid "user"
-msgstr "utilisateur"
-
-#: app/models.py:58
-msgid "score"
-msgstr "score"
-
-#: app/models.py:63
-msgid "subscription date"
-msgstr "date de souscription"
-
-#: app/models.py:69 app/models.py:255
-msgid "creation datetime"
-msgstr "date de création"
-
-#: app/models.py:74
-msgid "last modification datetime"
-msgstr "date de dernière modification"
-
-#: app/models.py:79
-msgid "profile activated"
-msgstr "profil activé"
-
-#: app/models.py:83
-msgid "avatar"
-msgstr "avatar"
-
-#: app/models.py:91
-msgid "signed_engagement"
-msgstr "engagement signé"
-
-#: app/models.py:104 app/models.py:237
-msgid "player"
-msgstr "joueur"
-
-#: app/models.py:105
-msgid "players"
-msgstr "joueurs"
-
-#: app/models.py:114
-msgid "name"
-msgstr "nom"
-
-#: app/models.py:122
-msgid "status"
-msgstr "statut"
-
-#: app/models.py:131
-msgid "level"
-msgstr "niveau"
-
-#: app/models.py:139
-msgid "duration"
-msgstr "durée"
-
-#: app/models.py:150 app/models.py:160 app/models.py:246
-msgid "game"
-msgstr "jeu"
-
-#: app/models.py:151
-msgid "games"
-msgstr "jeux"
-
-#: app/models.py:169
-msgid "question content"
-msgstr "contenu de la question"
-
-#: app/models.py:174 app/models.py:212
-msgid "points"
-msgstr "points"
-
-#: app/models.py:178 app/models.py:217
+#: app/mixins.py:8
 msgid "order"
 msgstr "ordre"
 
-#: app/models.py:188 app/models.py:198
+#: app/mixins.py:18
+msgid "created at"
+msgstr "Créé le"
+
+#: app/mixins.py:22
+msgid "updated at"
+msgstr "Mis à jour le"
+
+#: app/models.py:54
+msgid "user"
+msgstr "utilisateur"
+
+#: app/models.py:63
+msgid "score"
+msgstr "score"
+
+#: app/models.py:68
+msgid "subscription date"
+msgstr "date de souscription"
+
+#: app/models.py:74
+msgid "profile activated"
+msgstr "profil activé"
+
+#: app/models.py:78
+msgid "avatar"
+msgstr "avatar"
+
+#: app/models.py:86
+msgid "signed_engagement"
+msgstr "engagement signé"
+
+#: app/models.py:102 app/models.py:289
+msgid "player"
+msgstr "joueur"
+
+#: app/models.py:103
+msgid "players"
+msgstr "joueurs"
+
+#: app/models.py:112
+msgid "name"
+msgstr "nom"
+
+#: app/models.py:126
+msgid "status"
+msgstr "statut"
+
+#: app/models.py:135
+msgid "level"
+msgstr "niveau"
+
+#: app/models.py:143
+msgid "duration"
+msgstr "durée"
+
+#: app/models.py:176 app/models.py:186 app/models.py:298
+msgid "game"
+msgstr "jeu"
+
+#: app/models.py:177
+msgid "games"
+msgstr "jeux"
+
+#: app/models.py:195
+msgid "question content"
+msgstr "contenu de la question"
+
+#: app/models.py:200 app/models.py:251
+msgid "points"
+msgstr "points"
+
+#: app/models.py:213 app/models.py:237
 msgid "question"
 msgstr "question"
 
-#: app/models.py:189
+#: app/models.py:214
 msgid "questions"
 msgstr "questions"
 
-#: app/models.py:207
+#: app/models.py:246
 msgid "answer content"
 msgstr "contenu de la réponse"
 
-#: app/models.py:227
+#: app/models.py:265
 msgid "answer"
 msgstr "réponse"
 
-#: app/models.py:228
+#: app/models.py:266
 msgid "answers"
 msgstr "réponses"
 
-#: app/models.py:260
+#: app/models.py:307
+msgid "creation datetime"
+msgstr "date de création"
+
+#: app/models.py:312
 msgid "entries"
 msgstr "entriées"
 
-#: app/models.py:268
+#: app/models.py:324
 msgid "play"
 msgstr "partie"
 
-#: app/models.py:269
+#: app/models.py:325
 msgid "plays"
 msgstr "parties"
+
+#: app/signals.py:57
+#| msgid "question"
+msgid "Question {}"
+msgstr "Question {}"
+
+#: app/signals.py:91
+#| msgid "answer"
+msgid "Answer {}"
+msgstr "Réponse {}"
 
 #: app/templates/app/game_confirm_delete.html:6
 #: app/templates/app/game_detail.html:6 app/templates/app/game_form.html:6
@@ -217,7 +231,7 @@ msgstr "parties"
 #: app/templates/registration/password_reset_complete.html:7
 #: app/templates/registration/password_reset_confirm.html:7
 #: app/templates/registration/password_reset_done.html:7
-#: app/templates/registration/password_reset_form.html:7 app/views.py:22
+#: app/templates/registration/password_reset_form.html:7 app/views.py:29
 msgid "Home"
 msgstr "Accueil"
 
@@ -243,11 +257,11 @@ msgstr "Maintenant, on parle !"
 msgid "Update"
 msgstr "Mettre à jour"
 
-#: app/templates/app/game_form.html:17 app/views.py:92
+#: app/templates/app/game_form.html:17 app/views.py:99
 msgid "Create and add another"
 msgstr "Créer et en ajouter un autre"
 
-#: app/templates/app/game_form.html:18 app/views.py:94
+#: app/templates/app/game_form.html:18 app/views.py:101
 msgid "Create and continue modification"
 msgstr "Créer et continuer les modifications"
 
@@ -438,25 +452,28 @@ msgstr "Merci pour utiliser notre site !"
 msgid "The %(site_name)s team"
 msgstr "L'équipe de %(site_name)s."
 
-#: app/views.py:35
+#: app/views.py:42
 msgid "Games list"
 msgstr "Liste de jeux"
 
-#: app/views.py:45
+#: app/views.py:52
 msgid "Game: {}"
 msgstr "Jeu: {}"
 
-#: app/views.py:62 app/views.py:73
+#: app/views.py:69 app/views.py:80
 msgid "Update Game: {}"
 msgstr "Modifier le jeu: {}"
 
-#: app/views.py:87
+#: app/views.py:94
 msgid "Create a new game"
 msgstr "Créer un nouveau jeu"
 
-#: app/views.py:106
+#: app/views.py:113
 msgid "Delete Game: {}"
 msgstr "Supprimer le jeu: {}"
+
+#~ msgid "last modification datetime"
+#~ msgstr "date de dernière modification"
 
 #~ msgid "Ouvrir"
 #~ msgstr "Ouvrir"
