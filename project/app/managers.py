@@ -2,11 +2,12 @@ from django.contrib.postgres.search import TrigramSimilarity
 from django.db import models
 
 from mptt.managers import TreeManager
+from polymorphic.managers import PolymorphicManager
 
 from .enums import GameStatus, GameLevel
 
 
-class PlayerManager(models.Manager):
+class PlayerManager(PolymorphicManager):
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -22,7 +23,7 @@ class PlayerManager(models.Manager):
         )
 
     def get_by_natural_key(self, user_username: str):
-        return self.get(user__username=user_username)
+        return self.non_polymorphic().get(user__username=user_username)
 
 
 class GameManager(models.Manager):

@@ -684,11 +684,155 @@
     }
 },
 {
+    "model": "auth.permission",
+    "pk": 77,
+    "fields": {
+        "name": "Can add game master",
+        "content_type": 19,
+        "codename": "add_gamemaster"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 78,
+    "fields": {
+        "name": "Can change game master",
+        "content_type": 19,
+        "codename": "change_gamemaster"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 79,
+    "fields": {
+        "name": "Can delete game master",
+        "content_type": 19,
+        "codename": "delete_gamemaster"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 80,
+    "fields": {
+        "name": "Can view game master",
+        "content_type": 19,
+        "codename": "view_gamemaster"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 81,
+    "fields": {
+        "name": "Can add subscriber",
+        "content_type": 20,
+        "codename": "add_subscriber"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 82,
+    "fields": {
+        "name": "Can change subscriber",
+        "content_type": 20,
+        "codename": "change_subscriber"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 83,
+    "fields": {
+        "name": "Can delete subscriber",
+        "content_type": 20,
+        "codename": "delete_subscriber"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 84,
+    "fields": {
+        "name": "Can view subscriber",
+        "content_type": 20,
+        "codename": "view_subscriber"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 85,
+    "fields": {
+        "name": "Can add team mate",
+        "content_type": 21,
+        "codename": "add_teammate"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 86,
+    "fields": {
+        "name": "Can change team mate",
+        "content_type": 21,
+        "codename": "change_teammate"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 87,
+    "fields": {
+        "name": "Can delete team mate",
+        "content_type": 21,
+        "codename": "delete_teammate"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 88,
+    "fields": {
+        "name": "Can view team mate",
+        "content_type": 21,
+        "codename": "view_teammate"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 89,
+    "fields": {
+        "name": "Can add guest",
+        "content_type": 22,
+        "codename": "add_guest"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 90,
+    "fields": {
+        "name": "Can change guest",
+        "content_type": 22,
+        "codename": "change_guest"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 91,
+    "fields": {
+        "name": "Can delete guest",
+        "content_type": 22,
+        "codename": "delete_guest"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 92,
+    "fields": {
+        "name": "Can view guest",
+        "content_type": 22,
+        "codename": "view_guest"
+    }
+},
+{
     "model": "auth.user",
     "pk": 1,
     "fields": {
         "password": "pbkdf2_sha256$1000000$eVprXhMYtOx0RQRi5FS6Zp$EkscbFZrPlF07betPMKh1ngMyiqXqSaltMVsueMjQ7M=",
-        "last_login": "2025-10-22T08:10:13.919Z",
+        "last_login": "2025-10-24T08:06:42.245Z",
         "is_superuser": true,
         "username": "admin",
         "first_name": "The",

@@ -9,6 +9,7 @@ from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as gettext
 
 from mptt.models import MPTTModel, TreeForeignKey
+from polymorphic.models import PolymorphicModel
 
 
 from .enums import GameLevel, GameStatus
@@ -49,7 +50,7 @@ def compute_upload_path(current_object, filename, sub_path) -> str:
     )
 
 
-class Player(TrackingMixin, models.Model):
+class Player(TrackingMixin, PolymorphicModel):
 
     objects = PlayerManager()
 
@@ -98,6 +99,7 @@ class Player(TrackingMixin, models.Model):
 
     def natural_key(self) -> tuple[str]:
         return (self.user.username,)
+    natural_key.dependencies = ["auth.user"]
 
     class Meta:  # pylint: disable=too-few-public-methods
         """Test Meta class"""
@@ -107,8 +109,116 @@ class Player(TrackingMixin, models.Model):
         ordering = ("user__username",)
 
 
-class Genre(MPTTModel):
+class Guest(Player):
+    """Player invited by another player."""
 
+    invited_by = models.ForeignKey(
+        verbose_name=gettext("invited by"),
+        related_name="invited_by_set",
+        to=Player,
+        blank=False,
+        null=False,
+        db_index=True,
+        on_delete=models.CASCADE,
+    )
+
+    def __str__(self):
+        return self.player_ptr.user.username
+
+    def natural_key(self) -> tuple[str]:
+        return (self.player_ptr.user.username,)
+    natural_key.dependencies = ["app.player", "auth.user"]
+
+    class Meta:  # pylint: disable=too-few-public-methods
+        """Test Meta class"""
+
+        verbose_name = gettext("guest")
+        verbose_name_plural = gettext("guests")
+        ordering = ("user__username",)
+
+
+class Subscriber(Player):
+    """Player that pays a subscription."""
+
+    registration_date= models.DateTimeField(
+        verbose_name=gettext("First registration date"),
+    )
+
+    sponsor = models.ForeignKey(
+        verbose_name=gettext("sponsor"),
+        related_name="sponsored_set",
+        to=Player,
+        blank=False,
+        null=False,
+        db_index=True,
+        on_delete=models.CASCADE,
+    )
+
+    def __str__(self):
+        return self.player_ptr.user.username
+
+    def natural_key(self) -> tuple[str]:
+        return (self.player_ptr.user.username,)
+    natural_key.dependencies = ["app.player", "auth.user"]
+
+    class Meta:  # pylint: disable=too-few-public-methods
+        """Test Meta class"""
+
+        verbose_name = gettext("subscriber")
+        verbose_name_plural = gettext("subscribers")
+        ordering = ("user__username",)
+
+
+class TeamMate(Player):
+
+    registration_date= models.DateTimeField(
+        verbose_name=gettext("First registration date"),
+    )
+
+    team_member_date= models.DateTimeField(
+        verbose_name=gettext("First membership date"),
+    )
+
+    def __str__(self):
+        return self.player_ptr.user.username
+
+    def natural_key(self) -> tuple[str]:
+        return (self.player_ptr.user.username,)
+    natural_key.dependencies = ["app.player", "auth.user"]
+
+    class Meta:  # pylint: disable=too-few-public-methods
+        """Test Meta class"""
+
+        verbose_name = gettext("team mate")
+        verbose_name_plural = gettext("team mates")
+        ordering = ("user__username",)
+
+
+class GameMaster(Player):
+
+    registration_date= models.DateTimeField(
+        verbose_name=gettext("First registration date"),
+    )
+
+    team_member_date= models.DateTimeField(
+        verbose_name=gettext("First membership date"),
+    )
+
+    def __str__(self):
+        return self.player_ptr.user.username
+
+    def natural_key(self) -> tuple[str]:
+        return (self.player_ptr.user.username,)
+    natural_key.dependencies = ["app.player", "auth.user"]
+
+    class Meta:  # pylint: disable=too-few-public-methods
+
+        verbose_name = gettext("game master")
+        verbose_name_plural = gettext("game masters")
+        ordering = ("user__username",)
+
+
+class Genre(MPTTModel):
     objects = GenreManager()
 
     name = models.CharField(
@@ -125,7 +235,6 @@ class Genre(MPTTModel):
         null=True,
         on_delete=models.CASCADE,
     )
-
     def __str__(self):
         return self.name
 
@@ -154,6 +263,16 @@ class Game(TrackingMixin, models.Model):
         max_length=36,
         blank=False,
         db_index=True,
+    )
+
+    master = models.ForeignKey(
+        verbose_name = gettext("master"),
+        related_name = "own_game_set",
+        to = GameMaster,
+        blank = True,
+        null = True,
+        db_index = True,
+        on_delete = models.SET_NULL,
     )
 
     status = models.CharField(

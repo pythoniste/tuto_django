@@ -2,6 +2,10 @@
 {
     "model": "app.player",
     "fields": {
+        "polymorphic_ctype": [
+            "app",
+            "gamemaster"
+        ],
         "created_at": "2025-10-16T09:52:59.538Z",
         "updated_at": "2025-10-16T09:52:59.538Z",
         "user": [
@@ -17,6 +21,10 @@
 {
     "model": "app.player",
     "fields": {
+        "polymorphic_ctype": [
+            "app",
+            "gamemaster"
+        ],
         "created_at": "2025-10-16T12:44:06.274Z",
         "updated_at": "2025-10-16T12:44:06.274Z",
         "user": [
@@ -101,6 +109,27 @@
         "rght": 3,
         "tree_id": 1,
         "level": 1
+
+    }
+},
+{
+    "model": "app.gamemaster",
+    "fields": {
+        "player_ptr": [
+            "admin"
+        ],
+        "registration_date": "2025-10-24T08:18:35Z",
+        "team_member_date": "2025-10-24T08:18:36Z"
+    }
+},
+{
+    "model": "app.gamemaster",
+    "fields": {
+        "player_ptr": [
+            "test"
+        ],
+        "registration_date": "2025-10-24T08:28:04Z",
+        "team_member_date": "2025-10-24T08:28:06Z"
     }
 },
 {
@@ -109,7 +138,8 @@
         "created_at": "2025-10-22T08:09:52.413Z",
         "updated_at": "2025-10-22T08:09:52.521Z",
         "name": "test",
-        "slug": "",
+        "slug": "test",
+        "master": null,
         "status": "done",
         "level": null,
         "genre": null,
@@ -122,7 +152,8 @@
         "created_at": "2025-10-22T08:09:52.413Z",
         "updated_at": "2025-10-22T08:09:52.521Z",
         "name": "Quizz",
-        "slug": "",
+        "slug": "quizz",
+        "master": null,
         "status": "draft",
         "level": 4,
         "genre": null,
@@ -135,7 +166,8 @@
         "created_at": "2025-10-22T08:09:52.413Z",
         "updated_at": "2025-10-22T08:09:52.521Z",
         "name": "Autre",
-        "slug": "",
+        "slug": "autre",
+        "master": null,
         "status": "ready",
         "level": 2,
         "genre": null,
@@ -148,7 +180,8 @@
         "created_at": "2025-10-22T08:09:52.413Z",
         "updated_at": "2025-10-22T08:09:52.521Z",
         "name": "Quizz 2",
-        "slug": "",
+        "slug": "quizz-2",
+        "master": null,
         "status": "draft",
         "level": null,
         "genre": null,

@@ -64,3 +64,4 @@ Only steps of the current branch are displayed here. Change branch to see other 
   * v1.7.3 SQL Migrations
   * v1.7.4 Signals
   * v1.7.5 Recursive models
+  * v1.7.6 Polymorphic models

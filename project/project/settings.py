@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'rosetta',
     'rest_framework',
     'mptt',
+    'polymorphic',
     'django.contrib.postgres',
     'django.contrib.admin',
     'django.contrib.auth',
