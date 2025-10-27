@@ -20,6 +20,7 @@ from .models import (
     Answer,
     Play,
     Genre,
+    StatGame,
 )
 
 
@@ -376,3 +377,45 @@ class PlayAdmin(admin.ModelAdmin):
             formfield.queryset = formfield.queryset.filter(user=request.user)
             formfield.initial = Player.objects.get(user=request.user)
         return formfield
+
+
+@admin.register(StatGame)
+class StatGameAdmin(admin.ModelAdmin):
+    search_fields = (
+        "name",
+    )
+    list_filter = (
+        "status",
+        "level",
+    )
+    list_display = (
+        "name",
+        "status",
+        "duration",
+        "level",
+        "nb_questions",
+        "nb_players",
+    )
+    readonly_fields = (
+        "nb_questions",
+        "nb_players",
+    )
+    list_display_links = None
+
+    @admin.display(description=gettext("Number of questions"))
+    def nb_questions(self, obj):
+        # return obj.question_set.count()
+        return obj.nb_questions
+
+    @admin.display(description=gettext("Number of players"))
+    def nb_players(self, obj):
+        return obj.nb_players
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+    def has_add_permission(self, request):
+        return False

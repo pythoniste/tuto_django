@@ -93,3 +93,16 @@ class GenreManager(TreeManager):
 
     def get_by_natural_key(self, name: str):
         return self.get(name=name)
+
+
+class StatGameManager(models.Manager):
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.annotate(
+            nb_questions=models.Count("question_set", distinct=True),
+            nb_players=models.Count("play", distinct=True),
+        )
+
+    def get_by_natural_key(self, game_name: str):
+        return self.get(name=game_name)

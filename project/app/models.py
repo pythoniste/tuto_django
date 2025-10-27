@@ -20,6 +20,7 @@ from .managers import (
     AnswerManager,
     PlayManager,
     GenreManager,
+    StatGameManager,
 )
 from .mixins import (
     OrderingMixin,
@@ -497,3 +498,16 @@ class Play(TrackingMixin, models.Model):
                 name="play_natural_key_constraint"
             ),
         ]
+
+
+class StatGame(Game):
+    class Meta:
+        proxy=True
+        verbose_name = gettext("stat games")
+        verbose_name_plural = gettext("stats games")
+
+    objects = StatGameManager()
+
+    # @property
+    # def nb_players(self):
+    #     return self.play.count()
