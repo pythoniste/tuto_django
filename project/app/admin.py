@@ -3,8 +3,18 @@ from django.utils.translation import gettext_lazy as gettext
 
 from mptt.admin import MPTTModelAdmin
 
+from polymorphic.admin import (
+    PolymorphicParentModelAdmin,
+    PolymorphicChildModelAdmin,
+    PolymorphicChildModelFilter,
+)
+
 from .models import (
     Player,
+    Guest,
+    Subscriber,
+    TeamMate,
+    GameMaster,
     Game,
     Question,
     Answer,
@@ -13,14 +23,171 @@ from .models import (
 )
 
 
-@admin.register(Player)
-class PlayerAdmin(admin.ModelAdmin):
+class PlayerChildAdmin(PolymorphicChildModelAdmin):
+    base_model = Player
     search_fields = (
         "user__username",
         "user__first_name",
         "user__last_name",
     )
     list_filter = (
+        "profile_activated",
+        "subscription_date",
+        "score",
+    )
+    list_display = (
+        "user_username",
+        "user_first_name",
+        "user_last_name",
+        "polymorphic_ctype_name",
+        "avatar",
+        "profile_activated",
+        "subscription_date",
+        "score",
+    )
+    list_display_links = (
+        "user_username",
+        "user_first_name",
+        "user_last_name",
+    )
+    list_editable = (
+        "profile_activated",
+    )
+    base_fieldsets = (
+        (None, {
+            "fields": (
+                ("user", "avatar",),
+                ("created_at", "updated_at"),
+            )
+        }),
+        (gettext("Contract information"), {
+            "fields": (
+                ("profile_activated", "subscription_date"),
+                ("signed_engagement",),
+            )
+        }),
+        (gettext("Personal information"), {
+            "fields": (
+                ("score",),
+            )
+        }),
+    )
+    fieldsets = ()
+    readonly_fields = (
+        "created_at",
+        "updated_at",
+    )
+
+    def get_readonly_fields(self, request, obj=None):
+        readonly_fields = super().get_readonly_fields(request, obj)
+        if obj is not None:
+            readonly_fields += ("user",)
+        return readonly_fields
+
+    def get_fieldsets(self, request, obj=None) -> tuple:
+        return self.base_fieldsets + self.fieldsets
+
+    @admin.display(description=gettext("username"))
+    def user_username(self, obj):
+        return obj.user.username
+
+    @admin.display(description=gettext("first name"))
+    def user_first_name(self, obj):
+        return obj.user.first_name
+
+    @admin.display(description=gettext("last name"))
+    def user_last_name(self, obj):
+        return obj.user.last_name
+
+    @admin.display(description=gettext("Type"))
+    def polymorphic_ctype_name(self, obj):
+        return obj.polymorphic_ctype.name.capitalize()
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        formfield = super().formfield_for_foreignkey(db_field, request, **kwargs)
+        if db_field.name == "user":
+            formfield.queryset = formfield.queryset.filter(player__isnull=True)
+        return formfield
+
+    def has_view_permission(self, request, obj=None):
+        return request.user.is_superuser
+
+    def action_message(self, request, rows_updated):
+        if rows_updated == 0:
+            self.message_user(request, gettext("No row updated"))
+        elif rows_updated == 1:
+            self.message_user(request, gettext("1 row updated"))
+        else:
+            self.message_user(request, gettext("{} rows updated").format(rows_updated))
+
+    @admin.action(description=gettext("Reset scores"))
+    def reset_scores(self, request, queryset):
+        rows_updated = queryset.update(score=0)
+        self.action_message(request, rows_updated)
+
+    actions = [reset_scores]
+
+
+@admin.register(Guest)
+class GuestAdmin(PlayerChildAdmin):
+    base_model = Guest
+    fieldsets = (
+        (gettext("Invitation"), {
+            "fields": (
+                ("invited_by",),
+            )
+        }),
+    )
+
+
+@admin.register(Subscriber)
+class SubscriberAdmin(PlayerChildAdmin):
+    base_model = Subscriber
+    fieldsets = (
+        (gettext("Subscription details"), {
+            "fields": (
+                ("registration_date", "sponsor"),
+            )
+        }),
+    )
+
+
+@admin.register(TeamMate)
+class TeamMateAdmin(PlayerChildAdmin):
+    base_model = TeamMate
+    fieldsets = (
+        (gettext("Membership details"), {
+            "fields": (
+                ("registration_date", "team_member_date"),
+            )
+        }),
+    )
+
+
+@admin.register(GameMaster)
+class GameMasterAdmin(PlayerChildAdmin):
+    base_model = GameMaster
+    show_in_index = True
+    fieldsets = (
+        (gettext("Membership details"), {
+            "fields": (
+                ("registration_date", "team_member_date"),
+            )
+        }),
+    )
+
+
+@admin.register(Player)
+class PlayerParentAdmin(PolymorphicParentModelAdmin):
+    base_model = Player
+    child_models = (Guest, Subscriber, TeamMate, GameMaster)
+    search_fields = (
+        "user__username",
+        "user__first_name",
+        "user__last_name",
+    )
+    list_filter = (
+        PolymorphicChildModelFilter,
         "profile_activated",
         "subscription_date",
         "score",
@@ -42,35 +209,6 @@ class PlayerAdmin(admin.ModelAdmin):
     list_editable = (
         "profile_activated",
     )
-    fieldsets = (
-        (None, {
-            "fields": (
-                ("user", "avatar",),
-                ("created_at", "updated_at"),
-            )
-        }),
-        (gettext("Contract information"), {
-            "fields": (
-                ("profile_activated", "subscription_date"),
-                ("signed_engagement",),
-            )
-        }),
-        (gettext("Personal information"), {
-            "fields": (
-                ("score",),
-            )
-        }),
-    )
-    readonly_fields = (
-        "created_at",
-        "updated_at",
-    )
-
-    def get_readonly_fields(self, request, obj=None):
-        readonly_fields = super().get_readonly_fields(request, obj)
-        if obj is not None:
-            readonly_fields += ("user",)
-        return readonly_fields
 
     @admin.display(description=gettext("username"))
     def user_username(self, obj):
@@ -83,15 +221,6 @@ class PlayerAdmin(admin.ModelAdmin):
     @admin.display(description=gettext("last name"))
     def user_last_name(self, obj):
         return obj.user.last_name
-
-    def formfield_for_foreignkey(self, db_field, request, **kwargs):
-        formfield = super().formfield_for_foreignkey(db_field, request, **kwargs)
-        if db_field.name == "user":
-            formfield.queryset = formfield.queryset.filter(player__isnull=True)
-        return formfield
-
-    def has_view_permission(self, request, obj=None):
-        return request.user.is_superuser
 
     def action_message(self, request, rows_updated):
         if rows_updated == 0:
