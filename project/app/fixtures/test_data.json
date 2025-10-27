@@ -7,12 +7,12 @@
             "gamemaster"
         ],
         "created_at": "2025-10-16T09:52:59.538Z",
-        "updated_at": "2025-10-16T09:52:59.538Z",
+        "updated_at": "2025-10-27T11:35:07.877Z",
         "user": [
             "admin"
         ],
         "score": 42,
-        "subscription_date": "2025-10-16",
+        "subscription_date": "2024-09-18",
         "profile_activated": true,
         "avatar": "",
         "signed_engagement": ""
@@ -109,7 +109,37 @@
         "rght": 3,
         "tree_id": 1,
         "level": 1
-
+    }
+},
+{
+    "model": "app.player",
+    "fields": {
+        "polymorphic_ctype": [
+            "app",
+            "subscriber"
+        ],
+        "created_at": "2025-10-24T11:16:48.483Z",
+        "updated_at": "2025-10-27T11:34:30.804Z",
+        "user": [
+            "fusion"
+        ],
+        "score": 1000,
+        "subscription_date": "2024-10-16",
+        "profile_activated": true,
+        "avatar": "",
+        "signed_engagement": ""
+    }
+},
+{
+    "model": "app.subscriber",
+    "fields": {
+        "player_ptr": [
+            "fusion"
+        ],
+        "registration_date": "2025-10-24T11:16:39Z",
+        "sponsor": [
+            "admin"
+        ]
     }
 },
 {
@@ -136,192 +166,5845 @@
     "model": "app.game",
     "fields": {
         "created_at": "2025-10-22T08:09:52.413Z",
-        "updated_at": "2025-10-22T08:09:52.521Z",
+        "updated_at": "2025-10-27T11:15:46.872Z",
         "name": "test",
         "slug": "test",
         "master": null,
         "status": "done",
-        "level": null,
+        "level": 5,
         "genre": null,
-        "duration": null
+        "duration": "01:00:00"
     }
 },
 {
     "model": "app.game",
     "fields": {
         "created_at": "2025-10-22T08:09:52.413Z",
-        "updated_at": "2025-10-22T08:09:52.521Z",
+        "updated_at": "2025-10-27T11:15:46.867Z",
         "name": "Quizz",
         "slug": "quizz",
         "master": null,
-        "status": "draft",
+        "status": "ongoing",
         "level": 4,
         "genre": null,
-        "duration": null
+        "duration": "00:05:00"
     }
 },
 {
     "model": "app.game",
     "fields": {
         "created_at": "2025-10-22T08:09:52.413Z",
-        "updated_at": "2025-10-22T08:09:52.521Z",
-        "name": "Autre",
+        "updated_at": "2025-10-27T11:15:46.865Z",
+        "name": "30 questions",
         "slug": "autre",
         "master": null,
-        "status": "ready",
+        "status": "ongoing",
         "level": 2,
         "genre": null,
-        "duration": null
+        "duration": "00:07:30"
     }
 },
 {
     "model": "app.game",
     "fields": {
         "created_at": "2025-10-22T08:09:52.413Z",
-        "updated_at": "2025-10-22T08:09:52.521Z",
+        "updated_at": "2025-10-27T11:15:46.869Z",
         "name": "Quizz 2",
         "slug": "quizz-2",
         "master": null,
-        "status": "draft",
-        "level": null,
+        "status": "ongoing",
+        "level": 1,
         "genre": null,
-        "duration": null
+        "duration": "00:05:00"
+    }
+},
+{
+    "model": "app.game",
+    "fields": {
+        "created_at": "2025-10-27T11:12:07.254Z",
+        "updated_at": "2025-10-27T11:15:46.860Z",
+        "name": "20 questions",
+        "slug": "20-questions",
+        "master": null,
+        "status": "ongoing",
+        "level": 2,
+        "genre": null,
+        "duration": "00:05:00"
     }
 },
 {
     "model": "app.question",
     "fields": {
-        "order": 0,
-        "created_at": "2025-10-22T08:09:52.413Z",
-        "updated_at": "2025-10-22T08:09:52.551Z",
+        "order": 1,
+        "created_at": "2025-10-27T10:09:41.938Z",
+        "updated_at": "2025-10-27T10:09:41.938Z",
         "game": [
-            "Quizz"
+            "30 questions"
         ],
-        "text": "1+1",
+        "text": "Question 1",
         "points": 1
     }
 },
 {
     "model": "app.question",
     "fields": {
-        "order": 0,
-        "created_at": "2025-10-22T08:09:52.413Z",
-        "updated_at": "2025-10-22T08:09:52.551Z",
+        "order": 2,
+        "created_at": "2025-10-27T10:09:41.938Z",
+        "updated_at": "2025-10-27T10:09:41.938Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 3,
+        "created_at": "2025-10-27T10:09:41.938Z",
+        "updated_at": "2025-10-27T10:09:41.938Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 3",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 4,
+        "created_at": "2025-10-27T10:09:41.938Z",
+        "updated_at": "2025-10-27T10:09:41.938Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 4",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 5,
+        "created_at": "2025-10-27T10:09:41.938Z",
+        "updated_at": "2025-10-27T10:09:41.938Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 5",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 6,
+        "created_at": "2025-10-27T10:09:41.938Z",
+        "updated_at": "2025-10-27T10:09:41.938Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 6",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 7,
+        "created_at": "2025-10-27T10:09:41.938Z",
+        "updated_at": "2025-10-27T10:09:41.938Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 7",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 8,
+        "created_at": "2025-10-27T10:09:41.938Z",
+        "updated_at": "2025-10-27T10:09:41.938Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 8",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 9,
+        "created_at": "2025-10-27T10:09:41.938Z",
+        "updated_at": "2025-10-27T10:09:41.938Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 9",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 10,
+        "created_at": "2025-10-27T10:09:41.938Z",
+        "updated_at": "2025-10-27T10:09:41.938Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 10",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 11,
+        "created_at": "2025-10-27T10:09:41.938Z",
+        "updated_at": "2025-10-27T10:09:41.938Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 11",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 12,
+        "created_at": "2025-10-27T10:09:41.938Z",
+        "updated_at": "2025-10-27T10:09:41.938Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 12",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 13,
+        "created_at": "2025-10-27T10:09:41.938Z",
+        "updated_at": "2025-10-27T10:09:41.939Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 13",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 14,
+        "created_at": "2025-10-27T10:09:41.939Z",
+        "updated_at": "2025-10-27T10:09:41.939Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 14",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 15,
+        "created_at": "2025-10-27T10:09:41.939Z",
+        "updated_at": "2025-10-27T10:09:41.939Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 15",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 16,
+        "created_at": "2025-10-27T10:09:41.939Z",
+        "updated_at": "2025-10-27T10:09:41.939Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 16",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 17,
+        "created_at": "2025-10-27T10:09:41.939Z",
+        "updated_at": "2025-10-27T10:09:41.939Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 17",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 18,
+        "created_at": "2025-10-27T10:09:41.939Z",
+        "updated_at": "2025-10-27T10:09:41.939Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 18",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 19,
+        "created_at": "2025-10-27T10:09:41.939Z",
+        "updated_at": "2025-10-27T10:09:41.939Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 19",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 20,
+        "created_at": "2025-10-27T10:09:41.939Z",
+        "updated_at": "2025-10-27T10:09:41.939Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 20",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 21,
+        "created_at": "2025-10-27T10:09:41.939Z",
+        "updated_at": "2025-10-27T10:09:41.939Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 21",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 22,
+        "created_at": "2025-10-27T10:09:41.939Z",
+        "updated_at": "2025-10-27T10:09:41.939Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 22",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 23,
+        "created_at": "2025-10-27T10:09:41.939Z",
+        "updated_at": "2025-10-27T10:09:41.939Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 23",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 24,
+        "created_at": "2025-10-27T10:09:41.939Z",
+        "updated_at": "2025-10-27T10:09:41.939Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 24",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 25,
+        "created_at": "2025-10-27T10:09:41.939Z",
+        "updated_at": "2025-10-27T10:09:41.939Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 25",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 26,
+        "created_at": "2025-10-27T10:09:41.939Z",
+        "updated_at": "2025-10-27T10:09:41.939Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 26",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 27,
+        "created_at": "2025-10-27T10:09:41.939Z",
+        "updated_at": "2025-10-27T10:09:41.939Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 27",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 28,
+        "created_at": "2025-10-27T10:09:41.939Z",
+        "updated_at": "2025-10-27T10:09:41.939Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 28",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 29,
+        "created_at": "2025-10-27T10:09:41.939Z",
+        "updated_at": "2025-10-27T10:09:41.939Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 29",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 30,
+        "created_at": "2025-10-27T10:09:41.940Z",
+        "updated_at": "2025-10-27T10:09:41.940Z",
+        "game": [
+            "30 questions"
+        ],
+        "text": "Question 30",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 1,
+        "created_at": "2025-10-27T11:13:34.817Z",
+        "updated_at": "2025-10-27T11:13:34.817Z",
+        "game": [
+            "20 questions"
+        ],
+        "text": "Question 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 2,
+        "created_at": "2025-10-27T11:13:34.817Z",
+        "updated_at": "2025-10-27T11:13:34.817Z",
+        "game": [
+            "20 questions"
+        ],
+        "text": "Question 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 3,
+        "created_at": "2025-10-27T11:13:34.817Z",
+        "updated_at": "2025-10-27T11:13:34.817Z",
+        "game": [
+            "20 questions"
+        ],
+        "text": "Question 3",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 4,
+        "created_at": "2025-10-27T11:13:34.817Z",
+        "updated_at": "2025-10-27T11:13:34.817Z",
+        "game": [
+            "20 questions"
+        ],
+        "text": "Question 4",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 5,
+        "created_at": "2025-10-27T11:13:34.817Z",
+        "updated_at": "2025-10-27T11:13:34.817Z",
+        "game": [
+            "20 questions"
+        ],
+        "text": "Question 5",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 6,
+        "created_at": "2025-10-27T11:13:34.817Z",
+        "updated_at": "2025-10-27T11:13:34.817Z",
+        "game": [
+            "20 questions"
+        ],
+        "text": "Question 6",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 7,
+        "created_at": "2025-10-27T11:13:34.817Z",
+        "updated_at": "2025-10-27T11:13:34.817Z",
+        "game": [
+            "20 questions"
+        ],
+        "text": "Question 7",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 8,
+        "created_at": "2025-10-27T11:13:34.817Z",
+        "updated_at": "2025-10-27T11:13:34.817Z",
+        "game": [
+            "20 questions"
+        ],
+        "text": "Question 8",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 9,
+        "created_at": "2025-10-27T11:13:34.817Z",
+        "updated_at": "2025-10-27T11:13:34.817Z",
+        "game": [
+            "20 questions"
+        ],
+        "text": "Question 9",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 10,
+        "created_at": "2025-10-27T11:13:34.817Z",
+        "updated_at": "2025-10-27T11:13:34.817Z",
+        "game": [
+            "20 questions"
+        ],
+        "text": "Question 10",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 11,
+        "created_at": "2025-10-27T11:13:34.817Z",
+        "updated_at": "2025-10-27T11:13:34.817Z",
+        "game": [
+            "20 questions"
+        ],
+        "text": "Question 11",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 12,
+        "created_at": "2025-10-27T11:13:34.817Z",
+        "updated_at": "2025-10-27T11:13:34.818Z",
+        "game": [
+            "20 questions"
+        ],
+        "text": "Question 12",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 13,
+        "created_at": "2025-10-27T11:13:34.818Z",
+        "updated_at": "2025-10-27T11:13:34.818Z",
+        "game": [
+            "20 questions"
+        ],
+        "text": "Question 13",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 14,
+        "created_at": "2025-10-27T11:13:34.818Z",
+        "updated_at": "2025-10-27T11:13:34.818Z",
+        "game": [
+            "20 questions"
+        ],
+        "text": "Question 14",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 15,
+        "created_at": "2025-10-27T11:13:34.818Z",
+        "updated_at": "2025-10-27T11:13:34.818Z",
+        "game": [
+            "20 questions"
+        ],
+        "text": "Question 15",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 16,
+        "created_at": "2025-10-27T11:13:34.818Z",
+        "updated_at": "2025-10-27T11:13:34.818Z",
+        "game": [
+            "20 questions"
+        ],
+        "text": "Question 16",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 17,
+        "created_at": "2025-10-27T11:13:34.818Z",
+        "updated_at": "2025-10-27T11:13:34.818Z",
+        "game": [
+            "20 questions"
+        ],
+        "text": "Question 17",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 18,
+        "created_at": "2025-10-27T11:13:34.818Z",
+        "updated_at": "2025-10-27T11:13:34.818Z",
+        "game": [
+            "20 questions"
+        ],
+        "text": "Question 18",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 19,
+        "created_at": "2025-10-27T11:13:34.818Z",
+        "updated_at": "2025-10-27T11:13:34.818Z",
+        "game": [
+            "20 questions"
+        ],
+        "text": "Question 19",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 20,
+        "created_at": "2025-10-27T11:13:34.818Z",
+        "updated_at": "2025-10-27T11:13:34.818Z",
+        "game": [
+            "20 questions"
+        ],
+        "text": "Question 20",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 1,
+        "created_at": "2025-10-27T11:16:19.565Z",
+        "updated_at": "2025-10-27T11:16:19.565Z",
         "game": [
             "Quizz"
         ],
-        "text": "1*1",
+        "text": "Question 1",
         "points": 1
     }
 },
 {
-    "model": "app.answer",
+    "model": "app.question",
     "fields": {
-        "order": 0,
-        "created_at": "2025-10-22T08:09:52.413Z",
-        "updated_at": "2025-10-22T08:09:52.507Z",
-        "question": [
-            "Quizz",
-            "1+1"
-        ],
-        "text": "0",
-        "points": 0
-    }
-},
-{
-    "model": "app.answer",
-    "fields": {
-        "order": 0,
-        "created_at": "2025-10-22T08:09:52.413Z",
-        "updated_at": "2025-10-22T08:09:52.507Z",
-        "question": [
-            "Quizz",
-            "1+1"
-        ],
-        "text": "1",
-        "points": 0
-    }
-},
-{
-    "model": "app.answer",
-    "fields": {
-        "order": 0,
-        "created_at": "2025-10-22T08:09:52.413Z",
-        "updated_at": "2025-10-22T08:09:52.507Z",
-        "question": [
-            "Quizz",
-            "1+1"
-        ],
-        "text": "2",
-        "points": 1
-    }
-},
-{
-    "model": "app.answer",
-    "fields": {
-        "order": 0,
-        "created_at": "2025-10-22T08:09:52.413Z",
-        "updated_at": "2025-10-22T08:09:52.507Z",
-        "question": [
-            "Quizz",
-            "1*1"
-        ],
-        "text": "0",
-        "points": 0
-    }
-},
-{
-    "model": "app.answer",
-    "fields": {
-        "order": 0,
-        "created_at": "2025-10-22T08:09:52.413Z",
-        "updated_at": "2025-10-22T08:09:52.507Z",
-        "question": [
-            "Quizz",
-            "1*1"
-        ],
-        "text": "1",
-        "points": 1
-    }
-},
-{
-    "model": "app.answer",
-    "fields": {
-        "order": 0,
-        "created_at": "2025-10-22T08:09:52.413Z",
-        "updated_at": "2025-10-22T08:09:52.507Z",
-        "question": [
-            "Quizz",
-            "1*1"
-        ],
-        "text": "2",
-        "points": 0
-    }
-},
-{
-    "model": "app.play",
-    "fields": {
-        "created_at": "2025-10-22T08:09:52.413Z",
-        "updated_at": "2025-10-22T08:09:52.539Z",
-        "player": [
-            "admin"
-        ],
+        "order": 2,
+        "created_at": "2025-10-27T11:16:19.566Z",
+        "updated_at": "2025-10-27T11:16:19.566Z",
         "game": [
             "Quizz"
         ],
-        "creation_datetime": "2025-10-16T09:54:36.596Z",
-        "entry_set": [
-            [
-                "Quizz",
-                "1+1",
-                "1"
-            ],
-            [
-                "Quizz",
-                "1*1",
-                "1"
-            ]
-        ]
+        "text": "Question 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 3,
+        "created_at": "2025-10-27T11:16:19.566Z",
+        "updated_at": "2025-10-27T11:16:19.566Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 3",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 4,
+        "created_at": "2025-10-27T11:16:19.566Z",
+        "updated_at": "2025-10-27T11:16:19.566Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 4",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 5,
+        "created_at": "2025-10-27T11:16:19.566Z",
+        "updated_at": "2025-10-27T11:16:19.566Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 5",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 6,
+        "created_at": "2025-10-27T11:16:19.566Z",
+        "updated_at": "2025-10-27T11:16:19.566Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 6",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 7,
+        "created_at": "2025-10-27T11:16:19.566Z",
+        "updated_at": "2025-10-27T11:16:19.566Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 7",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 8,
+        "created_at": "2025-10-27T11:16:19.566Z",
+        "updated_at": "2025-10-27T11:16:19.566Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 8",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 9,
+        "created_at": "2025-10-27T11:16:19.566Z",
+        "updated_at": "2025-10-27T11:16:19.566Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 9",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 10,
+        "created_at": "2025-10-27T11:16:19.566Z",
+        "updated_at": "2025-10-27T11:16:19.566Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 10",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 11,
+        "created_at": "2025-10-27T11:16:19.566Z",
+        "updated_at": "2025-10-27T11:16:19.566Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 11",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 12,
+        "created_at": "2025-10-27T11:16:19.566Z",
+        "updated_at": "2025-10-27T11:16:19.566Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 12",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 13,
+        "created_at": "2025-10-27T11:16:19.566Z",
+        "updated_at": "2025-10-27T11:16:19.566Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 13",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 14,
+        "created_at": "2025-10-27T11:16:19.566Z",
+        "updated_at": "2025-10-27T11:16:19.566Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 14",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 15,
+        "created_at": "2025-10-27T11:16:19.566Z",
+        "updated_at": "2025-10-27T11:16:19.566Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 15",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 16,
+        "created_at": "2025-10-27T11:16:19.566Z",
+        "updated_at": "2025-10-27T11:16:19.566Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 16",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 17,
+        "created_at": "2025-10-27T11:16:19.566Z",
+        "updated_at": "2025-10-27T11:16:19.566Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 17",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 18,
+        "created_at": "2025-10-27T11:16:19.566Z",
+        "updated_at": "2025-10-27T11:16:19.566Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 18",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 19,
+        "created_at": "2025-10-27T11:16:19.567Z",
+        "updated_at": "2025-10-27T11:16:19.567Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 19",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 20,
+        "created_at": "2025-10-27T11:16:19.567Z",
+        "updated_at": "2025-10-27T11:16:19.567Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 20",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 21,
+        "created_at": "2025-10-27T11:16:19.567Z",
+        "updated_at": "2025-10-27T11:16:19.567Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 21",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 22,
+        "created_at": "2025-10-27T11:16:19.567Z",
+        "updated_at": "2025-10-27T11:16:19.567Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 22",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 23,
+        "created_at": "2025-10-27T11:16:19.567Z",
+        "updated_at": "2025-10-27T11:16:19.567Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 23",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 24,
+        "created_at": "2025-10-27T11:16:19.567Z",
+        "updated_at": "2025-10-27T11:16:19.567Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 24",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 25,
+        "created_at": "2025-10-27T11:16:19.567Z",
+        "updated_at": "2025-10-27T11:16:19.567Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 25",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 26,
+        "created_at": "2025-10-27T11:16:19.567Z",
+        "updated_at": "2025-10-27T11:16:19.567Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 26",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 27,
+        "created_at": "2025-10-27T11:16:19.567Z",
+        "updated_at": "2025-10-27T11:16:19.567Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 27",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 28,
+        "created_at": "2025-10-27T11:16:19.567Z",
+        "updated_at": "2025-10-27T11:16:19.567Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 28",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 29,
+        "created_at": "2025-10-27T11:16:19.567Z",
+        "updated_at": "2025-10-27T11:16:19.567Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 29",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 30,
+        "created_at": "2025-10-27T11:16:19.567Z",
+        "updated_at": "2025-10-27T11:16:19.567Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 30",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 31,
+        "created_at": "2025-10-27T11:16:19.567Z",
+        "updated_at": "2025-10-27T11:16:19.567Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 31",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 32,
+        "created_at": "2025-10-27T11:16:19.567Z",
+        "updated_at": "2025-10-27T11:16:19.567Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 32",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 33,
+        "created_at": "2025-10-27T11:16:19.567Z",
+        "updated_at": "2025-10-27T11:16:19.568Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 33",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 34,
+        "created_at": "2025-10-27T11:16:19.568Z",
+        "updated_at": "2025-10-27T11:16:19.568Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 34",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 35,
+        "created_at": "2025-10-27T11:16:19.568Z",
+        "updated_at": "2025-10-27T11:16:19.568Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 35",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 36,
+        "created_at": "2025-10-27T11:16:19.568Z",
+        "updated_at": "2025-10-27T11:16:19.568Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 36",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 37,
+        "created_at": "2025-10-27T11:16:19.568Z",
+        "updated_at": "2025-10-27T11:16:19.568Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 37",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 38,
+        "created_at": "2025-10-27T11:16:19.568Z",
+        "updated_at": "2025-10-27T11:16:19.568Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 38",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 39,
+        "created_at": "2025-10-27T11:16:19.568Z",
+        "updated_at": "2025-10-27T11:16:19.568Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 39",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 40,
+        "created_at": "2025-10-27T11:16:19.568Z",
+        "updated_at": "2025-10-27T11:16:19.568Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 40",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 41,
+        "created_at": "2025-10-27T11:16:19.568Z",
+        "updated_at": "2025-10-27T11:16:19.568Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 41",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 42,
+        "created_at": "2025-10-27T11:16:19.568Z",
+        "updated_at": "2025-10-27T11:16:19.568Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 42",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 43,
+        "created_at": "2025-10-27T11:16:19.568Z",
+        "updated_at": "2025-10-27T11:16:19.568Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 43",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 44,
+        "created_at": "2025-10-27T11:16:19.568Z",
+        "updated_at": "2025-10-27T11:16:19.568Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 44",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 45,
+        "created_at": "2025-10-27T11:16:19.568Z",
+        "updated_at": "2025-10-27T11:16:19.568Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 45",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 46,
+        "created_at": "2025-10-27T11:16:19.568Z",
+        "updated_at": "2025-10-27T11:16:19.568Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 46",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 47,
+        "created_at": "2025-10-27T11:16:19.568Z",
+        "updated_at": "2025-10-27T11:16:19.568Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 47",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 48,
+        "created_at": "2025-10-27T11:16:19.568Z",
+        "updated_at": "2025-10-27T11:16:19.568Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 48",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 49,
+        "created_at": "2025-10-27T11:16:19.568Z",
+        "updated_at": "2025-10-27T11:16:19.568Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 49",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 50,
+        "created_at": "2025-10-27T11:16:19.568Z",
+        "updated_at": "2025-10-27T11:16:19.568Z",
+        "game": [
+            "Quizz"
+        ],
+        "text": "Question 50",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 1,
+        "created_at": "2025-10-27T11:17:31.435Z",
+        "updated_at": "2025-10-27T11:17:31.435Z",
+        "game": [
+            "Quizz 2"
+        ],
+        "text": "Question 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 2,
+        "created_at": "2025-10-27T11:17:31.435Z",
+        "updated_at": "2025-10-27T11:17:31.435Z",
+        "game": [
+            "Quizz 2"
+        ],
+        "text": "Question 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 3,
+        "created_at": "2025-10-27T11:17:31.435Z",
+        "updated_at": "2025-10-27T11:17:31.435Z",
+        "game": [
+            "Quizz 2"
+        ],
+        "text": "Question 3",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 4,
+        "created_at": "2025-10-27T11:17:31.435Z",
+        "updated_at": "2025-10-27T11:17:31.435Z",
+        "game": [
+            "Quizz 2"
+        ],
+        "text": "Question 4",
+        "points": 1
+    }
+},
+{
+    "model": "app.question",
+    "fields": {
+        "order": 5,
+        "created_at": "2025-10-27T11:17:31.435Z",
+        "updated_at": "2025-10-27T11:17:31.435Z",
+        "game": [
+            "Quizz 2"
+        ],
+        "text": "Question 5",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 1"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 1"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 1"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 2"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 2"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 2"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 3"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 3"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 3"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 4"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 4"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 4"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 5"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 5"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 5"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 6"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 6"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 6"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 7"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 7"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 7"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 8"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 8"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 8"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 9"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 9"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 9"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 10"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 10"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 10"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.576Z",
+        "updated_at": "2025-10-27T10:10:08.576Z",
+        "question": [
+            "30 questions",
+            "Question 11"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 11"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 11"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 12"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 12"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 12"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 13"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 13"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 13"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 14"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 14"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 14"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 15"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 15"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 15"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 16"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 16"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 16"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 17"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 17"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 17"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 18"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 18"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 18"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 19"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 19"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 19"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 20"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 20"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 20"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 21"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 21"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 21"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 22"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 22"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 22"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 23"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 23"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 23"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 24"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 24"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 24"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 25"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 25"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 25"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 26"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 26"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 26"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 27"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 27"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 27"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 28"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.577Z",
+        "question": [
+            "30 questions",
+            "Question 28"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.577Z",
+        "updated_at": "2025-10-27T10:10:08.578Z",
+        "question": [
+            "30 questions",
+            "Question 28"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.578Z",
+        "updated_at": "2025-10-27T10:10:08.578Z",
+        "question": [
+            "30 questions",
+            "Question 29"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.578Z",
+        "updated_at": "2025-10-27T10:10:08.578Z",
+        "question": [
+            "30 questions",
+            "Question 29"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.578Z",
+        "updated_at": "2025-10-27T10:10:08.578Z",
+        "question": [
+            "30 questions",
+            "Question 29"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.578Z",
+        "updated_at": "2025-10-27T10:10:08.578Z",
+        "question": [
+            "30 questions",
+            "Question 30"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.578Z",
+        "updated_at": "2025-10-27T10:10:08.578Z",
+        "question": [
+            "30 questions",
+            "Question 30"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T10:10:08.578Z",
+        "updated_at": "2025-10-27T10:10:08.578Z",
+        "question": [
+            "30 questions",
+            "Question 30"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 1"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 1"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 1"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 2"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 2"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 2"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 3"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 3"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 3"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 4"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 4"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 4"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 5"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 5"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 5"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 6"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 6"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 6"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 7"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 7"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 7"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 8"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 8"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 8"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 9"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 9"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 9"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 10"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 10"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 10"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 11"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 11"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 11"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 12"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 12"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 12"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 13"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 13"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 13"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 14"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.550Z",
+        "updated_at": "2025-10-27T11:13:44.550Z",
+        "question": [
+            "20 questions",
+            "Question 14"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.551Z",
+        "updated_at": "2025-10-27T11:13:44.551Z",
+        "question": [
+            "20 questions",
+            "Question 14"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.551Z",
+        "updated_at": "2025-10-27T11:13:44.551Z",
+        "question": [
+            "20 questions",
+            "Question 15"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.551Z",
+        "updated_at": "2025-10-27T11:13:44.551Z",
+        "question": [
+            "20 questions",
+            "Question 15"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.551Z",
+        "updated_at": "2025-10-27T11:13:44.551Z",
+        "question": [
+            "20 questions",
+            "Question 15"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.551Z",
+        "updated_at": "2025-10-27T11:13:44.551Z",
+        "question": [
+            "20 questions",
+            "Question 16"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.551Z",
+        "updated_at": "2025-10-27T11:13:44.551Z",
+        "question": [
+            "20 questions",
+            "Question 16"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.551Z",
+        "updated_at": "2025-10-27T11:13:44.551Z",
+        "question": [
+            "20 questions",
+            "Question 16"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.551Z",
+        "updated_at": "2025-10-27T11:13:44.551Z",
+        "question": [
+            "20 questions",
+            "Question 17"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.551Z",
+        "updated_at": "2025-10-27T11:13:44.551Z",
+        "question": [
+            "20 questions",
+            "Question 17"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.551Z",
+        "updated_at": "2025-10-27T11:13:44.551Z",
+        "question": [
+            "20 questions",
+            "Question 17"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.551Z",
+        "updated_at": "2025-10-27T11:13:44.551Z",
+        "question": [
+            "20 questions",
+            "Question 18"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.551Z",
+        "updated_at": "2025-10-27T11:13:44.551Z",
+        "question": [
+            "20 questions",
+            "Question 18"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.551Z",
+        "updated_at": "2025-10-27T11:13:44.551Z",
+        "question": [
+            "20 questions",
+            "Question 18"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.551Z",
+        "updated_at": "2025-10-27T11:13:44.551Z",
+        "question": [
+            "20 questions",
+            "Question 19"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.551Z",
+        "updated_at": "2025-10-27T11:13:44.551Z",
+        "question": [
+            "20 questions",
+            "Question 19"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.551Z",
+        "updated_at": "2025-10-27T11:13:44.551Z",
+        "question": [
+            "20 questions",
+            "Question 19"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.551Z",
+        "updated_at": "2025-10-27T11:13:44.551Z",
+        "question": [
+            "20 questions",
+            "Question 20"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.551Z",
+        "updated_at": "2025-10-27T11:13:44.551Z",
+        "question": [
+            "20 questions",
+            "Question 20"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:13:44.551Z",
+        "updated_at": "2025-10-27T11:13:44.551Z",
+        "question": [
+            "20 questions",
+            "Question 20"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.679Z",
+        "updated_at": "2025-10-27T11:16:24.679Z",
+        "question": [
+            "Quizz",
+            "Question 1"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.679Z",
+        "updated_at": "2025-10-27T11:16:24.679Z",
+        "question": [
+            "Quizz",
+            "Question 1"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.679Z",
+        "updated_at": "2025-10-27T11:16:24.679Z",
+        "question": [
+            "Quizz",
+            "Question 1"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.679Z",
+        "updated_at": "2025-10-27T11:16:24.679Z",
+        "question": [
+            "Quizz",
+            "Question 2"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.679Z",
+        "updated_at": "2025-10-27T11:16:24.679Z",
+        "question": [
+            "Quizz",
+            "Question 2"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.679Z",
+        "updated_at": "2025-10-27T11:16:24.679Z",
+        "question": [
+            "Quizz",
+            "Question 2"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.679Z",
+        "updated_at": "2025-10-27T11:16:24.679Z",
+        "question": [
+            "Quizz",
+            "Question 3"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.679Z",
+        "updated_at": "2025-10-27T11:16:24.679Z",
+        "question": [
+            "Quizz",
+            "Question 3"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.679Z",
+        "updated_at": "2025-10-27T11:16:24.679Z",
+        "question": [
+            "Quizz",
+            "Question 3"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.679Z",
+        "updated_at": "2025-10-27T11:16:24.679Z",
+        "question": [
+            "Quizz",
+            "Question 4"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.679Z",
+        "updated_at": "2025-10-27T11:16:24.679Z",
+        "question": [
+            "Quizz",
+            "Question 4"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.679Z",
+        "updated_at": "2025-10-27T11:16:24.679Z",
+        "question": [
+            "Quizz",
+            "Question 4"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.679Z",
+        "updated_at": "2025-10-27T11:16:24.679Z",
+        "question": [
+            "Quizz",
+            "Question 5"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.679Z",
+        "updated_at": "2025-10-27T11:16:24.679Z",
+        "question": [
+            "Quizz",
+            "Question 5"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.679Z",
+        "updated_at": "2025-10-27T11:16:24.679Z",
+        "question": [
+            "Quizz",
+            "Question 5"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.679Z",
+        "updated_at": "2025-10-27T11:16:24.679Z",
+        "question": [
+            "Quizz",
+            "Question 6"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.679Z",
+        "updated_at": "2025-10-27T11:16:24.679Z",
+        "question": [
+            "Quizz",
+            "Question 6"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.679Z",
+        "updated_at": "2025-10-27T11:16:24.679Z",
+        "question": [
+            "Quizz",
+            "Question 6"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.679Z",
+        "updated_at": "2025-10-27T11:16:24.679Z",
+        "question": [
+            "Quizz",
+            "Question 7"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.679Z",
+        "updated_at": "2025-10-27T11:16:24.679Z",
+        "question": [
+            "Quizz",
+            "Question 7"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.679Z",
+        "updated_at": "2025-10-27T11:16:24.679Z",
+        "question": [
+            "Quizz",
+            "Question 7"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.679Z",
+        "updated_at": "2025-10-27T11:16:24.679Z",
+        "question": [
+            "Quizz",
+            "Question 8"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.679Z",
+        "updated_at": "2025-10-27T11:16:24.679Z",
+        "question": [
+            "Quizz",
+            "Question 8"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.679Z",
+        "updated_at": "2025-10-27T11:16:24.679Z",
+        "question": [
+            "Quizz",
+            "Question 8"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.679Z",
+        "updated_at": "2025-10-27T11:16:24.679Z",
+        "question": [
+            "Quizz",
+            "Question 9"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.679Z",
+        "updated_at": "2025-10-27T11:16:24.679Z",
+        "question": [
+            "Quizz",
+            "Question 9"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 9"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 10"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 10"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 10"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 11"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 11"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 11"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 12"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 12"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 12"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 13"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 13"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 13"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 14"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 14"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 14"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 15"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 15"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 15"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 16"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 16"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 16"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 17"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 17"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 17"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 18"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 18"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 18"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 19"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 19"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 19"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 20"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 20"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 20"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 21"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 21"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 21"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 22"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 22"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 22"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 23"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 23"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 23"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 24"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 24"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 24"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 25"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.680Z",
+        "updated_at": "2025-10-27T11:16:24.680Z",
+        "question": [
+            "Quizz",
+            "Question 25"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 25"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 26"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 26"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 26"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 27"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 27"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 27"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 28"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 28"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 28"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 29"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 29"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 29"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 30"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 30"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 30"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 31"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 31"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 31"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 32"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 32"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 32"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 33"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 33"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 33"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 34"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 34"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 34"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 35"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 35"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 35"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 36"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 36"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 36"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 37"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 37"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 37"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 38"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 38"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 38"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 39"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 39"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 39"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 40"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 40"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 40"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 41"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.681Z",
+        "updated_at": "2025-10-27T11:16:24.681Z",
+        "question": [
+            "Quizz",
+            "Question 41"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 41"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 42"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 42"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 42"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 43"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 43"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 43"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 44"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 44"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 44"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 45"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 45"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 45"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 46"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 46"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 46"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 47"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 47"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 47"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 48"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 48"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 48"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 49"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 49"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 49"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 50"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 50"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:16:24.682Z",
+        "updated_at": "2025-10-27T11:16:24.682Z",
+        "question": [
+            "Quizz",
+            "Question 50"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:17:37.198Z",
+        "updated_at": "2025-10-27T11:17:37.198Z",
+        "question": [
+            "Quizz 2",
+            "Question 1"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:17:37.198Z",
+        "updated_at": "2025-10-27T11:17:37.198Z",
+        "question": [
+            "Quizz 2",
+            "Question 1"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:17:37.198Z",
+        "updated_at": "2025-10-27T11:17:37.198Z",
+        "question": [
+            "Quizz 2",
+            "Question 1"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:17:37.198Z",
+        "updated_at": "2025-10-27T11:17:37.198Z",
+        "question": [
+            "Quizz 2",
+            "Question 2"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:17:37.198Z",
+        "updated_at": "2025-10-27T11:17:37.198Z",
+        "question": [
+            "Quizz 2",
+            "Question 2"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:17:37.198Z",
+        "updated_at": "2025-10-27T11:17:37.198Z",
+        "question": [
+            "Quizz 2",
+            "Question 2"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:17:37.198Z",
+        "updated_at": "2025-10-27T11:17:37.198Z",
+        "question": [
+            "Quizz 2",
+            "Question 3"
+        ],
+        "text": "Answer 0",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:17:37.198Z",
+        "updated_at": "2025-10-27T11:17:37.198Z",
+        "question": [
+            "Quizz 2",
+            "Question 3"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:17:37.198Z",
+        "updated_at": "2025-10-27T11:17:37.198Z",
+        "question": [
+            "Quizz 2",
+            "Question 3"
+        ],
+        "text": "Answer 2",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:17:37.199Z",
+        "updated_at": "2025-10-27T11:17:37.199Z",
+        "question": [
+            "Quizz 2",
+            "Question 4"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:17:37.199Z",
+        "updated_at": "2025-10-27T11:17:37.199Z",
+        "question": [
+            "Quizz 2",
+            "Question 4"
+        ],
+        "text": "Answer 1",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:17:37.199Z",
+        "updated_at": "2025-10-27T11:17:37.199Z",
+        "question": [
+            "Quizz 2",
+            "Question 4"
+        ],
+        "text": "Answer 2",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:17:37.199Z",
+        "updated_at": "2025-10-27T11:17:37.199Z",
+        "question": [
+            "Quizz 2",
+            "Question 5"
+        ],
+        "text": "Answer 0",
+        "points": 0
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:17:37.199Z",
+        "updated_at": "2025-10-27T11:17:37.199Z",
+        "question": [
+            "Quizz 2",
+            "Question 5"
+        ],
+        "text": "Answer 1",
+        "points": 1
+    }
+},
+{
+    "model": "app.answer",
+    "fields": {
+        "order": 0,
+        "created_at": "2025-10-27T11:17:37.199Z",
+        "updated_at": "2025-10-27T11:17:37.199Z",
+        "question": [
+            "Quizz 2",
+            "Question 5"
+        ],
+        "text": "Answer 2",
+        "points": 0
     }
 }
 ]

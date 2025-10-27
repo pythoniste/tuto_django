@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-27 10:07+0100\n"
-"PO-Revision-Date: 2025-10-27 10:08+0100\n"
+"POT-Creation-Date: 2025-10-27 13:08+0100\n"
+"PO-Revision-Date: 2025-10-27 10:30+0100\n"
 "Last-Translator: The Admin <admin@example.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,63 +19,63 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.2\n"
 
-#: app/admin.py:60
+#: app/admin.py:70
 msgid "Contract information"
 msgstr "Informations contactuelles"
 
-#: app/admin.py:66
+#: app/admin.py:76
 msgid "Personal information"
 msgstr "Informations personnelles"
 
-#: app/admin.py:87 app/admin.py:206
+#: app/admin.py:97 app/admin.py:222
 msgid "username"
 msgstr "Nom d'utilisateur"
 
-#: app/admin.py:91 app/admin.py:210
+#: app/admin.py:101 app/admin.py:226
 msgid "first name"
 msgstr "Prénom"
 
-#: app/admin.py:95 app/admin.py:214
+#: app/admin.py:105 app/admin.py:230
 msgid "last name"
 msgstr "Nom"
 
-#: app/admin.py:110 app/admin.py:220
+#: app/admin.py:120 app/admin.py:236
 msgid "No row updated"
 msgstr "Aucune ligne modifiée"
 
-#: app/admin.py:112 app/admin.py:222
+#: app/admin.py:122 app/admin.py:238
 msgid "1 row updated"
 msgstr "1 ligne modifiée"
 
-#: app/admin.py:114 app/admin.py:224
+#: app/admin.py:124 app/admin.py:240
 msgid "{} rows updated"
 msgstr "{} lignes modifiées"
 
-#: app/admin.py:116 app/admin.py:226
+#: app/admin.py:126 app/admin.py:242
 msgid "Reset scores"
 msgstr "Remettre les scores à 0"
 
-#: app/admin.py:128
+#: app/admin.py:138
 msgid "Invitation"
 msgstr "Invitation"
 
-#: app/admin.py:140
+#: app/admin.py:150
 msgid "Subscription details"
 msgstr "détails de souscription"
 
-#: app/admin.py:152 app/admin.py:165
+#: app/admin.py:162 app/admin.py:175
 msgid "Membership details"
 msgstr "Détail de l'adhésion"
 
-#: app/admin.py:276
+#: app/admin.py:292
 msgid "Open"
 msgstr "Ouvert"
 
-#: app/admin.py:391
+#: app/admin.py:408
 msgid "Number of questions"
 msgstr "Nombre de questions"
 
-#: app/admin.py:396
+#: app/admin.py:413
 msgid "Number of players"
 msgstr "Nombre de joueurs"
 
@@ -118,6 +118,50 @@ msgstr "extrême"
 #: app/enums.py:27
 msgid "nightmare"
 msgstr "cauchemard"
+
+#: app/filters.py:12
+msgid "Quizz length"
+msgstr "Longueur du jeu"
+
+#: app/filters.py:19
+msgid "Void"
+msgstr "Vide"
+
+#: app/filters.py:20
+msgid "Quick"
+msgstr "Rapide"
+
+#: app/filters.py:21
+msgid "Medium"
+msgstr "moyen"
+
+#: app/filters.py:22
+msgid "Long"
+msgstr "Long"
+
+#: app/filters.py:108
+msgid "creation month"
+msgstr "mois de création"
+
+#: app/filters.py:110
+msgid "last modification month"
+msgstr "mois de dernière modification"
+
+#: app/filters.py:112
+msgid "subscription month"
+msgstr "mois de souscription"
+
+#: app/filters.py:115
+msgid "creation year"
+msgstr "année de création"
+
+#: app/filters.py:117
+msgid "last modification year"
+msgstr "année de dernière modification"
+
+#: app/filters.py:119
+msgid "subscription year"
+msgstr "année de souscription"
 
 #: app/mixins.py:8
 msgid "order"
@@ -284,12 +328,10 @@ msgid "plays"
 msgstr "parties"
 
 #: app/models.py:465
-#| msgid "games"
 msgid "stat games"
 msgstr "stat jeux"
 
 #: app/models.py:466
-#| msgid "games"
 msgid "stats games"
 msgstr "stats jeux"
 
@@ -444,8 +486,8 @@ msgstr "Votre mot de passe a été changé"
 
 #: app/templates/registration/password_change_form.html:8
 msgid ""
-"Please enter your old password, for security’s sake, and then enter your new"
-" password twice so we can verify you typed it in correctly."
+"Please enter your old password, for security’s sake, and then enter your new "
+"password twice so we can verify you typed it in correctly."
 msgstr ""
 "Entrez votre ancien mot de passe pour des raisons de sécurité, et ensuite "
 "entrez votre nouveau mot de passe de fois, de manière à s'assurer qu'il n'y "
@@ -472,8 +514,8 @@ msgid ""
 "Please enter your new password twice so we can verify you typed it in "
 "correctly."
 msgstr ""
-"Veuillez entrer votre mot de passe de fois de manière à ce qu'il n'y ait pas"
-" de faute de frappe"
+"Veuillez entrer votre mot de passe de fois de manière à ce qu'il n'y ait pas "
+"de faute de frappe"
 
 #: app/templates/registration/password_reset_confirm.html:13
 #: app/templates/registration/password_reset_form.html:11
@@ -485,8 +527,8 @@ msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used. Please request a new password reset."
 msgstr ""
-"Le lien de réinitialisation du mot de passe était invalide, possiblement car"
-" il a déjà été utilisé. Merci de recommencer la procédure."
+"Le lien de réinitialisation du mot de passe était invalide, possiblement car "
+"il a déjà été utilisé. Merci de recommencer la procédure."
 
 #: app/templates/registration/password_reset_done.html:8
 msgid ""
@@ -494,8 +536,8 @@ msgid ""
 "exists with the email you entered. You should receive them shortly."
 msgstr ""
 "Nous vous avons envoyé par mail des instructions pour mettre à jour votre "
-"mot de passe, si un compte existe avec l'email que vous avez renseigné. Vous"
-" devrier les recevoir sous peu."
+"mot de passe, si un compte existe avec l'email que vous avez renseigné. Vous "
+"devrier les recevoir sous peu."
 
 #: app/templates/registration/password_reset_done.html:9
 msgid ""
@@ -551,6 +593,9 @@ msgstr "Créer un nouveau jeu"
 #: app/views.py:113
 msgid "Delete Game: {}"
 msgstr "Supprimer le jeu: {}"
+
+#~ msgid "Nb of questions"
+#~ msgstr "Nb questions"
 
 #~ msgid "Ouvrir"
 #~ msgstr "Ouvrir"

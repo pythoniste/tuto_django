@@ -68,3 +68,4 @@ Only steps of the current branch are displayed here. Change branch to see other 
 * Advanced CRUD
   * v1.8.0 Polymorphic views
   * v1.8.1 Multiple views for one model
+  * v1.8.2 Advanced filters

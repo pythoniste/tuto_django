@@ -23,6 +23,16 @@ from .models import (
     StatGame,
 )
 
+from .filters import (
+    QuestionQuantityFilter,
+    CreationMonthListFilter,
+    ModificationMonthListFilter,
+    SubscriptionMonthListFilter,
+    CreationYearListFilter,
+    ModificationYearListFilter,
+    SubscriptionYearListFilter,
+)
+
 
 class PlayerChildAdmin(PolymorphicChildModelAdmin):
     base_model = Player
@@ -192,6 +202,12 @@ class PlayerParentAdmin(PolymorphicParentModelAdmin):
         "profile_activated",
         "subscription_date",
         "score",
+        CreationMonthListFilter,
+        ModificationMonthListFilter,
+        SubscriptionMonthListFilter,
+        CreationYearListFilter,
+        ModificationYearListFilter,
+        SubscriptionYearListFilter,
     )
     list_display = (
         "user_username",
@@ -243,7 +259,7 @@ class QuestionInline(admin.TabularInline):
     model = Question
     fields = ("text", "points", "order")
     min_num = 2
-    max_num = 5
+    max_num = 50
     extra = 1
     show_change_link = True
 
@@ -387,6 +403,7 @@ class StatGameAdmin(admin.ModelAdmin):
     list_filter = (
         "status",
         "level",
+        QuestionQuantityFilter,
     )
     list_display = (
         "name",
