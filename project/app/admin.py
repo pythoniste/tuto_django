@@ -1,7 +1,16 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as gettext
 
-from .models import Player, Game, Question, Answer, Play
+from mptt.admin import MPTTModelAdmin
+
+from .models import (
+    Player,
+    Game,
+    Question,
+    Answer,
+    Play,
+    Genre,
+)
 
 
 @admin.register(Player)
@@ -107,6 +116,12 @@ class QuestionInline(admin.TabularInline):
     max_num = 5
     extra = 1
     show_change_link = True
+
+
+@admin.register(Genre)
+class GenreAdmin(MPTTModelAdmin):
+
+    mptt_level_indent = 20
 
 
 @admin.register(Game)

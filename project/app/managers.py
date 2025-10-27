@@ -1,6 +1,8 @@
 from django.contrib.postgres.search import TrigramSimilarity
 from django.db import models
 
+from mptt.managers import TreeManager
+
 from .enums import GameStatus, GameLevel
 
 
@@ -84,3 +86,9 @@ class PlayManager(models.Manager):
             player__user__username=user_username,
             game__name=game_name,
         )
+
+
+class GenreManager(TreeManager):
+
+    def get_by_natural_key(self, name: str):
+        return self.get(name=name)

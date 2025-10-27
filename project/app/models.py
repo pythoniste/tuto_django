@@ -8,6 +8,8 @@ from django.utils.timezone import now
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as gettext
 
+from mptt.models import MPTTModel, TreeForeignKey
+
 
 from .enums import GameLevel, GameStatus
 from .managers import (
@@ -16,6 +18,7 @@ from .managers import (
     QuestionManager,
     AnswerManager,
     PlayManager,
+    GenreManager,
 )
 from .mixins import (
     OrderingMixin,
@@ -104,6 +107,37 @@ class Player(TrackingMixin, models.Model):
         ordering = ("user__username",)
 
 
+class Genre(MPTTModel):
+
+    objects = GenreManager()
+
+    name = models.CharField(
+        verbose_name=gettext("name"),
+        max_length=50,
+        unique=True,
+    )
+
+    parent = TreeForeignKey(
+        verbose_name=gettext("parent"),
+        related_name='children',
+        to='self',
+        blank=True,
+        null=True,
+        on_delete=models.CASCADE,
+    )
+
+    def __str__(self):
+        return self.name
+
+    def natural_key(self) -> tuple[str]:
+        return (self.name,)
+
+    class MPTTMeta:
+        verbose_name = gettext("genre")
+        verbose_name_plural = gettext("genres")
+        order_insertion_by = ['name']
+
+
 class Game(TrackingMixin, models.Model):
 
     objects = GameManager()
@@ -137,6 +171,15 @@ class Game(TrackingMixin, models.Model):
         blank=True,
         null=True,
         db_index=True,
+    )
+
+    genre = models.ForeignKey(
+        verbose_name=gettext("genre"),
+        related_name="game_set",
+        to=Genre,
+        null=True,
+        db_index=True,
+        on_delete=models.CASCADE,
     )
 
     duration = models.DurationField(

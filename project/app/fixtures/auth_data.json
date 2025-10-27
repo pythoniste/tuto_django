@@ -648,6 +648,42 @@
     }
 },
 {
+    "model": "auth.permission",
+    "pk": 73,
+    "fields": {
+        "name": "Can add genre",
+        "content_type": 19,
+        "codename": "add_genre"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 74,
+    "fields": {
+        "name": "Can change genre",
+        "content_type": 19,
+        "codename": "change_genre"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 75,
+    "fields": {
+        "name": "Can delete genre",
+        "content_type": 19,
+        "codename": "delete_genre"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 76,
+    "fields": {
+        "name": "Can view genre",
+        "content_type": 19,
+        "codename": "view_genre"
+    }
+},
+{
     "model": "auth.user",
     "pk": 1,
     "fields": {

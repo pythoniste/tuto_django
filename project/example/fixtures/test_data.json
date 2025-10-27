@@ -1,0 +1,242 @@
+[
+{
+    "model": "example.tag",
+    "pk": 1,
+    "fields": {
+        "label": "Premier niveau"
+    }
+},
+{
+    "model": "example.tag",
+    "pk": 2,
+    "fields": {
+        "label": "Second niveau"
+    }
+},
+{
+    "model": "example.theme",
+    "pk": 1,
+    "fields": {
+        "label": "Montagne",
+        "color": "#ffffff"
+    }
+},
+{
+    "model": "example.theme",
+    "pk": 2,
+    "fields": {
+        "label": "Mer",
+        "color": "#0000ff"
+    }
+},
+{
+    "model": "example.theme",
+    "pk": 3,
+    "fields": {
+        "label": "Plaine",
+        "color": "#00ff00"
+    }
+},
+{
+    "model": "example.theme",
+    "pk": 4,
+    "fields": {
+        "label": "Volcan",
+        "color": "#ff0000"
+    }
+},
+{
+    "model": "example.theme",
+    "pk": 5,
+    "fields": {
+        "label": "Désert",
+        "color": "#000000"
+    }
+},
+{
+    "model": "example.category",
+    "pk": 1,
+    "fields": {
+        "parent": null,
+        "label": "Sport"
+    }
+},
+{
+    "model": "example.category",
+    "pk": 2,
+    "fields": {
+        "parent": 1,
+        "label": "Rugby"
+    }
+},
+{
+    "model": "example.category",
+    "pk": 3,
+    "fields": {
+        "parent": 1,
+        "label": "Natation"
+    }
+},
+{
+    "model": "example.category",
+    "pk": 4,
+    "fields": {
+        "parent": 1,
+        "label": "Tennis"
+    }
+},
+{
+    "model": "example.category",
+    "pk": 5,
+    "fields": {
+        "parent": null,
+        "label": "Loisir"
+    }
+},
+{
+    "model": "example.category",
+    "pk": 6,
+    "fields": {
+        "parent": 5,
+        "label": "Randonnée"
+    }
+},
+{
+    "model": "example.category",
+    "pk": 7,
+    "fields": {
+        "parent": 5,
+        "label": "Danses sociales"
+    }
+},
+{
+    "model": "example.category",
+    "pk": 8,
+    "fields": {
+        "parent": 7,
+        "label": "Rock"
+    }
+},
+{
+    "model": "example.category",
+    "pk": 9,
+    "fields": {
+        "parent": 7,
+        "label": "West coast swing"
+    }
+},
+{
+    "model": "example.category",
+    "pk": 10,
+    "fields": {
+        "parent": 7,
+        "label": "Salsa"
+    }
+},
+{
+    "model": "example.category",
+    "pk": 11,
+    "fields": {
+        "parent": 5,
+        "label": "Parapente"
+    }
+},
+{
+    "model": "example.category",
+    "pk": 13,
+    "fields": {
+        "parent": 1,
+        "label": "Krav maga"
+    }
+},
+{
+    "model": "example.test",
+    "pk": "b36ac9f8-df81-4a56-8de9-55df8fd8cb80",
+    "fields": {
+        "label": "Premier test",
+        "category": 10,
+        "category2": 11,
+        "category3": 6,
+        "category4": 8,
+        "category5": 4,
+        "category6": 3,
+        "color": null,
+        "quality": null,
+        "size": null,
+        "number": 42,
+        "percent": "10.00",
+        "progress": 15.0,
+        "grade": 9,
+        "slug": "premier-test",
+        "owner": null,
+        "url": null,
+        "key": "38fe23a9-1d6c-4747-9244-62299f67920d",
+        "description": "",
+        "active": false,
+        "highlight": null,
+        "creation_date": "2025-10-27",
+        "last_modification_date": "2025-10-27",
+        "random_date": "2025-10-27",
+        "creation_datetime": "2025-10-27T15:22:36.751Z",
+        "last_modification_datetime": "2025-10-27T16:15:43.790Z",
+        "random_datetime": "2025-10-16T15:30:00Z",
+        "duration": "02:10:00",
+        "creation_time": "16:22:36.751",
+        "last_modification_time": "17:15:43.790",
+        "random_time": "07:15:45",
+        "ip": "127.0.0.1",
+        "ipv4": "127.0.0.1",
+        "ipv6_forced": "127.0.0.1",
+        "ipv6": null,
+        "raw_data": null,
+        "file": "",
+        "image": "",
+        "path": "/opt/app/project/static/README.md",
+        "theme_set": [
+            2,
+            1
+        ],
+        "theme_set2": [
+            2,
+            4
+        ],
+        "theme_set3": [
+            5,
+            3
+        ],
+        "theme_set4": [
+            2,
+            3
+        ],
+        "theme_set5": [
+            5,
+            1,
+            4
+        ],
+        "theme_set6": [
+            2,
+            4
+        ]
+    }
+},
+{
+    "model": "example.mapping",
+    "pk": 1,
+    "fields": {
+        "test": "b36ac9f8-df81-4a56-8de9-55df8fd8cb80",
+        "tag": 1,
+        "order": 0,
+        "info": "Pas vraiment"
+    }
+},
+{
+    "model": "example.mapping",
+    "pk": 2,
+    "fields": {
+        "test": "b36ac9f8-df81-4a56-8de9-55df8fd8cb80",
+        "tag": 2,
+        "order": 1,
+        "info": "Pas mieux"
+    }
+}
+]

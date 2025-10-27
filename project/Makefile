@@ -26,12 +26,13 @@ create_admin:
 .PHONY: save
 save:
 	poetry run python manage.py dumpdata app --natural-primary --natural-foreign --indent 4 -o app/fixtures/test_data.json
+	poetry run python manage.py dumpdata example --indent 4 -o example/fixtures/test_data.json
 	poetry run python manage.py dumpdata auth --indent 4 -o app/fixtures/auth_data.json
 
 .PHONY: load
 load:
 	poetry run python manage.py loaddata app/fixtures/auth_data.json
-	poetry run python manage.py loaddata app/fixtures/test_data.json
+	poetry run python manage.py loaddata test_data.json
 
 .PHONY: create_db
 create_db:

@@ -37,6 +37,7 @@ from django.utils.timezone import now
 from django.utils.translation import gettext_lazy as gettext
 
 from .enums import StickerCategory
+from .managers import CategoryManager
 
 
 def compute_upload_path(current_object, filename, sub_path):
@@ -180,6 +181,8 @@ class Theme(Model):
 
 
 class Category(Model):
+
+    objects = CategoryManager()
 
     parent = ForeignKey(
         verbose_name=gettext("parent"),

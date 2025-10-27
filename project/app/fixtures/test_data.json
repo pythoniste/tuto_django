@@ -30,13 +30,89 @@
     }
 },
 {
+    "model": "app.genre",
+    "fields": {
+        "name": "Informatique",
+        "parent": null,
+        "lft": 1,
+        "rght": 6,
+        "tree_id": 1,
+        "level": 0
+    }
+},
+{
+    "model": "app.genre",
+    "fields": {
+        "name": "Python",
+        "parent": [
+            "Informatique"
+        ],
+        "lft": 4,
+        "rght": 5,
+        "tree_id": 1,
+        "level": 1
+    }
+},
+{
+    "model": "app.genre",
+    "fields": {
+        "name": "Maths",
+        "parent": null,
+        "lft": 1,
+        "rght": 8,
+        "tree_id": 3,
+        "level": 0
+    }
+},
+{
+    "model": "app.genre",
+    "fields": {
+        "name": "Algèbre",
+        "parent": [
+            "Maths"
+        ],
+        "lft": 2,
+        "rght": 3,
+        "tree_id": 3,
+        "level": 1
+    }
+},
+{
+    "model": "app.genre",
+    "fields": {
+        "name": "Géométrie",
+        "parent": [
+            "Maths"
+        ],
+        "lft": 4,
+        "rght": 5,
+        "tree_id": 3,
+        "level": 1
+    }
+},
+{
+    "model": "app.genre",
+    "fields": {
+        "name": "Django",
+        "parent": [
+            "Informatique"
+        ],
+        "lft": 2,
+        "rght": 3,
+        "tree_id": 1,
+        "level": 1
+    }
+},
+{
     "model": "app.game",
     "fields": {
         "created_at": "2025-10-22T08:09:52.413Z",
         "updated_at": "2025-10-22T08:09:52.521Z",
         "name": "test",
+        "slug": "",
         "status": "done",
         "level": null,
+        "genre": null,
         "duration": null
     }
 },
@@ -46,8 +122,10 @@
         "created_at": "2025-10-22T08:09:52.413Z",
         "updated_at": "2025-10-22T08:09:52.521Z",
         "name": "Quizz",
+        "slug": "",
         "status": "draft",
         "level": 4,
+        "genre": null,
         "duration": null
     }
 },
@@ -57,8 +135,10 @@
         "created_at": "2025-10-22T08:09:52.413Z",
         "updated_at": "2025-10-22T08:09:52.521Z",
         "name": "Autre",
+        "slug": "",
         "status": "ready",
         "level": 2,
+        "genre": null,
         "duration": null
     }
 },
@@ -68,8 +148,10 @@
         "created_at": "2025-10-22T08:09:52.413Z",
         "updated_at": "2025-10-22T08:09:52.521Z",
         "name": "Quizz 2",
+        "slug": "",
         "status": "draft",
         "level": null,
+        "genre": null,
         "duration": null
     }
 },
