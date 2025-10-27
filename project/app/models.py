@@ -5,6 +5,7 @@ from uuid import uuid4
 from django.conf import settings
 from django.db import models
 from django.utils.timezone import now
+from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as gettext
 
 
@@ -115,6 +116,12 @@ class Game(TrackingMixin, models.Model):
         unique=True,
     )
 
+    slug = models.SlugField(
+        max_length=36,
+        blank=False,
+        db_index=True,
+    )
+
     status = models.CharField(
         verbose_name=gettext("status"),
         choices=GameStatus,
@@ -137,6 +144,25 @@ class Game(TrackingMixin, models.Model):
         blank=True,
         null=True,
     )
+
+    @classmethod
+    def generate_slug(cls, name):
+        base_slug = slugify(name)
+        existing_suffixes = [
+            g.slug[len(base_slug) + 1:]
+            for g in Game.objects.filter(slug__startswith=base_slug).all()
+        ]
+
+        if len(existing_suffixes) == 0:
+            return base_slug
+
+        if "" in existing_suffixes:
+            existing_suffixes.remove("")
+        existing_suffixes.append(1)
+
+        last_number = max(int(suffix) for suffix in existing_suffixes)
+        suffix = str(f"-{last_number + 1}")
+        return base_slug + suffix
 
     def __str__(self):
         return self.name
