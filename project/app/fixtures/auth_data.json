@@ -828,11 +828,47 @@
     }
 },
 {
+    "model": "auth.permission",
+    "pk": 89,
+    "fields": {
+        "name": "Can add session",
+        "content_type": 23,
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 90,
+    "fields": {
+        "name": "Can change session",
+        "content_type": 23,
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 91,
+    "fields": {
+        "name": "Can delete session",
+        "content_type": 23,
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 92,
+    "fields": {
+        "name": "Can view session",
+        "content_type": 23,
+        "codename": "view_session"
+    }
+},
+{
     "model": "auth.user",
     "pk": 1,
     "fields": {
         "password": "pbkdf2_sha256$1000000$eVprXhMYtOx0RQRi5FS6Zp$EkscbFZrPlF07betPMKh1ngMyiqXqSaltMVsueMjQ7M=",
-        "last_login": "2025-10-24T10:47:14.918Z",
+        "last_login": "2025-10-27T14:05:37.893Z",
         "is_superuser": true,
         "username": "admin",
         "first_name": "The",
