@@ -58,6 +58,7 @@ urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
     *i18n_patterns(path('admin/', admin.site.urls)),
     path('api-ninja/', api.urls),
+    path('martor/', include('martor.urls')),
 ]
 
 if 'rest_framework' in settings.INSTALLED_APPS:

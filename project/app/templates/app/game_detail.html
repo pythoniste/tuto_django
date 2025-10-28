@@ -1,5 +1,22 @@
 {% extends "master.html" %}
-{% load i18n bootstrap_icons %}
+{% load static i18n bootstrap_icons martortags %}
+
+{% block extrastyle %}
+    <link href="{% static 'plugins/css/highlight.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'martor/css/martor.bootstrap.min.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block extrajs %}
+    <script src="{% static 'plugins/js/highlight.min.js' %}"></script>
+    <script>
+        // Apply syntax highlighting to code blocks
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.martor-preview pre code').forEach(function(block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
+{% endblock %}
 
 {% block content %}
     <div class="container">
@@ -12,14 +29,8 @@
                         <p class="card-subtitle mb-2 text-body-secondary">{% translate "Duration" %}: {{ game.duration }}</p>
                         <p class="card-text {% if game.status == 'draft' %}text-danger{% elif game.status == 'ready' %}text-warning{% elif game.status == 'ongoing' %}text-success{% elif game.status == 'done' %}text-error{% endif %}">{{ game.get_status_display }}</p>
                     </div>
-                    <div class="card-body">
-                        {% if game.status.level == 1 %}
-                        <p class="card-text">{% translate "This should be easy enough" %}</p>
-                        {% elif game.status.level < 5 %}
-                        <p class="card-text">{% translate "This should be easy enough" %}</p>
-                        {% else %}
-                        <p class="card-text">{% translate "Now, we are talking !" %}</p>
-                        {% endif %}
+                    <div class="card-body martor-preview">
+                        <p class="card-text">{{ game.description|safe_markdown }}</p>
                     </div>
                     <div class="card-body">
                         <p class="card-text"><strong>{% translate "Level" %}</strong>: {{ game.get_level_display }}</p>

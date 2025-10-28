@@ -38,6 +38,57 @@
     }
 },
 {
+    "model": "app.player",
+    "fields": {
+        "polymorphic_ctype": [
+            "app",
+            "subscriber"
+        ],
+        "created_at": "2025-10-24T11:16:48.483Z",
+        "updated_at": "2025-10-27T11:34:30.804Z",
+        "user": [
+            "fusion"
+        ],
+        "score": 1000,
+        "subscription_date": "2024-10-16",
+        "profile_activated": true,
+        "avatar": "",
+        "signed_engagement": ""
+    }
+},
+{
+    "model": "app.subscriber",
+    "fields": {
+        "player_ptr": [
+            "fusion"
+        ],
+        "registration_date": "2025-10-24T11:16:39Z",
+        "sponsor": [
+            "admin"
+        ]
+    }
+},
+{
+    "model": "app.gamemaster",
+    "fields": {
+        "player_ptr": [
+            "admin"
+        ],
+        "registration_date": "2025-10-24T08:18:35Z",
+        "team_member_date": "2025-10-24T08:18:36Z"
+    }
+},
+{
+    "model": "app.gamemaster",
+    "fields": {
+        "player_ptr": [
+            "test"
+        ],
+        "registration_date": "2025-10-24T08:28:04Z",
+        "team_member_date": "2025-10-24T08:28:06Z"
+    }
+},
+{
     "model": "app.genre",
     "fields": {
         "name": "Informatique",
@@ -112,62 +163,12 @@
     }
 },
 {
-    "model": "app.player",
-    "fields": {
-        "polymorphic_ctype": [
-            "app",
-            "subscriber"
-        ],
-        "created_at": "2025-10-24T11:16:48.483Z",
-        "updated_at": "2025-10-27T11:34:30.804Z",
-        "user": [
-            "fusion"
-        ],
-        "score": 1000,
-        "subscription_date": "2024-10-16",
-        "profile_activated": true,
-        "avatar": "",
-        "signed_engagement": ""
-    }
-},
-{
-    "model": "app.subscriber",
-    "fields": {
-        "player_ptr": [
-            "fusion"
-        ],
-        "registration_date": "2025-10-24T11:16:39Z",
-        "sponsor": [
-            "admin"
-        ]
-    }
-},
-{
-    "model": "app.gamemaster",
-    "fields": {
-        "player_ptr": [
-            "admin"
-        ],
-        "registration_date": "2025-10-24T08:18:35Z",
-        "team_member_date": "2025-10-24T08:18:36Z"
-    }
-},
-{
-    "model": "app.gamemaster",
-    "fields": {
-        "player_ptr": [
-            "test"
-        ],
-        "registration_date": "2025-10-24T08:28:04Z",
-        "team_member_date": "2025-10-24T08:28:06Z"
-    }
-},
-{
     "model": "app.game",
     "fields": {
         "created_at": "2025-10-22T08:09:52.413Z",
         "updated_at": "2025-10-27T11:15:46.872Z",
         "name": "test",
+        "description": "sample",
         "slug": "test",
         "master": null,
         "status": "done",
@@ -182,6 +183,7 @@
         "created_at": "2025-10-22T08:09:52.413Z",
         "updated_at": "2025-10-27T11:15:46.867Z",
         "name": "Quizz",
+        "description": "sample",
         "slug": "quizz",
         "master": null,
         "status": "ongoing",
@@ -196,6 +198,7 @@
         "created_at": "2025-10-22T08:09:52.413Z",
         "updated_at": "2025-10-27T11:15:46.865Z",
         "name": "30 questions",
+        "description": "sample",
         "slug": "autre",
         "master": null,
         "status": "ongoing",
@@ -210,6 +213,7 @@
         "created_at": "2025-10-22T08:09:52.413Z",
         "updated_at": "2025-10-27T11:15:46.869Z",
         "name": "Quizz 2",
+        "description": "sample",
         "slug": "quizz-2",
         "master": null,
         "status": "ongoing",
@@ -222,13 +226,16 @@
     "model": "app.game",
     "fields": {
         "created_at": "2025-10-27T11:12:07.254Z",
-        "updated_at": "2025-10-27T11:15:46.860Z",
+        "updated_at": "2025-10-28T19:27:29.768Z",
         "name": "20 questions",
+        "description": "# Le challenge du jour\r\n\r\n**Ceci** est un _jeu_ de 20 **questions**\r\n\r\n----------\r\n\r\n\r\n\r\nCeci est un **test**.\r\n---------- \r\n\r\n```python3\r\nprint(\"hello world !\")\r\n```",
         "slug": "20-questions",
         "master": null,
         "status": "ongoing",
         "level": 2,
-        "genre": null,
+        "genre": [
+            "Informatique"
+        ],
         "duration": "00:05:00"
     }
 },

@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'jazzmin',
     'django_bootstrap5',
     'django_bootstrap_icons',
+    'martor',
     'datatableview',
     'rosetta',
     'rest_framework',
@@ -179,6 +180,7 @@ def get_user_avatar(user):
     return "/static/logos/dj.png"
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
+CSRF_COOKIE_HTTPONLY = False
 
 JAZZMIN_SETTINGS = {
     # title of the window (Will default to current_admin_site.site_title if absent or None)

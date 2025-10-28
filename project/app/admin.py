@@ -325,6 +325,7 @@ class GameAdmin(admin.ModelAdmin):
         (None, {
             "fields": (
                 ("name", "status",),
+                ("description",),
                 ("duration", "level"),
                 ("created_at", "updated_at"),
             )

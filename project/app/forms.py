@@ -9,7 +9,9 @@ class GameForm(forms.ModelForm):
         model = Game
         fields = (
             "name",
+            "description",
             "duration",
             "status",
             "level",
+            "genre",
         )

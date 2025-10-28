@@ -1,5 +1,24 @@
 {% extends "master.html" %}
-{% load i18n bootstrap_icons %}
+{% load static i18n bootstrap_icons %}
+
+{% block extrastyle %}
+    <link href="{% static 'plugins/css/ace.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'martor/css/martor.bootstrap.min.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block extrajs %}
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"></script>
+    <script src="{% static 'plugins/js/ace.js' %}"></script>
+    <script src="{% static 'plugins/js/mode-markdown.js' %}"></script>
+    <script src="{% static 'plugins/js/ext-language_tools.js' %}"></script>
+    <script src="{% static 'plugins/js/theme-github.js' %}"></script>
+    <script src="{% static 'plugins/js/highlight.min.js' %}"></script>
+    <script src="{% static 'plugins/js/emojis.min.js' %}"></script>
+    <script src="{% static 'martor/js/martor.bootstrap.min.js' %}"></script>
+{% endblock %}
 
 {% block content %}
     <div class="container">

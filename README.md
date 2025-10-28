@@ -76,3 +76,4 @@ Only steps of the current branch are displayed here. Change branch to see other 
 * Advanced views
   * v1.9.0 Bootstrap5 integration
   * v1.9.1 Datatables integration
+  * v1.9.2 Markdown editor

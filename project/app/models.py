@@ -8,6 +8,7 @@ from django.utils.timezone import now
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as gettext
 
+from martor.models import MartorField
 from mptt.models import MPTTModel, TreeForeignKey
 from polymorphic.models import PolymorphicModel
 
@@ -258,6 +259,10 @@ class Game(TrackingMixin, models.Model):
         blank=False,
         db_index=True,
         unique=True,
+    )
+
+    description = MartorField(
+        verbose_name=gettext("description"),
     )
 
     slug = models.SlugField(
