@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-27 13:08+0100\n"
-"PO-Revision-Date: 2025-10-27 10:30+0100\n"
+"POT-Creation-Date: 2025-10-28 17:40+0100\n"
+"PO-Revision-Date: 2025-10-28 17:42+0100\n"
 "Last-Translator: The Admin <admin@example.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,67 +19,71 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.2\n"
 
-#: app/admin.py:70
+#: app/admin.py:81
 msgid "Contract information"
 msgstr "Informations contactuelles"
 
-#: app/admin.py:76
+#: app/admin.py:87
 msgid "Personal information"
 msgstr "Informations personnelles"
 
-#: app/admin.py:97 app/admin.py:222
+#: app/admin.py:108 app/admin.py:237
 msgid "username"
 msgstr "Nom d'utilisateur"
 
-#: app/admin.py:101 app/admin.py:226
+#: app/admin.py:112 app/admin.py:241
 msgid "first name"
 msgstr "Prénom"
 
-#: app/admin.py:105 app/admin.py:230
+#: app/admin.py:116 app/admin.py:245
 msgid "last name"
 msgstr "Nom"
 
-#: app/admin.py:120 app/admin.py:236
+#: app/admin.py:120
+msgid "Type"
+msgstr "Type"
+
+#: app/admin.py:135 app/admin.py:251
 msgid "No row updated"
 msgstr "Aucune ligne modifiée"
 
-#: app/admin.py:122 app/admin.py:238
+#: app/admin.py:137 app/admin.py:253
 msgid "1 row updated"
 msgstr "1 ligne modifiée"
 
-#: app/admin.py:124 app/admin.py:240
+#: app/admin.py:139 app/admin.py:255
 msgid "{} rows updated"
 msgstr "{} lignes modifiées"
 
-#: app/admin.py:126 app/admin.py:242
+#: app/admin.py:141 app/admin.py:257
 msgid "Reset scores"
 msgstr "Remettre les scores à 0"
 
-#: app/admin.py:138
+#: app/admin.py:153
 msgid "Invitation"
 msgstr "Invitation"
 
-#: app/admin.py:150
+#: app/admin.py:165
 msgid "Subscription details"
 msgstr "détails de souscription"
 
-#: app/admin.py:162 app/admin.py:175
+#: app/admin.py:177 app/admin.py:190
 msgid "Membership details"
 msgstr "Détail de l'adhésion"
 
-#: app/admin.py:292
+#: app/admin.py:322
 msgid "Open"
 msgstr "Ouvert"
 
-#: app/admin.py:408
+#: app/admin.py:468
 msgid "Number of questions"
 msgstr "Nombre de questions"
 
-#: app/admin.py:413
+#: app/admin.py:473
 msgid "Number of players"
 msgstr "Nombre de joueurs"
 
-#: app/apps.py:11
+#: app/apps.py:11 app/views.py:187
 msgid "My app"
 msgstr "Mon appli"
 
@@ -175,163 +179,175 @@ msgstr "Créé le"
 msgid "updated at"
 msgstr "Mis à jour le"
 
-#: app/models.py:56
+#: app/models.py:59
 msgid "user"
 msgstr "utilisateur"
 
-#: app/models.py:65
+#: app/models.py:68
 msgid "score"
 msgstr "score"
 
-#: app/models.py:70
+#: app/models.py:73
 msgid "subscription date"
 msgstr "date de souscription"
 
-#: app/models.py:76
+#: app/models.py:79
 msgid "profile activated"
 msgstr "profil activé"
 
-#: app/models.py:80
+#: app/models.py:83
 msgid "avatar"
 msgstr "avatar"
 
-#: app/models.py:88
+#: app/models.py:91
 msgid "signed_engagement"
 msgstr "engagement signé"
 
-#: app/models.py:105 app/models.py:411
+#: app/models.py:108 app/models.py:452
 msgid "player"
 msgstr "joueur"
 
-#: app/models.py:106
+#: app/models.py:109
 msgid "players"
 msgstr "joueurs"
 
-#: app/models.py:114
+#: app/models.py:117
 msgid "invited by"
 msgstr "invité par"
 
-#: app/models.py:133
+#: app/models.py:136
 msgid "guest"
 msgstr "invité"
 
-#: app/models.py:134
+#: app/models.py:137
 msgid "guests"
 msgstr "invités"
 
-#: app/models.py:142 app/models.py:173 app/models.py:198
+#: app/models.py:145 app/models.py:176 app/models.py:201
 msgid "First registration date"
 msgstr "date de premier enregistrement"
 
-#: app/models.py:146
+#: app/models.py:149
 msgid "sponsor"
 msgstr "sponsor"
 
-#: app/models.py:165
+#: app/models.py:168
 msgid "subscriber"
 msgstr "souscripteur"
 
-#: app/models.py:166
+#: app/models.py:169
 msgid "subscribers"
 msgstr "souscripteurs"
 
-#: app/models.py:177 app/models.py:202
+#: app/models.py:180 app/models.py:205
 msgid "First membership date"
 msgstr "date de première adhésion"
 
-#: app/models.py:190
+#: app/models.py:193
 msgid "team mate"
 msgstr "co-équipier"
 
-#: app/models.py:191
+#: app/models.py:194
 msgid "team mates"
 msgstr "co-équipiers"
 
-#: app/models.py:214
+#: app/models.py:217
 msgid "game master"
 msgstr "maître de jeu"
 
-#: app/models.py:215
+#: app/models.py:218
 msgid "game masters"
 msgstr "maîtres de jeu"
 
-#: app/models.py:224
+#: app/models.py:226 app/models.py:256
 msgid "name"
 msgstr "nom"
 
-#: app/models.py:238
+#: app/models.py:232
+msgid "parent"
+msgstr "parent"
+
+#: app/models.py:246 app/models.py:297
+msgid "genre"
+msgstr "genre"
+
+#: app/models.py:247
+msgid "genres"
+msgstr "genres"
+
+#: app/models.py:270
 msgid "master"
 msgstr "maître"
 
-#: app/models.py:248
+#: app/models.py:280
 msgid "status"
 msgstr "statut"
 
-#: app/models.py:257
+#: app/models.py:289
 msgid "level"
 msgstr "niveau"
 
-#: app/models.py:265
+#: app/models.py:306
 msgid "duration"
 msgstr "durée"
 
-#: app/models.py:298 app/models.py:308 app/models.py:420
+#: app/models.py:339 app/models.py:349 app/models.py:461
 msgid "game"
 msgstr "jeu"
 
-#: app/models.py:299
+#: app/models.py:340
 msgid "games"
 msgstr "jeux"
 
-#: app/models.py:317
+#: app/models.py:358
 msgid "question content"
 msgstr "contenu de la question"
 
-#: app/models.py:322 app/models.py:373
+#: app/models.py:363 app/models.py:414
 msgid "points"
 msgstr "points"
 
-#: app/models.py:335 app/models.py:359
+#: app/models.py:376 app/models.py:400
 msgid "question"
 msgstr "question"
 
-#: app/models.py:336
+#: app/models.py:377
 msgid "questions"
 msgstr "questions"
 
-#: app/models.py:368
+#: app/models.py:409
 msgid "answer content"
 msgstr "contenu de la réponse"
 
-#: app/models.py:387
+#: app/models.py:428
 msgid "answer"
 msgstr "réponse"
 
-#: app/models.py:388
+#: app/models.py:429
 msgid "answers"
 msgstr "réponses"
 
-#: app/models.py:429
+#: app/models.py:470
 msgid "creation datetime"
 msgstr "date de création"
 
-#: app/models.py:434
+#: app/models.py:475
 msgid "entries"
 msgstr "entriées"
 
-#: app/models.py:446
+#: app/models.py:487
 msgid "play"
 msgstr "partie"
 
-#: app/models.py:447
+#: app/models.py:488
 msgid "plays"
 msgstr "parties"
 
-#: app/models.py:465
+#: app/models.py:506
 msgid "stat games"
 msgstr "stat jeux"
 
-#: app/models.py:466
+#: app/models.py:507
 msgid "stats games"
 msgstr "stats jeux"
 
@@ -343,6 +359,21 @@ msgstr "Question {}"
 msgid "Answer {}"
 msgstr "Réponse {}"
 
+#: app/templates/admin/app/game/change_form_object_tools.html:4
+msgid "Play"
+msgstr "partie"
+
+#: app/templates/admin/app/game/change_form_object_tools.html:8
+msgid "History"
+msgstr "Historique"
+
+#: app/templates/admin/app/game/change_form_object_tools.html:10
+msgid "View on site"
+msgstr "Voir sur le site"
+
+#: app/templates/admin/app/game/play.html:6
+#: app/templates/admin/app/question/change_form.html:6
+#: app/templates/admin/change_form.html:23
 #: app/templates/app/game_confirm_delete.html:6
 #: app/templates/app/game_detail.html:6 app/templates/app/game_form.html:6
 #: app/templates/app/game_list.html:5 app/templates/registration/login.html:7
@@ -357,23 +388,80 @@ msgstr "Réponse {}"
 msgid "Home"
 msgstr "Accueil"
 
+#: app/templates/admin/app/game/play.html:8
+#: app/templates/admin/app/question/change_form.html:8
+#| msgid "Games"
+msgid "Game"
+msgstr "Jeu"
+
+#: app/templates/admin/app/game/play.html:10
+msgid "Playing"
+msgstr "Jouer"
+
+#: app/templates/admin/app/game/play.html:18
+#: app/templates/app/game_detail.html:11 app/templates/app/game_list.html:9
+msgid "Duration"
+msgstr "Durée"
+
+#: app/templates/admin/app/game/play.html:26
+#: app/templates/admin/app/game/play.html:28
+#: app/templates/app/game_detail.html:18 app/templates/app/game_detail.html:20
+msgid "This should be easy enough"
+msgstr "Cela devrait passer tout seul"
+
+#: app/templates/admin/app/game/play.html:30
+#: app/templates/app/game_detail.html:22
+msgid "Now, we are talking !"
+msgstr "Maintenant, on parle !"
+
+#: app/templates/admin/change_form.html:34
+#, python-format
+msgid "Add %(name)s"
+msgstr "Ajouter %(name)s"
+
+#: app/templates/admin/change_form.html:72
+msgid "Please correct the error below."
+msgstr "Veuillez corriger l'erreur ci-dessous"
+
+#: app/templates/admin/change_form.html:74
+msgid "Please correct the errors below."
+msgstr "Veuillez corriger les erreurs ci-dessous"
+
+#: app/templates/admin/submit_line.html:8
+msgid "Save"
+msgstr "Sauvegarder"
+
+#: app/templates/admin/submit_line.html:14 app/templates/app/game_list.html:21
+msgid "Delete"
+msgstr "Supprimer"
+
+#: app/templates/admin/submit_line.html:19
+msgid "Save as new"
+msgstr "Sauvegarder en tant que nouvel élément"
+
+#: app/templates/admin/submit_line.html:24
+#| msgid "Create and add another"
+msgid "Save and add another"
+msgstr "Sauvegarder et en ajouter un autre"
+
+#: app/templates/admin/submit_line.html:29
+#| msgid "Create and continue modification"
+msgid "Save and continue editing"
+msgstr "Sauvegarder et continuer de modifier"
+
+#: app/templates/admin/submit_line.html:29
+msgid "Save and view"
+msgstr "Sauvegarder et voir"
+
+#: app/templates/admin/submit_line.html:34
+msgid "Close"
+msgstr "Fermer"
+
 #: app/templates/app/game_confirm_delete.html:8
 #: app/templates/app/game_detail.html:8 app/templates/app/game_form.html:8
 #: app/templates/home.html:41
 msgid "Games"
 msgstr "Jeux"
-
-#: app/templates/app/game_detail.html:11 app/templates/app/game_list.html:9
-msgid "Duration"
-msgstr "Durée"
-
-#: app/templates/app/game_detail.html:18 app/templates/app/game_detail.html:20
-msgid "This should be easy enough"
-msgstr "Cela devrait passer tout seul"
-
-#: app/templates/app/game_detail.html:22
-msgid "Now, we are talking !"
-msgstr "Maintenant, on parle !"
 
 #: app/templates/app/game_form.html:15
 msgid "Update"
@@ -410,10 +498,6 @@ msgstr "Voir"
 #: app/templates/app/game_list.html:20
 msgid "Edit"
 msgstr "Éditer"
-
-#: app/templates/app/game_list.html:21
-msgid "Delete"
-msgstr "Supprimer"
 
 #: app/templates/app/game_list.html:26 app/templates/home.html:37
 msgid "There is no game yet!"
@@ -486,8 +570,8 @@ msgstr "Votre mot de passe a été changé"
 
 #: app/templates/registration/password_change_form.html:8
 msgid ""
-"Please enter your old password, for security’s sake, and then enter your new "
-"password twice so we can verify you typed it in correctly."
+"Please enter your old password, for security’s sake, and then enter your new"
+" password twice so we can verify you typed it in correctly."
 msgstr ""
 "Entrez votre ancien mot de passe pour des raisons de sécurité, et ensuite "
 "entrez votre nouveau mot de passe de fois, de manière à s'assurer qu'il n'y "
@@ -514,8 +598,8 @@ msgid ""
 "Please enter your new password twice so we can verify you typed it in "
 "correctly."
 msgstr ""
-"Veuillez entrer votre mot de passe de fois de manière à ce qu'il n'y ait pas "
-"de faute de frappe"
+"Veuillez entrer votre mot de passe de fois de manière à ce qu'il n'y ait pas"
+" de faute de frappe"
 
 #: app/templates/registration/password_reset_confirm.html:13
 #: app/templates/registration/password_reset_form.html:11
@@ -527,8 +611,8 @@ msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used. Please request a new password reset."
 msgstr ""
-"Le lien de réinitialisation du mot de passe était invalide, possiblement car "
-"il a déjà été utilisé. Merci de recommencer la procédure."
+"Le lien de réinitialisation du mot de passe était invalide, possiblement car"
+" il a déjà été utilisé. Merci de recommencer la procédure."
 
 #: app/templates/registration/password_reset_done.html:8
 msgid ""
@@ -536,8 +620,8 @@ msgid ""
 "exists with the email you entered. You should receive them shortly."
 msgstr ""
 "Nous vous avons envoyé par mail des instructions pour mettre à jour votre "
-"mot de passe, si un compte existe avec l'email que vous avez renseigné. Vous "
-"devrier les recevoir sous peu."
+"mot de passe, si un compte existe avec l'email que vous avez renseigné. Vous"
+" devrier les recevoir sous peu."
 
 #: app/templates/registration/password_reset_done.html:9
 msgid ""

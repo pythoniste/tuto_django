@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-23 13:02+0200\n"
+"POT-Creation-Date: 2025-10-28 17:40+0100\n"
 "PO-Revision-Date: 2025-10-21 17:22+0200\n"
 "Last-Translator: The Admin <admin@example.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,11 +19,73 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.2\n"
 
+#: example/admin.py:70
+msgid "Relations"
+msgstr ""
+
+#: example/admin.py:80
+#, fuzzy
+#| msgid "number"
+msgid "Numbers"
+msgstr "numéro"
+
+#: example/admin.py:85
+msgid "Dates"
+msgstr ""
+
+#: example/admin.py:93
+msgid "IP"
+msgstr ""
+
+#: example/admin.py:98
+msgid "Uploads"
+msgstr ""
+
+#: example/admin.py:186
+msgid "lorem ipsum sentence"
+msgstr ""
+
+#: example/admin.py:190
+msgid "lien vers la fiche"
+msgstr ""
+
+#: example/admin.py:196
+msgid "No row updated"
+msgstr ""
+
+#: example/admin.py:198
+msgid "1 row updated"
+msgstr ""
+
+#: example/admin.py:200
+msgid "{} rows updated"
+msgstr ""
+
+#: example/admin.py:202
+#, fuzzy
+#| msgid "highlight"
+msgid "Turn Highlight on"
+msgstr "mise en valeur"
+
+#: example/admin.py:207
+msgid "Turn Highlight off"
+msgstr ""
+
+#: example/admin.py:212
+#, fuzzy
+#| msgid "highlight"
+msgid "Cancel Highlight"
+msgstr "mise en valeur"
+
+#: example/admin.py:217
+msgid "Reset key"
+msgstr ""
+
 #: example/apps.py:9
 msgid "Example app"
 msgstr "Exemple d'application"
 
-#: example/enums.py:13 example/models.py:130 example/models.py:162
+#: example/enums.py:13 example/models.py:131 example/models.py:163
 msgid "color"
 msgstr "couleur"
 
@@ -35,267 +97,279 @@ msgstr "qualité"
 msgid "size"
 msgstr "taille"
 
-#: example/models.py:67
+#: example/models.py:68
 msgid "menu label"
 msgstr "libellé du menu"
 
-#: example/models.py:68
+#: example/models.py:69
 msgid "used in the menu when fully deployed"
 msgstr "Utilisé dans le menu lorsqu'il est actif"
 
-#: example/models.py:82 example/models.py:588
+#: example/models.py:83 example/models.py:591
 msgid "tag"
 msgstr "repère"
 
-#: example/models.py:83
+#: example/models.py:84
 msgid "tags"
 msgstr "repères"
 
-#: example/models.py:90 example/models.py:154 example/models.py:195
-#: example/models.py:239
+#: example/models.py:91 example/models.py:155 example/models.py:198
+#: example/models.py:242
 msgid "label"
 msgstr "libellé"
 
-#: example/models.py:97 example/models.py:225 example/models.py:247
+#: example/models.py:98 example/models.py:228 example/models.py:250
 msgid "category"
 msgstr "catégorie"
 
-#: example/models.py:111
+#: example/models.py:112
 msgid "sticker"
 msgstr "étiquette"
 
-#: example/models.py:112
+#: example/models.py:113
 msgid "stickers"
 msgstr "étiquettes"
 
-#: example/models.py:139
+#: example/models.py:140
 msgid "colored sticker"
 msgstr "étiquette colorée"
 
-#: example/models.py:140
+#: example/models.py:141
 msgid "colored stickers"
 msgstr "étiquettes colorées"
 
-#: example/models.py:146
+#: example/models.py:147
 msgid "White"
 msgstr "Blanc"
 
-#: example/models.py:147
+#: example/models.py:148
 msgid "Red"
 msgstr "Rouge"
 
-#: example/models.py:148
+#: example/models.py:149
 msgid "Green"
 msgstr "Vert"
 
-#: example/models.py:149
+#: example/models.py:150
 msgid "Blue"
 msgstr "Bleu"
 
-#: example/models.py:150
+#: example/models.py:151
 msgid "Black"
 msgstr "Noir"
 
-#: example/models.py:177
+#: example/models.py:178
 msgid "theme"
 msgstr "thème"
 
-#: example/models.py:178
+#: example/models.py:179
 msgid "themes"
 msgstr "thèmes"
 
-#: example/models.py:185
+#: example/models.py:188
 msgid "parent"
 msgstr "parent"
 
-#: example/models.py:226
+#: example/models.py:229
 msgid "categories"
 msgstr "catégories"
 
-#: example/models.py:257 example/models.py:349
+#: example/models.py:260 example/models.py:352
 msgid "theme_set"
 msgstr "Jeu de thèmes"
 
-#: example/models.py:264
+#: example/models.py:267
 msgid "category 2"
 msgstr "catégorie 2"
 
-#: example/models.py:274
+#: example/models.py:277
 msgid "theme_set 2"
 msgstr "Jeu de thèmes 2"
 
-#: example/models.py:281
+#: example/models.py:284
 msgid "category 3"
 msgstr "catégorie 3"
 
-#: example/models.py:291
+#: example/models.py:294
 msgid "theme_set 3"
 msgstr "Jeu de thèmes 3"
 
-#: example/models.py:298
+#: example/models.py:301
 msgid "category 4"
 msgstr "catégorie 4"
 
-#: example/models.py:308
+#: example/models.py:311
 msgid "theme_set 4"
 msgstr "Jeu de thèmes 4"
 
-#: example/models.py:315
+#: example/models.py:318
 msgid "category 5"
 msgstr "catégorie 5"
 
-#: example/models.py:325
+#: example/models.py:328
 msgid "theme_set 5"
 msgstr "Jeu de thèmes 5"
 
-#: example/models.py:332
+#: example/models.py:335
 msgid "category 6"
 msgstr "catégorie 6"
 
-#: example/models.py:342
+#: example/models.py:345
 msgid "theme_set 6"
 msgstr "Jeu de thèmes 6"
 
-#: example/models.py:357
+#: example/models.py:360
 msgid "Sticker color"
 msgstr "étiquette de couleur"
 
-#: example/models.py:367
+#: example/models.py:370
 msgid "Sticker quality"
 msgstr "étiquette de qualité"
 
-#: example/models.py:377
+#: example/models.py:380
 msgid "Sticker size"
 msgstr "étiquette de taille"
 
-#: example/models.py:387
+#: example/models.py:390
 msgid "number"
 msgstr "numéro"
 
-#: example/models.py:392
+#: example/models.py:395
 msgid "percent"
 msgstr "pourcentage"
 
-#: example/models.py:401
+#: example/models.py:404
 msgid "progress"
 msgstr "indice de progrès"
 
-#: example/models.py:408
+#: example/models.py:411
 msgid "grade"
 msgstr "note"
 
-#: example/models.py:422
+#: example/models.py:425
 msgid "owner"
 msgstr "propriétaire"
 
-#: example/models.py:428
+#: example/models.py:431
 msgid "url"
 msgstr "url"
 
-#: example/models.py:438
+#: example/models.py:441
 msgid "description"
 msgstr "description"
 
-#: example/models.py:443
+#: example/models.py:446
 msgid "active"
 msgstr "actif"
 
-#: example/models.py:447
+#: example/models.py:450
 msgid "highlight"
 msgstr "mise en valeur"
 
-#: example/models.py:453
+#: example/models.py:456
 msgid "creation date"
 msgstr "date de création"
 
-#: example/models.py:458
+#: example/models.py:461
 msgid "last modification date"
 msgstr "date de dernière modification"
 
-#: example/models.py:463
+#: example/models.py:466
 msgid "random date"
 msgstr "date aléatoire"
 
-#: example/models.py:469
+#: example/models.py:472
 msgid "creation datetime"
 msgstr "instant de création"
 
-#: example/models.py:474
+#: example/models.py:477
 msgid "last modification datetime"
 msgstr "instant de dernière modification"
 
-#: example/models.py:479
+#: example/models.py:482
 msgid "random datetime"
 msgstr "instant aléatoire"
 
-#: example/models.py:485
+#: example/models.py:488
 msgid "duration"
 msgstr "durée"
 
-#: example/models.py:491
+#: example/models.py:494
 msgid "creation time"
 msgstr "horaire de création"
 
-#: example/models.py:496
+#: example/models.py:499
 msgid "last modification time"
 msgstr "horaire de dernière modification"
 
-#: example/models.py:501
+#: example/models.py:504
 msgid "random time"
 msgstr "horaire aléatoire"
 
-#: example/models.py:507
+#: example/models.py:510
 msgid "IP v4 or 6"
 msgstr "IP v4 ou 6"
 
-#: example/models.py:514
+#: example/models.py:517
 msgid "IP v4 as is"
 msgstr "IP v4 (saisie en tant que telle)"
 
-#: example/models.py:521
+#: example/models.py:524
 msgid "IP v6 (ipv4 will be converted)"
 msgstr "IP v6 (une IP v4 sera convertie)"
 
-#: example/models.py:529
+#: example/models.py:532
 msgid "IP v6"
 msgstr "IP v6"
 
-#: example/models.py:536
+#: example/models.py:539
 msgid "raw data"
 msgstr "donnée brute"
 
-#: example/models.py:543
+#: example/models.py:546
 msgid "file"
 msgstr "fichier"
 
-#: example/models.py:551
+#: example/models.py:554
 msgid "image"
 msgstr "image"
 
-#: example/models.py:559
+#: example/models.py:562
 msgid "path"
 msgstr "chemin"
 
-#: example/models.py:570 example/models.py:578
+#: example/models.py:573 example/models.py:581
 msgid "test"
 msgstr "test"
 
-#: example/models.py:571
+#: example/models.py:574
 msgid "tests"
 msgstr "tests"
 
-#: example/models.py:598
+#: example/models.py:601
 msgid "order"
 msgstr "ordre"
 
-#: example/models.py:603
+#: example/models.py:606
 msgid "additional information"
 msgstr "information supplémentaire"
 
-#: example/models.py:610
+#: example/models.py:613
 msgid "mapping"
 msgstr "lien"
 
-#: example/models.py:611
+#: example/models.py:614
 msgid "mappings"
 msgstr "liens"
+
+#: example/widgets.py:10
+msgid "Unknown"
+msgstr ""
+
+#: example/widgets.py:11
+msgid "Yes"
+msgstr ""
+
+#: example/widgets.py:12
+msgid "No"
+msgstr ""
