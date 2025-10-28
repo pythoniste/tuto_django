@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-28 17:44+0100\n"
-"PO-Revision-Date: 2025-10-28 17:44+0100\n"
+"POT-Creation-Date: 2025-10-28 19:50+0100\n"
+"PO-Revision-Date: 2025-10-28 19:50+0100\n"
 "Last-Translator: The Admin <admin@example.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -83,7 +83,7 @@ msgstr "Nombre de questions"
 msgid "Number of players"
 msgstr "Nombre de joueurs"
 
-#: app/apps.py:11 app/views.py:187
+#: app/apps.py:11 app/views.py:188
 msgid "My app"
 msgstr "Mon appli"
 
@@ -382,7 +382,7 @@ msgstr "Voir sur le site"
 #: app/templates/registration/password_reset_complete.html:7
 #: app/templates/registration/password_reset_confirm.html:7
 #: app/templates/registration/password_reset_done.html:7
-#: app/templates/registration/password_reset_form.html:7 app/views.py:29
+#: app/templates/registration/password_reset_form.html:7 app/views.py:30
 msgid "Home"
 msgstr "Accueil"
 
@@ -460,7 +460,6 @@ msgid "You are about to delete this game:"
 msgstr "Vous êtes sur le point de supprimer ce jeu:"
 
 #: app/templates/app/game_detail.html:25 app/templates/app/game_list.html:14
-#| msgid "level"
 msgid "Level"
 msgstr "Niveau"
 
@@ -468,11 +467,11 @@ msgstr "Niveau"
 msgid "Update"
 msgstr "Mettre à jour"
 
-#: app/templates/app/game_form.html:22 app/views.py:99
+#: app/templates/app/game_form.html:22 app/views.py:100
 msgid "Create and add another"
 msgstr "Créer et en ajouter un autre"
 
-#: app/templates/app/game_form.html:23 app/views.py:101
+#: app/templates/app/game_form.html:23 app/views.py:102
 msgid "Create and continue modification"
 msgstr "Créer et continuer les modifications"
 
@@ -497,7 +496,6 @@ msgid "There is no game yet!"
 msgstr "Il n'y a pas encore de jeu !"
 
 #: app/templates/home.html:11
-#| msgid "Personal information"
 msgid "General information"
 msgstr "Informations générales"
 
@@ -525,7 +523,7 @@ msgstr "Aucune partie n'a encore été faite !"
 msgid "Back-Office"
 msgstr "Back-office"
 
-#: app/templates/home.html:30 app/templates/master.html:28
+#: app/templates/home.html:30 app/templates/master.html:30
 msgid "Games"
 msgstr "Jeux"
 
@@ -541,27 +539,32 @@ msgstr "Nom"
 msgid "Score"
 msgstr "Score"
 
-#: app/templates/master.html:17
+#: app/templates/master.html:19
 msgid "Welcome"
 msgstr "Bienvenue"
 
-#: app/templates/master.html:34 app/templates/registration/logout.html:4
+#: app/templates/master.html:33
+#| msgid "genres"
+msgid "Genres"
+msgstr "Genres"
+
+#: app/templates/master.html:39 app/templates/registration/logout.html:4
 #: app/templates/registration/logout.html:11
 msgid "Log out"
 msgstr "Se déconnecter"
 
-#: app/templates/master.html:36
+#: app/templates/master.html:41
 msgid "Change password"
 msgstr "Changer son mot de passe"
 
-#: app/templates/master.html:38 app/templates/registration/login.html:4
+#: app/templates/master.html:43 app/templates/registration/login.html:4
 #: app/templates/registration/login.html:11
 #: app/templates/registration/login_custom.html:4
 #: app/templates/registration/login_custom.html:18
 msgid "Log in"
 msgstr "Se connecter"
 
-#: app/templates/master.html:39
+#: app/templates/master.html:44
 msgid "Reset password"
 msgstr "Réinitialiser son mot de passe"
 
@@ -664,23 +667,23 @@ msgstr "Merci pour utiliser notre site !"
 msgid "The %(site_name)s team"
 msgstr "L'équipe de %(site_name)s."
 
-#: app/views.py:42
+#: app/views.py:43
 msgid "Games list"
 msgstr "Liste de jeux"
 
-#: app/views.py:52
+#: app/views.py:53
 msgid "Game: {}"
 msgstr "Jeu: {}"
 
-#: app/views.py:69 app/views.py:80
+#: app/views.py:70 app/views.py:81
 msgid "Update Game: {}"
 msgstr "Modifier le jeu: {}"
 
-#: app/views.py:94
+#: app/views.py:95
 msgid "Create a new game"
 msgstr "Créer un nouveau jeu"
 
-#: app/views.py:113
+#: app/views.py:114
 msgid "Delete Game: {}"
 msgstr "Supprimer le jeu: {}"
 

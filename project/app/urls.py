@@ -6,6 +6,7 @@ from .views import (
     GameUpdateView,
     GameCreateView,
     GameDeleteView,
+    GenreDatatableView,
 )
 
 app_name = "game"
@@ -16,4 +17,5 @@ urlpatterns = [
     path('<int:pk>/update/', GameUpdateView.as_view(), name="update"),
     path('<int:pk>/delete/', GameDeleteView.as_view(), name="delete"),
     path('create/', GameCreateView.as_view(), name="create"),
+    path('genre/', GenreDatatableView.as_view(), name="genre"),
 ]

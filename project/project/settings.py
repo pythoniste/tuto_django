@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'jazzmin',
     'django_bootstrap5',
     'django_bootstrap_icons',
+    'datatableview',
     'rosetta',
     'rest_framework',
     'mptt',

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-28 17:44+0100\n"
+"POT-Creation-Date: 2025-10-28 19:50+0100\n"
 "PO-Revision-Date: 2025-10-21 16:26+0200\n"
 "Last-Translator: The Admin <admin@example.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,34 +19,34 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.2\n"
 
-#: project/settings.py:147
+#: project/settings.py:148
 msgid "French"
 msgstr "Français"
 
-#: project/settings.py:148
+#: project/settings.py:149
 msgid "English"
 msgstr ""
 
-#: project/settings.py:182
+#: project/settings.py:183
 msgid "Games Admin"
 msgstr ""
 
-#: project/settings.py:185 project/settings.py:188
+#: project/settings.py:186 project/settings.py:189
 msgid "Games"
 msgstr ""
 
-#: project/settings.py:206
+#: project/settings.py:207
 msgid "Welcome to the game back office"
 msgstr ""
 
-#: project/settings.py:226
+#: project/settings.py:227
 msgid "Home"
 msgstr ""
 
-#: project/settings.py:229 project/settings.py:246
+#: project/settings.py:230 project/settings.py:247
 msgid "Git repository"
 msgstr ""
 
-#: project/settings.py:296
+#: project/settings.py:297
 msgid "Example"
 msgstr ""

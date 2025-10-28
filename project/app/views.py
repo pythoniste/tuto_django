@@ -10,11 +10,12 @@ from django.core.exceptions import ValidationError
 from django.urls import reverse_lazy, reverse
 from django.utils.translation import gettext_lazy as gettext
 
+from datatableview.views import DatatableView
 from rest_framework import viewsets
 
 from project.ninja import api
 
-from .models import Player, Game, Question, Answer
+from .models import Player, Game, Question, Answer, Genre
 from .forms import GameForm
 from .schemas import GameSchema, MessageSchema
 from .serializers import GameSerializer, QuestionSerializer, AnswerSerializer
@@ -186,3 +187,7 @@ class GamePlayView(DetailView):
         data['app_label'] = "app"
         data['app_verbose_name'] = gettext("My app")
         return data
+
+
+class GenreDatatableView(DatatableView):
+    queryset = Genre.objects.all()

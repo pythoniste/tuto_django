@@ -7,7 +7,9 @@
         <title>{{ page_title }}</title>
         {# Load CSS and JavaScript #}
         {% bootstrap_css %}
+        {% block extrastyle %}{% endblock %}
         {% bootstrap_javascript %}
+        {% block extrajs %}{% endblock %}
     </head>
     <body>
         {% block nav_bar %}
@@ -26,6 +28,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="btn btn-outline-success me-2" href="{% url 'game:list' %}">{% translate "Games" %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-success me-2" href="{% url 'game:genre' %}">{% translate "Genres" %}</a>
                         </li>
                     </ul>
                     {% if user.is_authenticated %}
