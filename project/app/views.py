@@ -175,3 +175,14 @@ def game_create(request, game_data: GameSchema):
     except Exception as e:
         return 500, MessageSchema(message=str(e))
     return 201, game
+
+
+class GamePlayView(DetailView):
+    model = Game
+    template_name = "admin/app/game/play.html"
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['app_label'] = "app"
+        data['app_verbose_name'] = gettext("My app")
+        return data

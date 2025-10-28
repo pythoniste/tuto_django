@@ -71,3 +71,4 @@ Only steps of the current branch are displayed here. Change branch to see other 
   * v1.8.2 Advanced filters
   * v1.8.3 Custom fields / widgets
   * v1.8.4 Improving navigation
+  * v1.8.5 Creating new view
