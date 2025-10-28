@@ -1,0 +1,11 @@
+{% load i18n jazzmin %}
+{% get_jazzmin_ui_tweaks as jazzmin_ui %}
+
+
+<ul id="pagination-top" class="pagination pagination-sm m-0 float-right">
+    {% if pagination_required %}
+        {% for i in page_range %}
+            {% jazzmin_paginator_number cl i %}
+        {% endfor %}
+    {% endif %}
+</ul>

@@ -283,6 +283,7 @@ class QuestionInline(admin.TabularInline):
 class GenreAdmin(MPTTModelAdmin):
 
     mptt_level_indent = 20
+    list_per_page = 10
 
 
 @admin.register(Game)
@@ -317,6 +318,7 @@ class GameAdmin(admin.ModelAdmin):
         "created_at",
         "updated_at",
     )
+    list_per_page = 5
 
     def link(self, obj):
         return gettext("Open")

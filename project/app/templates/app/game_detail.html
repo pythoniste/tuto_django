@@ -1,5 +1,5 @@
 {% extends "master.html" %}
-{% load static i18n bootstrap_icons martortags %}
+{% load static i18n app_utils martortags %}
 
 {% block extrastyle %}
     <link href="{% static 'plugins/css/highlight.min.css' %}" rel="stylesheet" />
@@ -36,9 +36,9 @@
                         <p class="card-text"><strong>{% translate "Level" %}</strong>: {{ game.get_level_display }}</p>
                     </div>
                     <div class="card-footer">
-                        <a href="{% url 'game:list' %}" class="border">{% bs_icon 'list-columns-reverse' %}</a>
-                        <a href="{% url 'game:update' game.pk %}" class="border">{% bs_icon 'pencil' %}</i></a>
-                        <a href="{% url 'game:delete' game.pk %}" class="border">{% bs_icon 'trash' %}</a>
+                        {% icon_action 'list' %}
+                        {% icon_action 'update' game.pk %}
+                        {% icon_action 'delete' game.pk %}
                     </div>
                 </div>
             </div>

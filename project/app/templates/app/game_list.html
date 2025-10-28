@@ -1,5 +1,5 @@
 {% extends "master.html" %}
-{% load i18n bootstrap_icons %}
+{% load i18n app_utils %}
 
 {% block content %}
     <div class="container">
@@ -13,7 +13,7 @@
                             <th scope="col">{% translate "Duration" %}</th>
                             <th scope="col">{% translate "Level" %}</th>
                             <th scope="col">{% translate "Status" %}</th>
-                            <th scope="col">{% translate "Actions" %} <span class="border"><a href="{% url 'game:create' %}">{% bs_icon 'plus' %}</a></span></th>
+                            <th scope="col">{% translate "Actions" %} <span>{% icon_action 'create' %}</span></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -25,9 +25,9 @@
                         <td>{{ game.get_level_display }}</td>
                         <td>{% translate game.get_status_display %}</td>
                         <td>
-                            <a href="{% url 'game:detail' game.pk %}" class="border">{% bs_icon 'eye' %}</a>
-                            <a href="{% url 'game:update' game.pk %}" class="border">{% bs_icon 'pencil' %}</i></a>
-                            <a href="{% url 'game:delete' game.pk %}" class="border">{% bs_icon 'trash' %}</a>
+                            {% icon_action 'detail' game.pk %}
+                            {% icon_action 'update' game.pk %}
+                            {% icon_action 'delete' game.pk %}
                         </td>
                     </tr>
                     {% empty %}

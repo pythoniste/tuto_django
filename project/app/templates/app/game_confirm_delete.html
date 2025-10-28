@@ -1,5 +1,5 @@
 {% extends "master.html" %}
-{% load i18n bootstrap_icons %}
+{% load i18n app_utils %}
 
 {% block content %}
     <div class="container">
@@ -20,9 +20,9 @@
                         </form>
                     </div>
                     <div class="card-footer">
-                        <a href="{% url 'game:list' %}" class="border">{% bs_icon 'list-columns-reverse' %}</a>
-                        <a href="{% url 'game:detail' game.pk %}" class="border">{% bs_icon 'eye' %}</a>
-                        <a href="{% url 'game:update' game.pk %}" class="border">{% bs_icon 'pencil' %}</i></a>
+                        {% icon_action 'list' %}
+                        {% icon_action 'detail' game.pk %}
+                        {% icon_action 'update' game.pk %}
                     </div>
                 </div>
             </div>
