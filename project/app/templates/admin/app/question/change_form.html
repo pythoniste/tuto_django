@@ -1,0 +1,12 @@
+{% extends "admin/change_form.html" %}
+{% load i18n %}
+
+    {% block breadcrumbs %}
+    <div class="breadcrumbs">
+        <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+        &rsaquo; <a href="{% url 'admin:app_list' app_label=opts.app_label %}">{{ opts.app_config.verbose_name }}</a>
+        &rsaquo; <a href="{% url 'admin:app_game_changelist' %}">{% trans 'Game' %}</a>
+        &rsaquo; <a href="{% url 'admin:app_game_change' object_id=original.game.pk %}">{{ original.game }}</a>
+        &rsaquo; {{ original|truncatewords:"18" }}
+    </div>
+    {% endblock %}

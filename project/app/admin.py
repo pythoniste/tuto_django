@@ -1,4 +1,9 @@
 from django.contrib import admin
+from django.contrib.admin.templatetags.admin_urls import add_preserved_filters
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.utils.html import format_html
+from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as gettext
 
 from mptt.admin import MPTTModelAdmin
@@ -257,11 +262,19 @@ class PlayerParentAdmin(PolymorphicParentModelAdmin):
 
 class QuestionInline(admin.TabularInline):
     model = Question
-    fields = ("text", "points", "order")
+    fields = ("text", "points", "set_of_answers", "order")
+    readonly_fields = ("set_of_answers",)
     min_num = 2
     max_num = 50
     extra = 1
     show_change_link = True
+
+    @admin.display(description="Answers")
+    def set_of_answers(self, obj):
+        return format_html(
+            "<ul><li>{}</li></ul>",
+            mark_safe("</li><li>".join(str(answer) for answer in obj.answer_set.all())),
+        )
 
 
 @admin.register(Genre)
@@ -339,6 +352,23 @@ class QuestionAdmin(admin.ModelAdmin):
 
     def has_module_permission(self, request):
         return False
+
+    def changeform_view(self, request, object_id=None, form_url='', extra_context=None):
+        if extra_context is None:
+            extra_context = {}
+        extra_context['show_save_and_add_another'] = extra_context['show_delete'] = False
+        return super().changeform_view(request, object_id, extra_context=extra_context)
+
+    def _response_post_save(self, request, obj):
+        if self.has_view_or_change_permission(request):
+            post_url = reverse("admin:app_game_change", kwargs={"object_id": obj.game.pk})
+            preserved_filters = self.get_preserved_filters(request)
+            post_url = add_preserved_filters(
+                {"preserved_filters": preserved_filters, "opts": self.opts}, post_url
+            )
+        else:
+            post_url = reverse("admin:index", current_app=self.admin_site.name)
+        return HttpResponseRedirect(post_url)
 
 
 @admin.register(Answer)

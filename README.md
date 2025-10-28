@@ -70,3 +70,4 @@ Only steps of the current branch are displayed here. Change branch to see other 
   * v1.8.1 Multiple views for one model
   * v1.8.2 Advanced filters
   * v1.8.3 Custom fields / widgets
+  * v1.8.4 Improving navigation
