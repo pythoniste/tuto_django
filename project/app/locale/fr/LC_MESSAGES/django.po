@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-28 17:40+0100\n"
-"PO-Revision-Date: 2025-10-28 17:42+0100\n"
+"POT-Creation-Date: 2025-10-28 17:44+0100\n"
+"PO-Revision-Date: 2025-10-28 17:44+0100\n"
 "Last-Translator: The Admin <admin@example.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -374,9 +374,7 @@ msgstr "Voir sur le site"
 #: app/templates/admin/app/game/play.html:6
 #: app/templates/admin/app/question/change_form.html:6
 #: app/templates/admin/change_form.html:23
-#: app/templates/app/game_confirm_delete.html:6
-#: app/templates/app/game_detail.html:6 app/templates/app/game_form.html:6
-#: app/templates/app/game_list.html:5 app/templates/registration/login.html:7
+#: app/templates/registration/login.html:7
 #: app/templates/registration/login_custom.html:7
 #: app/templates/registration/logout.html:7
 #: app/templates/registration/password_change_done.html:7
@@ -390,7 +388,6 @@ msgstr "Accueil"
 
 #: app/templates/admin/app/game/play.html:8
 #: app/templates/admin/app/question/change_form.html:8
-#| msgid "Games"
 msgid "Game"
 msgstr "Jeu"
 
@@ -399,18 +396,20 @@ msgid "Playing"
 msgstr "Jouer"
 
 #: app/templates/admin/app/game/play.html:18
-#: app/templates/app/game_detail.html:11 app/templates/app/game_list.html:9
+#: app/templates/app/game_confirm_delete.html:12
+#: app/templates/app/game_detail.html:12 app/templates/app/game_form.html:12
+#: app/templates/app/game_list.html:13
 msgid "Duration"
 msgstr "Durée"
 
 #: app/templates/admin/app/game/play.html:26
 #: app/templates/admin/app/game/play.html:28
-#: app/templates/app/game_detail.html:18 app/templates/app/game_detail.html:20
+#: app/templates/app/game_detail.html:17 app/templates/app/game_detail.html:19
 msgid "This should be easy enough"
 msgstr "Cela devrait passer tout seul"
 
 #: app/templates/admin/app/game/play.html:30
-#: app/templates/app/game_detail.html:22
+#: app/templates/app/game_detail.html:21
 msgid "Now, we are talking !"
 msgstr "Maintenant, on parle !"
 
@@ -431,7 +430,7 @@ msgstr "Veuillez corriger les erreurs ci-dessous"
 msgid "Save"
 msgstr "Sauvegarder"
 
-#: app/templates/admin/submit_line.html:14 app/templates/app/game_list.html:21
+#: app/templates/admin/submit_line.html:14
 msgid "Delete"
 msgstr "Supprimer"
 
@@ -440,12 +439,10 @@ msgid "Save as new"
 msgstr "Sauvegarder en tant que nouvel élément"
 
 #: app/templates/admin/submit_line.html:24
-#| msgid "Create and add another"
 msgid "Save and add another"
 msgstr "Sauvegarder et en ajouter un autre"
 
 #: app/templates/admin/submit_line.html:29
-#| msgid "Create and continue modification"
 msgid "Save and continue editing"
 msgstr "Sauvegarder et continuer de modifier"
 
@@ -457,105 +454,114 @@ msgstr "Sauvegarder et voir"
 msgid "Close"
 msgstr "Fermer"
 
-#: app/templates/app/game_confirm_delete.html:8
-#: app/templates/app/game_detail.html:8 app/templates/app/game_form.html:8
-#: app/templates/home.html:41
-msgid "Games"
-msgstr "Jeux"
+#: app/templates/app/game_confirm_delete.html:11
+#: app/templates/app/game_form.html:11
+msgid "You are about to delete this game:"
+msgstr "Vous êtes sur le point de supprimer ce jeu:"
 
-#: app/templates/app/game_form.html:15
+#: app/templates/app/game_detail.html:25 app/templates/app/game_list.html:14
+#| msgid "level"
+msgid "Level"
+msgstr "Niveau"
+
+#: app/templates/app/game_form.html:20
 msgid "Update"
 msgstr "Mettre à jour"
 
-#: app/templates/app/game_form.html:17 app/views.py:99
+#: app/templates/app/game_form.html:22 app/views.py:99
 msgid "Create and add another"
 msgstr "Créer et en ajouter un autre"
 
-#: app/templates/app/game_form.html:18 app/views.py:101
+#: app/templates/app/game_form.html:23 app/views.py:101
 msgid "Create and continue modification"
 msgstr "Créer et continuer les modifications"
 
-#: app/templates/app/game_form.html:19
+#: app/templates/app/game_form.html:24
 msgid "Create and go back to the list"
 msgstr "Créer et retourner à la liste"
 
-#: app/templates/app/game_list.html:8
+#: app/templates/app/game_list.html:12
 msgid "Name"
 msgstr "Nom"
 
-#: app/templates/app/game_list.html:10
+#: app/templates/app/game_list.html:15
 msgid "Status"
 msgstr "Statut"
 
-#: app/templates/app/game_list.html:11
+#: app/templates/app/game_list.html:16
 msgid "Actions"
 msgstr "Actions"
 
-#: app/templates/app/game_list.html:19
-msgid "Voir"
-msgstr "Voir"
-
-#: app/templates/app/game_list.html:20
-msgid "Edit"
-msgstr "Éditer"
-
-#: app/templates/app/game_list.html:26 app/templates/home.html:37
+#: app/templates/app/game_list.html:35 app/templates/home.html:63
 msgid "There is no game yet!"
 msgstr "Il n'y a pas encore de jeu !"
 
-#: app/templates/app/game_list.html:30
-msgid "Create a new Game"
-msgstr "Créer un nouveau jeu"
+#: app/templates/home.html:11
+#| msgid "Personal information"
+msgid "General information"
+msgstr "Informations générales"
 
-#: app/templates/home.html:8
+#: app/templates/home.html:12
+msgid "Some statistics about this application (games & players)"
+msgstr "Quelques statistiques à propos de cette application (jeux et joueurs)"
+
+#: app/templates/home.html:17
 msgid "Nb of players"
 msgstr "Nombre de joueurs"
 
-#: app/templates/home.html:11
+#: app/templates/home.html:18
 msgid "There are non players yet !"
 msgstr "Il n'y a pas encore de joueurs !"
 
-#: app/templates/home.html:16
+#: app/templates/home.html:23
 msgid "Nb of games"
 msgstr "Nombre de jeux"
 
-#: app/templates/home.html:19
+#: app/templates/home.html:24
 msgid "No games have been played yet !"
 msgstr "Aucune partie n'a encore été faite !"
 
-#: app/templates/home.html:25
+#: app/templates/home.html:29
+msgid "Back-Office"
+msgstr "Back-office"
+
+#: app/templates/home.html:30 app/templates/master.html:28
+msgid "Games"
+msgstr "Jeux"
+
+#: app/templates/home.html:48
 msgid "First name"
 msgstr "Prénom"
 
-#: app/templates/home.html:26
+#: app/templates/home.html:49
 msgid "Last name"
 msgstr "Nom"
 
-#: app/templates/home.html:27
+#: app/templates/home.html:50
 msgid "Score"
 msgstr "Score"
 
-#: app/templates/master.html:11
+#: app/templates/master.html:17
 msgid "Welcome"
 msgstr "Bienvenue"
 
-#: app/templates/master.html:14 app/templates/registration/logout.html:4
+#: app/templates/master.html:34 app/templates/registration/logout.html:4
 #: app/templates/registration/logout.html:11
 msgid "Log out"
 msgstr "Se déconnecter"
 
-#: app/templates/master.html:16
+#: app/templates/master.html:36
 msgid "Change password"
 msgstr "Changer son mot de passe"
 
-#: app/templates/master.html:18 app/templates/registration/login.html:4
+#: app/templates/master.html:38 app/templates/registration/login.html:4
 #: app/templates/registration/login.html:11
 #: app/templates/registration/login_custom.html:4
 #: app/templates/registration/login_custom.html:18
 msgid "Log in"
 msgstr "Se connecter"
 
-#: app/templates/master.html:19
+#: app/templates/master.html:39
 msgid "Reset password"
 msgstr "Réinitialiser son mot de passe"
 
@@ -677,6 +683,15 @@ msgstr "Créer un nouveau jeu"
 #: app/views.py:113
 msgid "Delete Game: {}"
 msgstr "Supprimer le jeu: {}"
+
+#~ msgid "Voir"
+#~ msgstr "Voir"
+
+#~ msgid "Edit"
+#~ msgstr "Éditer"
+
+#~ msgid "Create a new Game"
+#~ msgstr "Créer un nouveau jeu"
 
 #~ msgid "Nb of questions"
 #~ msgstr "Nb questions"

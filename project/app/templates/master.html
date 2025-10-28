@@ -1,25 +1,60 @@
-{% load i18n %}
+{# Load the tag library #}
+{% load django_bootstrap5 i18n %}
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ page_title }}</title>
-</head>
-<body>
-    {% block nav_bar %}
-    {% if user.is_authenticated %}
-        <p>{% translate "Welcome" %} {{ user.first_name }} {{ user.last_name }} ({{ user.username }})</p>
-        <form action="{% url 'logout' %}" method="post">
-            {% csrf_token %}
-            <button type="submit">{% translate 'Log out' %}</button>
-        </form>
-        <a href="{% url 'password_change' %}">{% translate 'Change password' %}</a>
-    {% else %}
-        <a href="{% url 'login' %}">{% translate 'Log in' %}</a>
-        <a href="{% url 'password_reset' %}">{% translate 'Reset password' %}</a>
-    {% endif %}
-    {% endblock %}
-    {% block title %}<h1>{{ page_title }}</h1>{% endblock %}
-    {% block content %}{% endblock %}
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>{{ page_title }}</title>
+        {# Load CSS and JavaScript #}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+    </head>
+    <body>
+        {% block nav_bar %}
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    {% translate "Welcome" %}{% if user.is_authenticated %} {{ user.first_name }} {{ user.last_name }} ({{ user.username }}){% endif %}
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="btn btn-outline-secondary me-2" href="https://github.com/pythoniste/tuto_django">Github</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-outline-success me-2" href="{% url 'game:list' %}">{% translate "Games" %}</a>
+                        </li>
+                    </ul>
+                    {% if user.is_authenticated %}
+                    <form class="ms-auto" action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button class="btn btn-outline-danger me-2" type="submit">{% translate 'Log out' %}</button>
+                    </form>
+                    <a class="btn btn-outline-warning me-2" href="{% url 'password_change' %}">{% translate 'Change password' %}</a>
+                    {% else %}
+                    <a class="ms-auto btn btn-outline-primary me-2" href="{% url 'login' %}">{% translate 'Log in' %}</a>
+                    <a class="btn btn-outline-warning me-2" href="{% url 'password_reset' %}">{% translate 'Reset password' %}</a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+        {% endblock %}
+
+        {# Display django.contrib.messages as Bootstrap alerts #}
+        {% bootstrap_messages %}
+
+        <div class="container">
+            <div class="row justify-content-md-center gy-4">
+                <div class="col-6">
+                    {% block title %}
+                    <h1>{{ page_title }}</h1>
+                    {% endblock %}
+                </div>
+            </div>
+            {% block content %}{% endblock %}
+        </div>
+    </body>
 </html>

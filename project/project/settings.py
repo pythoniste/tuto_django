@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'app.apps.AppConfig',
     'example.apps.ExampleConfig',
     'jazzmin',
+    'django_bootstrap5',
+    'django_bootstrap_icons',
     'rosetta',
     'rest_framework',
     'mptt',

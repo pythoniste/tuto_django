@@ -1,23 +1,39 @@
 {% extends "master.html" %}
-{% load i18n %}
+{% load i18n bootstrap_icons %}
 
 {% block content %}
+    <div class="container">
 
-<a href="{% url 'home' %}">{% translate "Home" %}</a>
->
-<a href="{% url 'game:list' %}">{% translate "Games" %}</a>
-<h3>{{ game.name }}</h3>
+        <div class="row">
+            <div class="offset-md-1 col-10">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">{% translate "You are about to delete this game:" %} {{ game.name }}</h5>
+                        <p class="card-subtitle mb-2 text-body-secondary">{% translate "Duration" %}: {{ game.duration }}</p>
+                        <p class="card-text {% if game.status == 'draft' %}text-danger{% elif game.status == 'ready' %}text-warning{% elif game.status == 'ongoing' %}text-success{% elif game.status == 'done' %}text-error{% endif %}">{{ game.get_status_display }}</p>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            {% if object %}
+                            <input type="submit" value="{% translate 'Update' %}">
+                            {% else %}
+                            <input type="submit" name="submit" value="{% translate 'Create and add another' %}">
+                            <input type="submit" name="submit" value="{% translate 'Create and continue modification' %}">
+                            <input type="submit" value="{% translate 'Create and go back to the list' %}">
+                            {% endif %}
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{% url 'game:list' %}" class="border">{% bs_icon 'list-columns-reverse' %}</a>
+                        <a href="{% url 'game:detail' game.pk %}" class="border">{% bs_icon 'eye' %}</a>
+                        <a href="{% url 'game:delete' game.pk %}" class="border">{% bs_icon 'trash' %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    {% if object %}
-    <input type="submit" value="{% translate 'Update' %}">
-    {% else %}
-    <input type="submit" name="submit" value="{% translate 'Create and add another' %}">
-    <input type="submit" name="submit" value="{% translate 'Create and continue modification' %}">
-    <input type="submit" value="{% translate 'Create and go back to the list' %}">
-    {% endif %}
-</form>
+    </div>
 
 {% endblock %}
