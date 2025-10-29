@@ -49,7 +49,13 @@
         {% endblock %}
 
         {# Display django.contrib.messages as Bootstrap alerts #}
-        {% bootstrap_messages %}
+        <div class="container">
+            <div class="row justify-content-md-center gy-4">
+                <div class="col-12">
+                    {% bootstrap_messages %}
+                </div>
+            </div>
+        </div>
 
         <div class="container">
             <div class="row justify-content-md-center gy-4">

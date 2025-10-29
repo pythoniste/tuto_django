@@ -1,3 +1,5 @@
+from itertools import product
+
 from django.views.generic import (
     TemplateView,
     ListView,
@@ -6,7 +8,9 @@ from django.views.generic import (
     CreateView,
     DeleteView,
 )
+from django.contrib import messages
 from django.core.exceptions import ValidationError
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy, reverse
 from django.utils.translation import gettext_lazy as gettext
 
@@ -16,7 +20,7 @@ from rest_framework import viewsets
 from project.ninja import api
 
 from .models import Player, Game, Question, Answer, Genre
-from .forms import GameForm
+from .forms import GameForm, BulkQuestionAnswerGenerationForm
 from .schemas import GameSchema, MessageSchema
 from .serializers import GameSerializer, QuestionSerializer, AnswerSerializer
 
@@ -191,3 +195,50 @@ class GamePlayView(DetailView):
 
 class GenreDatatableView(DatatableView):
     queryset = Genre.objects.all()
+
+
+def bulk_create_questions_answers(request, pk):
+    if not Game.objects.filter(pk=pk).exists():
+        messages.error(request, "The game you tried to get does not exist.")
+        return redirect("game:list")
+
+    if request.method == 'POST':
+        form = BulkQuestionAnswerGenerationForm(request.POST)
+        if form.is_valid():
+            num_questions = form.cleaned_data['num_questions']
+            question_prefix = form.cleaned_data['question_prefix']
+            num_answers_per_question = form.cleaned_data['num_answers_per_question']
+            answer_prefix = form.cleaned_data['answer_prefix']
+
+            questions = Question.objects.bulk_create(
+                [
+                    Question(game_id=pk, text=f"{question_prefix} {i}", points=i)
+                    for i in range(1, num_questions + 1)
+                ]
+            )
+
+            answers = Answer.objects.bulk_create(
+                [
+                    Answer(question=question, text=f"{answer_prefix} {i}", points=i)
+                    for question, i in product(questions, range(1, num_answers_per_question + 1))
+                ]
+            )
+            messages.success(
+                request,
+                f"{len(questions)} questions {len(answers)} and answer have been created.",
+            )
+            return redirect("game:detail", pk=pk)
+        else:
+            messages.error(request, "Please fix the errors below.")
+
+    else:
+        form = BulkQuestionAnswerGenerationForm()
+
+    return render(
+        request,
+        'app/game_form.html',
+        {
+            'form': form,
+            'game': Game.objects.get(pk=pk),
+        },
+    )

@@ -240,6 +240,10 @@ class Genre(MPTTModel):
     def __str__(self):
         return self.name
 
+    @property
+    def deep_label(self):
+        return "\u2003" * ((self.get_level() - 1) * 2 - 1) + (self.get_level() and "\u2514\u2500" or "") + self.name
+
     def natural_key(self) -> tuple[str]:
         return (self.name,)
 

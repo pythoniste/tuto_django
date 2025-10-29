@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-28 21:37+0100\n"
-"PO-Revision-Date: 2025-10-28 21:39+0100\n"
+"POT-Creation-Date: 2025-10-29 18:42+0100\n"
+"PO-Revision-Date: 2025-10-29 18:42+0100\n"
 "Last-Translator: The Admin <admin@example.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -71,19 +71,19 @@ msgstr "détails de souscription"
 msgid "Membership details"
 msgstr "Détail de l'adhésion"
 
-#: app/admin.py:322
+#: app/admin.py:324
 msgid "Open"
 msgstr "Ouvert"
 
-#: app/admin.py:469
+#: app/admin.py:471 app/forms.py:105
 msgid "Number of questions"
 msgstr "Nombre de questions"
 
-#: app/admin.py:474
+#: app/admin.py:476
 msgid "Number of players"
 msgstr "Nombre de joueurs"
 
-#: app/apps.py:11 app/views.py:188
+#: app/apps.py:11 app/views.py:192
 msgid "My app"
 msgstr "Mon appli"
 
@@ -167,6 +167,38 @@ msgstr "année de dernière modification"
 msgid "subscription year"
 msgstr "année de souscription"
 
+#: app/forms.py:12 app/forms.py:16
+msgid "Day"
+msgstr "Jour"
+
+#: app/forms.py:20 app/forms.py:24
+msgid "Hour"
+msgstr "Heure"
+
+#: app/forms.py:28 app/forms.py:32
+msgid "Minute"
+msgstr "Minute"
+
+#: app/forms.py:36 app/forms.py:40
+msgid "Second"
+msgstr "Seconde"
+
+#: app/forms.py:45
+msgid "Genre"
+msgstr "Genre"
+
+#: app/forms.py:111
+msgid "Question prefix"
+msgstr "Préfixe de la question"
+
+#: app/forms.py:116
+msgid "Number of anwser per question"
+msgstr "Nombre de réponses par question"
+
+#: app/forms.py:122
+msgid "Answer prefix"
+msgstr "Préfixe de la réponse"
+
 #: app/mixins.py:8
 msgid "order"
 msgstr "ordre"
@@ -203,7 +235,7 @@ msgstr "avatar"
 msgid "signed_engagement"
 msgstr "engagement signé"
 
-#: app/models.py:109 app/models.py:457
+#: app/models.py:109 app/models.py:461
 msgid "player"
 msgstr "joueur"
 
@@ -259,7 +291,7 @@ msgstr "maître de jeu"
 msgid "game masters"
 msgstr "maîtres de jeu"
 
-#: app/models.py:227 app/models.py:257
+#: app/models.py:227 app/models.py:261
 msgid "name"
 msgstr "nom"
 
@@ -267,92 +299,91 @@ msgstr "nom"
 msgid "parent"
 msgstr "parent"
 
-#: app/models.py:247 app/models.py:302
+#: app/models.py:251 app/models.py:306
 msgid "genre"
 msgstr "genre"
 
-#: app/models.py:248
+#: app/models.py:252
 msgid "genres"
 msgstr "genres"
 
-#: app/models.py:265
-#| msgid "subscription year"
+#: app/models.py:269
 msgid "description"
 msgstr "description"
 
-#: app/models.py:275
+#: app/models.py:279
 msgid "master"
 msgstr "maître"
 
-#: app/models.py:285
+#: app/models.py:289
 msgid "status"
 msgstr "statut"
 
-#: app/models.py:294
+#: app/models.py:298
 msgid "level"
 msgstr "niveau"
 
-#: app/models.py:311
+#: app/models.py:315
 msgid "duration"
 msgstr "durée"
 
-#: app/models.py:344 app/models.py:354 app/models.py:466
+#: app/models.py:348 app/models.py:358 app/models.py:470
 msgid "game"
 msgstr "jeu"
 
-#: app/models.py:345
+#: app/models.py:349
 msgid "games"
 msgstr "jeux"
 
-#: app/models.py:363
+#: app/models.py:367
 msgid "question content"
 msgstr "contenu de la question"
 
-#: app/models.py:368 app/models.py:419
+#: app/models.py:372 app/models.py:423
 msgid "points"
 msgstr "points"
 
-#: app/models.py:381 app/models.py:405
+#: app/models.py:385 app/models.py:409
 msgid "question"
 msgstr "question"
 
-#: app/models.py:382
+#: app/models.py:386
 msgid "questions"
 msgstr "questions"
 
-#: app/models.py:414
+#: app/models.py:418
 msgid "answer content"
 msgstr "contenu de la réponse"
 
-#: app/models.py:433
+#: app/models.py:437
 msgid "answer"
 msgstr "réponse"
 
-#: app/models.py:434
+#: app/models.py:438
 msgid "answers"
 msgstr "réponses"
 
-#: app/models.py:475
+#: app/models.py:479
 msgid "creation datetime"
 msgstr "date de création"
 
-#: app/models.py:480
+#: app/models.py:484
 msgid "entries"
 msgstr "entriées"
 
-#: app/models.py:492
+#: app/models.py:496
 msgid "play"
 msgstr "partie"
 
-#: app/models.py:493
+#: app/models.py:497
 msgid "plays"
 msgstr "parties"
 
-#: app/models.py:511
+#: app/models.py:515
 msgid "stat games"
 msgstr "stat jeux"
 
-#: app/models.py:512
+#: app/models.py:516
 msgid "stats games"
 msgstr "stats jeux"
 
@@ -363,6 +394,27 @@ msgstr "Question {}"
 #: app/signals.py:91
 msgid "Answer {}"
 msgstr "Réponse {}"
+
+#: app/templates/admin/actions.html:13
+msgid "Run the selected action"
+msgstr "Lancer l'action sélectionnée"
+
+#: app/templates/admin/actions.html:14
+msgid "Go"
+msgstr "Go"
+
+#: app/templates/admin/actions.html:23
+msgid "Click here to select the objects across all pages"
+msgstr "Cliquez ici pour sélectionner les objets de toutes les pages"
+
+#: app/templates/admin/actions.html:24
+#, python-format
+msgid "Select all %(total_count)s %(module_name)s"
+msgstr "Selectionnez tout %(total_count)s %(module_name)s"
+
+#: app/templates/admin/actions.html:27
+msgid "Clear selection"
+msgstr "Vider la sélection"
 
 #: app/templates/admin/app/game/change_form_object_tools.html:4
 msgid "Play"
@@ -387,7 +439,7 @@ msgstr "Voir sur le site"
 #: app/templates/registration/password_reset_complete.html:7
 #: app/templates/registration/password_reset_confirm.html:7
 #: app/templates/registration/password_reset_done.html:7
-#: app/templates/registration/password_reset_form.html:7 app/views.py:30
+#: app/templates/registration/password_reset_form.html:7 app/views.py:34
 msgid "Home"
 msgstr "Accueil"
 
@@ -402,7 +454,7 @@ msgstr "Jouer"
 
 #: app/templates/admin/app/game/play.html:18
 #: app/templates/app/game_confirm_delete.html:12
-#: app/templates/app/game_detail.html:29 app/templates/app/game_form.html:31
+#: app/templates/app/game_detail.html:29 app/templates/app/game_form.html:39
 #: app/templates/app/game_list.html:13
 msgid "Duration"
 msgstr "Durée"
@@ -458,7 +510,6 @@ msgid "Close"
 msgstr "Fermer"
 
 #: app/templates/app/game_confirm_delete.html:11
-#: app/templates/app/game_form.html:30
 msgid "You are about to delete this game:"
 msgstr "Vous êtes sur le point de supprimer ce jeu:"
 
@@ -466,19 +517,36 @@ msgstr "Vous êtes sur le point de supprimer ce jeu:"
 msgid "Level"
 msgstr "Niveau"
 
-#: app/templates/app/game_form.html:39
+#: app/templates/app/game_form.html:32
+msgid "You are about to edit this game"
+msgstr "Vous êtes sur le point d'éditer ce jeu"
+
+#: app/templates/app/game_form.html:34
+#| msgid "You are about to add content to this game:"
+msgid "You are about to add content to this game"
+msgstr "Vous êtes sur le point d'ajouter du contenu à ce jeu"
+
+#: app/templates/app/game_form.html:36
+msgid "You are about to add a new game"
+msgstr "Vous êtes sur le point d'ajouter un nouveau jeu"
+
+#: app/templates/app/game_form.html:47
 msgid "Update"
 msgstr "Mettre à jour"
 
-#: app/templates/app/game_form.html:41 app/views.py:100
+#: app/templates/app/game_form.html:49
+msgid "Bulk create questions and responses"
+msgstr "Créer en masse questions et réponses"
+
+#: app/templates/app/game_form.html:51 app/views.py:104
 msgid "Create and add another"
 msgstr "Créer et en ajouter un autre"
 
-#: app/templates/app/game_form.html:42 app/views.py:102
+#: app/templates/app/game_form.html:52 app/views.py:106
 msgid "Create and continue modification"
 msgstr "Créer et continuer les modifications"
 
-#: app/templates/app/game_form.html:43
+#: app/templates/app/game_form.html:53
 msgid "Create and go back to the list"
 msgstr "Créer et retourner à la liste"
 
@@ -494,7 +562,7 @@ msgstr "Statut"
 msgid "Actions"
 msgstr "Actions"
 
-#: app/templates/app/game_list.html:35 app/templates/home.html:63
+#: app/templates/app/game_list.html:36 app/templates/home.html:63
 msgid "There is no game yet!"
 msgstr "Il n'y a pas encore de jeu !"
 
@@ -669,23 +737,23 @@ msgstr "Merci pour utiliser notre site !"
 msgid "The %(site_name)s team"
 msgstr "L'équipe de %(site_name)s."
 
-#: app/views.py:43
+#: app/views.py:47
 msgid "Games list"
 msgstr "Liste de jeux"
 
-#: app/views.py:53
+#: app/views.py:57
 msgid "Game: {}"
 msgstr "Jeu: {}"
 
-#: app/views.py:70 app/views.py:81
+#: app/views.py:74 app/views.py:85
 msgid "Update Game: {}"
 msgstr "Modifier le jeu: {}"
 
-#: app/views.py:95
+#: app/views.py:99
 msgid "Create a new game"
 msgstr "Créer un nouveau jeu"
 
-#: app/views.py:114
+#: app/views.py:118
 msgid "Delete Game: {}"
 msgstr "Supprimer le jeu: {}"
 

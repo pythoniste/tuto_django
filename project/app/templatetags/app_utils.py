@@ -23,6 +23,7 @@ ICONS = {
     "detail": "eye",
     "update": "pencil",
     "delete": "trash",
+    "bulk_create_qr": "database-add",
 }
 
 

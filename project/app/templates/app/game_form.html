@@ -27,7 +27,15 @@
             <div class="offset-md-1 col-10">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">{% translate "You are about to delete this game:" %} {{ game.name }}</h5>
+                        <h5 class="card-title">
+                            {% if object %}
+                            {% translate "You are about to edit this game" %}: {{ game.name }}
+                            {% elif game %}
+                            {% translate "You are about to add content to this game" %}: {{ game.name }}
+                            {% else %}
+                            {% translate "You are about to add a new game" %}
+                            {% endif %}
+                        </h5>
                         <p class="card-subtitle mb-2 text-body-secondary">{% translate "Duration" %}: {{ game.duration }}</p>
                         <p class="card-text {% if game.status == 'draft' %}text-danger{% elif game.status == 'ready' %}text-warning{% elif game.status == 'ongoing' %}text-success{% elif game.status == 'done' %}text-error{% endif %}">{{ game.get_status_display }}</p>
                     </div>
@@ -37,6 +45,8 @@
                             {{ form.as_p }}
                             {% if object %}
                             <input type="submit" value="{% translate 'Update' %}">
+                            {% elif game %}
+                            <input type="submit" value="{% translate 'Bulk create questions and responses' %}">
                             {% else %}
                             <input type="submit" name="submit" value="{% translate 'Create and add another' %}">
                             <input type="submit" name="submit" value="{% translate 'Create and continue modification' %}">
@@ -46,9 +56,17 @@
                     </div>
                     <div class="card-footer">
                         {% icon_action 'list' %}
-                        {% if object %}
+                        {% if game %}
                         {% icon_action 'detail' game.pk %}
+                        {% endif %}
+                        {% if not object and game %}
+                        {% icon_action 'update' game.pk %}
+                        {% endif %}
+                        {% if game %}
                         {% icon_action 'delete' game.pk %}
+                        {% endif %}
+                        {% if object %}
+                        {% icon_action 'bulk_create_qr' game.pk %}
                         {% endif %}
                     </div>
                 </div>
