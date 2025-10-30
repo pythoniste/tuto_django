@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-29 18:42+0100\n"
-"PO-Revision-Date: 2025-10-29 18:42+0100\n"
+"POT-Creation-Date: 2025-10-31 17:13+0100\n"
+"PO-Revision-Date: 2025-10-31 17:14+0100\n"
 "Last-Translator: The Admin <admin@example.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -75,7 +75,7 @@ msgstr "Détail de l'adhésion"
 msgid "Open"
 msgstr "Ouvert"
 
-#: app/admin.py:471 app/forms.py:105
+#: app/admin.py:471 app/forms.py:249
 msgid "Number of questions"
 msgstr "Nombre de questions"
 
@@ -167,37 +167,132 @@ msgstr "année de dernière modification"
 msgid "subscription year"
 msgstr "année de souscription"
 
-#: app/forms.py:12 app/forms.py:16
+#: app/forms.py:38 app/forms.py:42
 msgid "Day"
 msgstr "Jour"
 
-#: app/forms.py:20 app/forms.py:24
+#: app/forms.py:46 app/forms.py:50
 msgid "Hour"
 msgstr "Heure"
 
-#: app/forms.py:28 app/forms.py:32
+#: app/forms.py:54 app/forms.py:58
 msgid "Minute"
 msgstr "Minute"
 
-#: app/forms.py:36 app/forms.py:40
+#: app/forms.py:62 app/forms.py:66
 msgid "Second"
 msgstr "Seconde"
 
-#: app/forms.py:45
+#: app/forms.py:71
 msgid "Genre"
 msgstr "Genre"
 
-#: app/forms.py:111
+#: app/forms.py:101
+msgid "Update"
+msgstr "Mettre à jour"
+
+#: app/forms.py:105 app/views.py:104
+msgid "Create and add another"
+msgstr "Créer et en ajouter un autre"
+
+#: app/forms.py:106 app/views.py:106
+msgid "Create and continue modification"
+msgstr "Créer et continuer les modifications"
+
+#: app/forms.py:107
+msgid "Create and go back to the list"
+msgstr "Créer et retourner à la liste"
+
+#: app/forms.py:112
+msgid "Main information"
+msgstr "Informations générales"
+
+#: app/forms.py:115
+#| msgid "Game's genre"
+msgid "Name & genre"
+msgstr "Nom et genre"
+
+#: app/forms.py:123
+msgid "Game's genre"
+msgstr "Genre du jeu"
+
+#: app/forms.py:131
+msgid "Highlight"
+msgstr "Mettre en lumière"
+
+#: app/forms.py:135
+msgid "Emphasize"
+msgstr "Mettre en valeur"
+
+#: app/forms.py:141
+msgid "Advertise"
+msgstr "Promouvoir"
+
+#: app/forms.py:145
+msgid "Recommend"
+msgstr "Recommander"
+
+#: app/forms.py:156
+#| msgid "description"
+msgid "Description"
+msgstr "Description"
+
+#: app/forms.py:161
+msgid "About the game"
+msgstr "A propos du jeu"
+
+#: app/forms.py:179 app/forms.py:181 app/templates/admin/app/game/play.html:18
+#: app/templates/app/game_confirm_delete.html:12
+#: app/templates/app/game_detail.html:29 app/templates/app/game_form.html:50
+#: app/templates/app/game_list.html:13
+msgid "Duration"
+msgstr "Durée"
+
+#: app/forms.py:184
+msgid "days"
+msgstr "jours"
+
+#: app/forms.py:188
+msgid "hours"
+msgstr "heures"
+
+#: app/forms.py:192
+msgid "minutes"
+msgstr "minutes"
+
+#: app/forms.py:196
+msgid "seconds"
+msgstr "secondes"
+
+#: app/forms.py:206 app/forms.py:307
+#: app/templates/registration/password_reset_confirm.html:13
+#: app/templates/registration/password_reset_form.html:11
+msgid "Reset"
+msgstr "Réinitialiser"
+
+#: app/forms.py:255
 msgid "Question prefix"
 msgstr "Préfixe de la question"
 
-#: app/forms.py:116
+#: app/forms.py:260
 msgid "Number of anwser per question"
 msgstr "Nombre de réponses par question"
 
-#: app/forms.py:122
+#: app/forms.py:266
 msgid "Answer prefix"
 msgstr "Préfixe de la réponse"
+
+#: app/forms.py:282
+msgid "Please fill out the form"
+msgstr "Merci de remplir ce formulaire"
+
+#: app/forms.py:306
+msgid "Bulk create questions and responses"
+msgstr "Créer en masse questions et réponses"
+
+#: app/forms.py:308
+msgid "Set default values"
+msgstr "Mettre les valeurs par défaut"
 
 #: app/mixins.py:8
 msgid "order"
@@ -235,7 +330,7 @@ msgstr "avatar"
 msgid "signed_engagement"
 msgstr "engagement signé"
 
-#: app/models.py:109 app/models.py:461
+#: app/models.py:109 app/models.py:485
 msgid "player"
 msgstr "joueur"
 
@@ -327,63 +422,79 @@ msgstr "niveau"
 msgid "duration"
 msgstr "durée"
 
-#: app/models.py:348 app/models.py:358 app/models.py:470
+#: app/models.py:321
+msgid "highlight"
+msgstr "mise en lumière"
+
+#: app/models.py:327
+msgid "emphasize"
+msgstr "mise en valeur"
+
+#: app/models.py:333
+msgid "advertise"
+msgstr "promotion"
+
+#: app/models.py:339
+msgid "recommend"
+msgstr "recommandation"
+
+#: app/models.py:372 app/models.py:382 app/models.py:494
 msgid "game"
 msgstr "jeu"
 
-#: app/models.py:349
+#: app/models.py:373
 msgid "games"
 msgstr "jeux"
 
-#: app/models.py:367
+#: app/models.py:391
 msgid "question content"
 msgstr "contenu de la question"
 
-#: app/models.py:372 app/models.py:423
+#: app/models.py:396 app/models.py:447
 msgid "points"
 msgstr "points"
 
-#: app/models.py:385 app/models.py:409
+#: app/models.py:409 app/models.py:433
 msgid "question"
 msgstr "question"
 
-#: app/models.py:386
+#: app/models.py:410
 msgid "questions"
 msgstr "questions"
 
-#: app/models.py:418
+#: app/models.py:442
 msgid "answer content"
 msgstr "contenu de la réponse"
 
-#: app/models.py:437
+#: app/models.py:461
 msgid "answer"
 msgstr "réponse"
 
-#: app/models.py:438
+#: app/models.py:462
 msgid "answers"
 msgstr "réponses"
 
-#: app/models.py:479
+#: app/models.py:503
 msgid "creation datetime"
 msgstr "date de création"
 
-#: app/models.py:484
+#: app/models.py:508
 msgid "entries"
 msgstr "entriées"
 
-#: app/models.py:496
+#: app/models.py:520
 msgid "play"
 msgstr "partie"
 
-#: app/models.py:497
+#: app/models.py:521
 msgid "plays"
 msgstr "parties"
 
-#: app/models.py:515
+#: app/models.py:539
 msgid "stat games"
 msgstr "stat jeux"
 
-#: app/models.py:516
+#: app/models.py:540
 msgid "stats games"
 msgstr "stats jeux"
 
@@ -452,13 +563,6 @@ msgstr "Jeu"
 msgid "Playing"
 msgstr "Jouer"
 
-#: app/templates/admin/app/game/play.html:18
-#: app/templates/app/game_confirm_delete.html:12
-#: app/templates/app/game_detail.html:29 app/templates/app/game_form.html:39
-#: app/templates/app/game_list.html:13
-msgid "Duration"
-msgstr "Durée"
-
 #: app/templates/admin/app/game/play.html:26
 #: app/templates/admin/app/game/play.html:28
 msgid "This should be easy enough"
@@ -517,38 +621,25 @@ msgstr "Vous êtes sur le point de supprimer ce jeu:"
 msgid "Level"
 msgstr "Niveau"
 
-#: app/templates/app/game_form.html:32
+#: app/templates/app/game_form.html:25
+msgid "Question"
+msgstr "Question"
+
+#: app/templates/app/game_form.html:27
+msgid "Answer"
+msgstr "Réponse"
+
+#: app/templates/app/game_form.html:43
 msgid "You are about to edit this game"
 msgstr "Vous êtes sur le point d'éditer ce jeu"
 
-#: app/templates/app/game_form.html:34
-#| msgid "You are about to add content to this game:"
+#: app/templates/app/game_form.html:45
 msgid "You are about to add content to this game"
 msgstr "Vous êtes sur le point d'ajouter du contenu à ce jeu"
 
-#: app/templates/app/game_form.html:36
+#: app/templates/app/game_form.html:47
 msgid "You are about to add a new game"
 msgstr "Vous êtes sur le point d'ajouter un nouveau jeu"
-
-#: app/templates/app/game_form.html:47
-msgid "Update"
-msgstr "Mettre à jour"
-
-#: app/templates/app/game_form.html:49
-msgid "Bulk create questions and responses"
-msgstr "Créer en masse questions et réponses"
-
-#: app/templates/app/game_form.html:51 app/views.py:104
-msgid "Create and add another"
-msgstr "Créer et en ajouter un autre"
-
-#: app/templates/app/game_form.html:52 app/views.py:106
-msgid "Create and continue modification"
-msgstr "Créer et continuer les modifications"
-
-#: app/templates/app/game_form.html:53
-msgid "Create and go back to the list"
-msgstr "Créer et retourner à la liste"
 
 #: app/templates/app/game_list.html:12
 msgid "Name"
@@ -680,11 +771,6 @@ msgstr ""
 "Veuillez entrer votre mot de passe de fois de manière à ce qu'il n'y ait pas"
 " de faute de frappe"
 
-#: app/templates/registration/password_reset_confirm.html:13
-#: app/templates/registration/password_reset_form.html:11
-msgid "Reset"
-msgstr "Réinitialiser"
-
 #: app/templates/registration/password_reset_confirm.html:16
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
@@ -756,6 +842,9 @@ msgstr "Créer un nouveau jeu"
 #: app/views.py:118
 msgid "Delete Game: {}"
 msgstr "Supprimer le jeu: {}"
+
+#~ msgid "Cancel"
+#~ msgstr "Annuler"
 
 #~ msgid "Voir"
 #~ msgstr "Voir"

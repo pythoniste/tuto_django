@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'jazzmin',
     'django_bootstrap5',
     'django_bootstrap_icons',
+    'crispy_forms',
+    'crispy_bootstrap5',
     'martor',
     'datatableview',
     'rosetta',
@@ -67,6 +69,9 @@ INSTALLED_APPS = [
     'django_extensions',
     'debug_toolbar',
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

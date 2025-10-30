@@ -3,6 +3,32 @@ from datetime import timedelta
 from django import forms
 from django.utils.translation import gettext_lazy as gettext
 
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import (
+    Layout,
+    Fieldset,
+    Row,
+    Column,
+    Div,
+    Submit,
+    Reset,
+    Button,
+)
+from crispy_forms.bootstrap import (
+    FormActions,
+    TabHolder,
+    Tab,
+    AppendedText,
+    PrependedText,
+    InlineRadios,
+    AccordionGroup,
+)
+from crispy_bootstrap5.bootstrap5 import (
+    FloatingField,
+    BS5Accordion,
+    Switch,
+)
+
 from .models import Game, Genre
 from .fields import TreeChoiceField
 
@@ -68,6 +94,119 @@ class GameForm(forms.ModelForm):
                     "duration_second": second,
                 }
         super().__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.form_class = 'form-horizontal'
+        if instance:
+            buttons = (
+                Submit('save', gettext('Update')),
+            )
+        else:
+            buttons = (
+                Submit('save', gettext('Create and add another')),
+                Submit('save', gettext('Create and continue modification')),
+                Submit('save', gettext('Create and go back to the list')),
+            )
+        self.helper.layout = Layout(
+            TabHolder(
+                Tab(
+                    gettext("Main information"),
+                    BS5Accordion(
+                        AccordionGroup(
+                            gettext("Name & genre"),
+                            Row(
+                                Column(
+                                    Row(
+                                        FloatingField("name"),
+                                        css_class="",
+                                    ),
+                                    Row(
+                                        PrependedText("genre", gettext("Game's genre")),
+                                        css_class="",
+                                    ),
+                                    css_class="col-6",
+                                ),
+                                Column(
+                                    Row(
+                                        Div(
+                                            Switch("highlight", gettext("Highlight")),
+                                            css_class="col-6",
+                                        ),
+                                        Div(
+                                            Switch("emphasize", gettext("Emphasize")),
+                                            css_class="col-6",
+                                        ),
+                                    ),
+                                    Row(
+                                        Div(
+                                            Switch("advertise", gettext("Advertise")),
+                                            css_class="col-6",
+                                        ),
+                                        Div(
+                                            Switch("recommend", gettext("Recommend")),
+                                            css_class="col-6",
+                                        ),
+                                    ),
+                                    Row("master"),
+                                    css_class="col-6",
+                                ),
+                            ),
+                            css_class="border p-4 mb-4 bg-success",
+                        ),
+                        AccordionGroup(
+                            gettext("Description"),
+                            "description",
+                            css_class="border p-4 mb-4 bg-secondary"
+                        ),
+                        AccordionGroup(
+                            gettext("About the game"),
+                            Row(
+                                Div(
+                                    InlineRadios("level"),
+                                    css_class="col-6",
+                                ),
+                                Div(
+                                    "status",
+                                    css_class="col-6",
+                                ),
+                            ),
+                            css_class="border p-4 mb-4 bg-info"
+                        ),
+                    ),
+                    flush=True,
+                    # always_open=True
+                ),
+                Tab(
+                    gettext("Duration"),
+                    Fieldset(
+                        gettext("Duration"),
+                        Row(
+                            Div(
+                                AppendedText("duration_day", gettext("days")),
+                                css_class="col-6",
+                            ),
+                            Div(
+                                AppendedText("duration_hour", gettext("hours")),
+                                css_class="col-6",
+                            ),
+                            Div(
+                                AppendedText("duration_minute", gettext("minutes")),
+                                css_class="col-6",
+                            ),
+                            Div(
+                                AppendedText("duration_second", gettext("seconds")),
+                                css_class="col-6",
+                            ),
+                        ),
+                        css_class="border p-4 mb-4 bg-light"
+                    ),
+                ),
+            ),
+            FormActions(
+                *buttons,
+                Reset('cancel', gettext('Reset'), css_class="btn-danger"),
+            ),
+        )
+
 
     def clean(self):
         cleaned_data = super().clean()
@@ -92,6 +231,11 @@ class GameForm(forms.ModelForm):
             "status",
             "level",
             "genre",
+            "highlight",
+            "emphasize",
+            "master",
+            "advertise",
+            "recommend",
         )
         widgets = {
             "duration": forms.HiddenInput(),
@@ -123,4 +267,44 @@ class BulkQuestionAnswerGenerationForm(forms.Form):
         max_length=50,
     )
 
-
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.form_id = 'bulk_form'
+        self.helper.form_class = 'form-horizontal'
+        self.helper.form_tag = True  # This is the default value
+        self.helper.disable_csrf = False  # This is the default value
+        self.helper.render_unmentioned_fields = False  # This is the default value
+        self.helper.render_hidden_fields = False  # This is the default value
+        self.helper.render_required_fields = False  # This is the default value
+        self.helper.layout = Layout(
+            Fieldset(
+                gettext("Please fill out the form"),
+                Row(
+                    Div(
+                        FloatingField("num_questions"),
+                        css_class="col-6",
+                    ),
+                    Div(
+                        FloatingField("question_prefix"),
+                        css_class="col-6",
+                    ),
+                ),
+                Row(
+                    Div(
+                        FloatingField("num_answers_per_question"),
+                        css_class="col-6",
+                    ),
+                    Div(
+                        FloatingField("answer_prefix"),
+                        css_class="col-6",
+                    ),
+                ),
+                css_class="border p-4 mb-4 bg-dark"
+            ),
+            FormActions(
+                Submit('save', gettext('Bulk create questions and responses')),
+                Reset('reset', gettext('Reset'), css_class="btn-danger"),
+                Button('default', gettext('Set default values'), css_class="btn-info", onclick="setDefaultValues()"),
+            ),
+        )

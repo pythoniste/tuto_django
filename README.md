@@ -80,3 +80,4 @@ Only steps of the current branch are displayed here. Change branch to see other 
   * v1.9.3 Template tags
 * Forms
   * v1.10.0 Custom forms
+  * v1.10.1 Crispy forms

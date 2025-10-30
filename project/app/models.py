@@ -317,6 +317,30 @@ class Game(TrackingMixin, models.Model):
         null=True,
     )
 
+    highlight = models.BooleanField(
+        verbose_name=gettext("highlight"),
+        null=False,
+        default=False,
+    )
+
+    emphasize = models.BooleanField(
+        verbose_name=gettext("emphasize"),
+        null=False,
+        default=False,
+    )
+
+    advertise = models.BooleanField(
+        verbose_name=gettext("advertise"),
+        null=False,
+        default=False,
+    )
+
+    recommend = models.BooleanField(
+        verbose_name=gettext("recommend"),
+        null=False,
+        default=False,
+    )
+
     @classmethod
     def generate_slug(cls, name):
         base_slug = slugify(name)

@@ -174,7 +174,11 @@
         "status": "done",
         "level": 5,
         "genre": null,
-        "duration": "01:00:00"
+        "duration": "01:00:00",
+        "highlight": false,
+        "emphasize": false,
+        "advertise": false,
+        "recommend": false
     }
 },
 {
@@ -189,7 +193,11 @@
         "status": "ongoing",
         "level": 4,
         "genre": null,
-        "duration": "00:05:00"
+        "duration": "00:05:00",
+        "highlight": false,
+        "emphasize": false,
+        "advertise": false,
+        "recommend": false
     }
 },
 {
@@ -204,7 +212,11 @@
         "status": "ongoing",
         "level": 2,
         "genre": null,
-        "duration": "00:07:30"
+        "duration": "00:07:30",
+        "highlight": false,
+        "emphasize": false,
+        "advertise": false,
+        "recommend": false
     }
 },
 {
@@ -219,7 +231,11 @@
         "status": "ongoing",
         "level": 1,
         "genre": null,
-        "duration": "00:05:00"
+        "duration": "00:05:00",
+        "highlight": false,
+        "emphasize": false,
+        "advertise": false,
+        "recommend": false
     }
 },
 {
@@ -236,7 +252,11 @@
         "genre": [
             "Informatique"
         ],
-        "duration": "00:05:00"
+        "duration": "00:05:00",
+        "highlight": false,
+        "emphasize": false,
+        "advertise": false,
+        "recommend": false
     }
 },
 {

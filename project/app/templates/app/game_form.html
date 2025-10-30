@@ -1,5 +1,5 @@
 {% extends "master.html" %}
-{% load static i18n app_utils %}
+{% load static i18n app_utils crispy_forms_tags %}
 
 {% block extrastyle %}
     <link href="{% static 'plugins/css/ace.min.css' %}" rel="stylesheet" />
@@ -18,6 +18,17 @@
     <script src="{% static 'plugins/js/highlight.min.js' %}"></script>
     <script src="{% static 'plugins/js/emojis.min.js' %}"></script>
     <script src="{% static 'martor/js/martor.bootstrap.min.js' %}"></script>
+    <script>
+        function setDefaultValues() {
+            if ($('#bulk_form').length > 0) {
+                $('#id_num_questions').val(5);
+                $('#id_question_prefix').val('{% translate "Question" %}');
+                $('#id_num_answers_per_question').val(3);
+                $('#id_answer_prefix').val('{% translate "Answer" %}');
+                $('#id_num_questions, #id_question_prefix, #id_num_answers_per_question, #id_answer_prefix').trigger('input');
+            }
+        }
+    </script>
 {% endblock %}
 
 {% block content %}
@@ -40,19 +51,9 @@
                         <p class="card-text {% if game.status == 'draft' %}text-danger{% elif game.status == 'ready' %}text-warning{% elif game.status == 'ongoing' %}text-success{% elif game.status == 'done' %}text-error{% endif %}">{{ game.get_status_display }}</p>
                     </div>
                     <div class="card-body">
-                        <form method="post">
-                            {% csrf_token %}
-                            {{ form.as_p }}
-                            {% if object %}
-                            <input type="submit" value="{% translate 'Update' %}">
-                            {% elif game %}
-                            <input type="submit" value="{% translate 'Bulk create questions and responses' %}">
-                            {% else %}
-                            <input type="submit" name="submit" value="{% translate 'Create and add another' %}">
-                            <input type="submit" name="submit" value="{% translate 'Create and continue modification' %}">
-                            <input type="submit" value="{% translate 'Create and go back to the list' %}">
-                            {% endif %}
-                        </form>
+                        <div class="container">
+                            {% crispy form %}
+                        </div>
                     </div>
                     <div class="card-footer">
                         {% icon_action 'list' %}
