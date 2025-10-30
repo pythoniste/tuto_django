@@ -11,7 +11,7 @@ from django.db.models.signals import (
 from django.dispatch import receiver, Signal
 from django.utils.translation import gettext_lazy as gettext
 
-from .models import Game, Question, Answer
+from .models import Game, Question, Answer, Play, Entry
 
 
 __all__ = [
@@ -132,3 +132,24 @@ def answer_points_consistency_on_delete(
     if (nb_points := max(answer.points for answer in other_answers)) < instance.question.points:
         instance.question.points = nb_points
         instance.question.save(update_fields=["points"])
+
+
+@receiver(post_save, sender=Play, dispatch_uid="question_create_entries_when_creating_play")
+def question_create_entries_when_creating_play(
+    sender: AppConfig,
+    instance: Question,
+    created: bool,
+    raw: bool,
+    using: str,
+    update_fields: list[str] | None,
+    **_: dict[str, Any],
+) -> None:
+    if raw or not created:
+        return
+
+    Entry.objects.bulk_create(
+        [
+            Entry(play=instance, question=question)
+            for question in instance.game.question_set.all()
+        ]
+    )

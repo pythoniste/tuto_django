@@ -26,6 +26,7 @@ from .models import (
     Play,
     Genre,
     StatGame,
+    Entry,
 )
 
 from .filters import (
@@ -396,9 +397,17 @@ class AnswerAdmin(admin.ModelAdmin):
         return False
 
 
-class EntryInline(admin.TabularInline):
-    model = Play.entry_set.through
+class AnswerInline(admin.TabularInline):
+    model = Play.answer_set.through
     fields = ("answer",)
+    min_num = 2
+    max_num = 5
+    extra = 1
+
+
+class EntryInline(admin.TabularInline):
+    model = Entry
+    fields = ("question", "answer",)
     min_num = 2
     max_num = 5
     extra = 1
@@ -414,7 +423,7 @@ class PlayAdmin(admin.ModelAdmin):
         "player",
         "game",
     )
-    inlines = [EntryInline]
+    inlines = [EntryInline, AnswerInline]
 
     def has_module_permission(self, request):
         return True

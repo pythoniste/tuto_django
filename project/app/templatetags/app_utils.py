@@ -24,6 +24,8 @@ ICONS = {
     "update": "pencil",
     "delete": "trash",
     "bulk_create_qr": "database-add",
+    "create_play": "file-earmark-play",
+    "play": "play",
 }
 
 
@@ -53,3 +55,9 @@ def pagination_tag(parser: Parser, token: Token) -> InclusionAdminNode:
         takes_context=False,
     )
 
+@register.filter
+def get_item(dictionary, key):
+    """Get the value for a key in the dictionary."""
+    if dictionary:
+        return dictionary.get(key)
+    return None

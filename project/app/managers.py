@@ -106,3 +106,10 @@ class StatGameManager(models.Manager):
 
     def get_by_natural_key(self, game_name: str):
         return self.get(name=game_name)
+
+
+class EntryManager(models.Manager):
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.select_related("play", "question__game")

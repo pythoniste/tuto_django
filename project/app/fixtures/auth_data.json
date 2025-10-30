@@ -1692,6 +1692,42 @@
     }
 },
 {
+    "model": "auth.permission",
+    "pk": 189,
+    "fields": {
+        "name": "Can add entry",
+        "content_type": 25,
+        "codename": "add_entry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 190,
+    "fields": {
+        "name": "Can change entry",
+        "content_type": 25,
+        "codename": "change_entry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 191,
+    "fields": {
+        "name": "Can delete entry",
+        "content_type": 25,
+        "codename": "delete_entry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 192,
+    "fields": {
+        "name": "Can view entry",
+        "content_type": 25,
+        "codename": "view_entry"
+    }
+},
+{
     "model": "auth.user",
     "pk": 1,
     "fields": {

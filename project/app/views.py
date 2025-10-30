@@ -8,9 +8,12 @@ from django.views.generic import (
     CreateView,
     DeleteView,
 )
+from django.db import transaction
 from django.contrib import messages
+from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
-from django.shortcuts import render, redirect
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy, reverse
 from django.utils.translation import gettext_lazy as gettext
 
@@ -19,10 +22,13 @@ from rest_framework import viewsets
 
 from project.ninja import api
 
-from .models import Player, Game, Question, Answer, Genre
-from .forms import GameForm, BulkQuestionAnswerGenerationForm
+from .models import Player, Game, Question, Answer, Genre, Play, Entry
+from .forms import GameForm, BulkQuestionAnswerGenerationForm, PlayForm, PlayFormSet, PlayFormSetHelper
 from .schemas import GameSchema, MessageSchema
 from .serializers import GameSerializer, QuestionSerializer, AnswerSerializer
+
+
+User = get_user_model()
 
 
 class HomeView(TemplateView):
@@ -45,6 +51,8 @@ class GameListView(ListView):
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
         data['page_title'] = gettext("Games list")
+        if self.request.user.is_authenticated:
+            data['plays'] = {play.game_id: play.pk for play in self.request.user.player.play.all()}
         return data
 
 
@@ -55,6 +63,11 @@ class GameDetailView(DetailView):
         data = super().get_context_data(**kwargs)
         obj = self.get_object()
         data['page_title'] = str(gettext("Game: {}")).format(obj.name)
+        if self.request.user.is_authenticated:
+            try:
+                data['play'] = self.request.user.player.play.filter(game_id=obj.pk).first()
+            except User.player.RelatedObjectDoesNotExist:
+                pass
         return data
 
 
@@ -242,3 +255,52 @@ def bulk_create_questions_answers(request, pk):
             'game': Game.objects.get(pk=pk),
         },
     )
+
+
+def create_play(request, pk: int):
+    try:
+        player = request.user.player
+    except AttributeError:
+        messages.add_message(request, messages.WARNING, gettext("Please authenticate to play"))
+        url = reverse_lazy("login")
+    except User.player.RelatedObjectDoesNotExist:
+        messages.add_message(request, messages.ERROR, gettext("You do not have a player profile"))
+        url = reverse_lazy("game:list")
+    else:
+        play = Play.objects.create(player=player, game_id=pk)
+        # url = reverse_lazy("game:list")  # TEMPORAIRE
+        url = reverse_lazy("game:play", kwargs={"pk": play.pk})
+    return HttpResponseRedirect(url)
+
+
+class PlayUpdateView(UpdateView):
+    model = Play
+    template_name = "app/play_form.html"
+    form_class = PlayForm
+    success_url = reverse_lazy("game:list")
+
+    def get_object(self, queryset=None):
+        return get_object_or_404(Play, pk=self.kwargs['pk'])
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.method == "POST":
+            context["entry_set"] = PlayFormSet(self.request.POST, instance=self.object)
+        else:
+            context["entry_set"] = PlayFormSet(instance=self.object)
+        return context
+
+    def form_valid(self, form):
+        context = self.get_context_data()
+        entry_set = context["entry_set"]
+        with transaction.atomic():
+            if entry_set.is_valid():
+                entry_set.save()
+                messages.add_message(self.request, messages.SUCCESS, gettext("Saved."))
+            else:
+                messages.add_message(self.request, messages.WARNING, gettext("Please answer all questions."))
+                for error in entry_set.errors:
+                    messages.add_message(self.request, messages.ERROR, error)
+                return self.form_invalid(form)
+
+        return HttpResponseRedirect(self.get_success_url())

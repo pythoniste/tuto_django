@@ -81,3 +81,4 @@ Only steps of the current branch are displayed here. Change branch to see other 
 * Forms
   * v1.10.0 Custom forms
   * v1.10.1 Crispy forms
+  * v1.10.2 Crispy formsets

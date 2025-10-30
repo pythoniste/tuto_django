@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-31 17:13+0100\n"
-"PO-Revision-Date: 2025-10-31 17:14+0100\n"
+"POT-Creation-Date: 2025-10-31 17:50+0100\n"
+"PO-Revision-Date: 2025-10-31 17:51+0100\n"
 "Last-Translator: The Admin <admin@example.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,71 +19,71 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Translated-Using: django-rosetta 0.10.2\n"
 
-#: app/admin.py:81
+#: app/admin.py:82
 msgid "Contract information"
 msgstr "Informations contactuelles"
 
-#: app/admin.py:87
+#: app/admin.py:88
 msgid "Personal information"
 msgstr "Informations personnelles"
 
-#: app/admin.py:108 app/admin.py:237
+#: app/admin.py:109 app/admin.py:238
 msgid "username"
 msgstr "Nom d'utilisateur"
 
-#: app/admin.py:112 app/admin.py:241
+#: app/admin.py:113 app/admin.py:242
 msgid "first name"
 msgstr "Prénom"
 
-#: app/admin.py:116 app/admin.py:245
+#: app/admin.py:117 app/admin.py:246
 msgid "last name"
 msgstr "Nom"
 
-#: app/admin.py:120
+#: app/admin.py:121
 msgid "Type"
 msgstr "Type"
 
-#: app/admin.py:135 app/admin.py:251
+#: app/admin.py:136 app/admin.py:252
 msgid "No row updated"
 msgstr "Aucune ligne modifiée"
 
-#: app/admin.py:137 app/admin.py:253
+#: app/admin.py:138 app/admin.py:254
 msgid "1 row updated"
 msgstr "1 ligne modifiée"
 
-#: app/admin.py:139 app/admin.py:255
+#: app/admin.py:140 app/admin.py:256
 msgid "{} rows updated"
 msgstr "{} lignes modifiées"
 
-#: app/admin.py:141 app/admin.py:257
+#: app/admin.py:142 app/admin.py:258
 msgid "Reset scores"
 msgstr "Remettre les scores à 0"
 
-#: app/admin.py:153
+#: app/admin.py:154
 msgid "Invitation"
 msgstr "Invitation"
 
-#: app/admin.py:165
+#: app/admin.py:166
 msgid "Subscription details"
 msgstr "détails de souscription"
 
-#: app/admin.py:177 app/admin.py:190
+#: app/admin.py:178 app/admin.py:191
 msgid "Membership details"
 msgstr "Détail de l'adhésion"
 
-#: app/admin.py:324
+#: app/admin.py:325
 msgid "Open"
 msgstr "Ouvert"
 
-#: app/admin.py:471 app/forms.py:249
+#: app/admin.py:480 app/forms.py:256
 msgid "Number of questions"
 msgstr "Nombre de questions"
 
-#: app/admin.py:476
+#: app/admin.py:485
 msgid "Number of players"
 msgstr "Nombre de joueurs"
 
-#: app/apps.py:11 app/views.py:192
+#: app/apps.py:11 app/views.py:202
 msgid "My app"
 msgstr "Mon appli"
 
@@ -167,132 +167,143 @@ msgstr "année de dernière modification"
 msgid "subscription year"
 msgstr "année de souscription"
 
-#: app/forms.py:38 app/forms.py:42
+#: app/forms.py:45 app/forms.py:49
 msgid "Day"
 msgstr "Jour"
 
-#: app/forms.py:46 app/forms.py:50
+#: app/forms.py:53 app/forms.py:57
 msgid "Hour"
 msgstr "Heure"
 
-#: app/forms.py:54 app/forms.py:58
+#: app/forms.py:61 app/forms.py:65
 msgid "Minute"
 msgstr "Minute"
 
-#: app/forms.py:62 app/forms.py:66
+#: app/forms.py:69 app/forms.py:73
 msgid "Second"
 msgstr "Seconde"
 
-#: app/forms.py:71
+#: app/forms.py:78
 msgid "Genre"
 msgstr "Genre"
 
-#: app/forms.py:101
+#: app/forms.py:108
 msgid "Update"
 msgstr "Mettre à jour"
 
-#: app/forms.py:105 app/views.py:104
+#: app/forms.py:112 app/views.py:114
 msgid "Create and add another"
 msgstr "Créer et en ajouter un autre"
 
-#: app/forms.py:106 app/views.py:106
+#: app/forms.py:113 app/views.py:116
 msgid "Create and continue modification"
 msgstr "Créer et continuer les modifications"
 
-#: app/forms.py:107
+#: app/forms.py:114
 msgid "Create and go back to the list"
 msgstr "Créer et retourner à la liste"
 
-#: app/forms.py:112
+#: app/forms.py:119
 msgid "Main information"
 msgstr "Informations générales"
 
-#: app/forms.py:115
-#| msgid "Game's genre"
+#: app/forms.py:122
 msgid "Name & genre"
 msgstr "Nom et genre"
 
-#: app/forms.py:123
+#: app/forms.py:130
 msgid "Game's genre"
 msgstr "Genre du jeu"
 
-#: app/forms.py:131
+#: app/forms.py:138
 msgid "Highlight"
 msgstr "Mettre en lumière"
 
-#: app/forms.py:135
+#: app/forms.py:142
 msgid "Emphasize"
 msgstr "Mettre en valeur"
 
-#: app/forms.py:141
+#: app/forms.py:148
 msgid "Advertise"
 msgstr "Promouvoir"
 
-#: app/forms.py:145
+#: app/forms.py:152
 msgid "Recommend"
 msgstr "Recommander"
 
-#: app/forms.py:156
-#| msgid "description"
+#: app/forms.py:163
 msgid "Description"
 msgstr "Description"
 
-#: app/forms.py:161
+#: app/forms.py:168
 msgid "About the game"
 msgstr "A propos du jeu"
 
-#: app/forms.py:179 app/forms.py:181 app/templates/admin/app/game/play.html:18
+#: app/forms.py:186 app/forms.py:188 app/templates/admin/app/game/play.html:18
 #: app/templates/app/game_confirm_delete.html:12
 #: app/templates/app/game_detail.html:29 app/templates/app/game_form.html:50
 #: app/templates/app/game_list.html:13
 msgid "Duration"
 msgstr "Durée"
 
-#: app/forms.py:184
+#: app/forms.py:191
 msgid "days"
 msgstr "jours"
 
-#: app/forms.py:188
+#: app/forms.py:195
 msgid "hours"
 msgstr "heures"
 
-#: app/forms.py:192
+#: app/forms.py:199
 msgid "minutes"
 msgstr "minutes"
 
-#: app/forms.py:196
+#: app/forms.py:203
 msgid "seconds"
 msgstr "secondes"
 
-#: app/forms.py:206 app/forms.py:307
+#: app/forms.py:213 app/forms.py:314
 #: app/templates/registration/password_reset_confirm.html:13
 #: app/templates/registration/password_reset_form.html:11
 msgid "Reset"
 msgstr "Réinitialiser"
 
-#: app/forms.py:255
+#: app/forms.py:262
 msgid "Question prefix"
 msgstr "Préfixe de la question"
 
-#: app/forms.py:260
+#: app/forms.py:267
 msgid "Number of anwser per question"
 msgstr "Nombre de réponses par question"
 
-#: app/forms.py:266
+#: app/forms.py:273
 msgid "Answer prefix"
 msgstr "Préfixe de la réponse"
 
-#: app/forms.py:282
+#: app/forms.py:289
 msgid "Please fill out the form"
 msgstr "Merci de remplir ce formulaire"
 
-#: app/forms.py:306
+#: app/forms.py:313
 msgid "Bulk create questions and responses"
 msgstr "Créer en masse questions et réponses"
 
-#: app/forms.py:308
+#: app/forms.py:315
 msgid "Set default values"
 msgstr "Mettre les valeurs par défaut"
+
+#: app/forms.py:350 app/forms.py:433
+#| msgid "answers"
+msgid "Validate answers"
+msgstr "Valider les réponses"
+
+#: app/forms.py:351 app/forms.py:434
+msgid "Cancel"
+msgstr "Annuler"
+
+#: app/forms.py:424
+msgid "<h5>You are playing the game <strong>{}</strong></h5>"
+msgstr "<h5>Vous êtes en train de jouer au jeu <strong>{}</strong></h5>"
 
 #: app/mixins.py:8
 msgid "order"
@@ -306,197 +317,201 @@ msgstr "Créé le"
 msgid "updated at"
 msgstr "Mis à jour le"
 
-#: app/models.py:60
+#: app/models.py:61
 msgid "user"
 msgstr "utilisateur"
 
-#: app/models.py:69
+#: app/models.py:70
 msgid "score"
 msgstr "score"
 
-#: app/models.py:74
+#: app/models.py:75
 msgid "subscription date"
 msgstr "date de souscription"
 
-#: app/models.py:80
+#: app/models.py:81
 msgid "profile activated"
 msgstr "profil activé"
 
-#: app/models.py:84
+#: app/models.py:85
 msgid "avatar"
 msgstr "avatar"
 
-#: app/models.py:92
+#: app/models.py:93
 msgid "signed_engagement"
 msgstr "engagement signé"
 
-#: app/models.py:109 app/models.py:485
+#: app/models.py:110 app/models.py:486
 msgid "player"
 msgstr "joueur"
 
-#: app/models.py:110
+#: app/models.py:111
 msgid "players"
 msgstr "joueurs"
 
-#: app/models.py:118
+#: app/models.py:119
 msgid "invited by"
 msgstr "invité par"
 
-#: app/models.py:137
+#: app/models.py:138
 msgid "guest"
 msgstr "invité"
 
-#: app/models.py:138
+#: app/models.py:139
 msgid "guests"
 msgstr "invités"
 
-#: app/models.py:146 app/models.py:177 app/models.py:202
+#: app/models.py:147 app/models.py:178 app/models.py:203
 msgid "First registration date"
 msgstr "date de premier enregistrement"
 
-#: app/models.py:150
+#: app/models.py:151
 msgid "sponsor"
 msgstr "sponsor"
 
-#: app/models.py:169
+#: app/models.py:170
 msgid "subscriber"
 msgstr "souscripteur"
 
-#: app/models.py:170
+#: app/models.py:171
 msgid "subscribers"
 msgstr "souscripteurs"
 
-#: app/models.py:181 app/models.py:206
+#: app/models.py:182 app/models.py:207
 msgid "First membership date"
 msgstr "date de première adhésion"
 
-#: app/models.py:194
+#: app/models.py:195
 msgid "team mate"
 msgstr "co-équipier"
 
-#: app/models.py:195
+#: app/models.py:196
 msgid "team mates"
 msgstr "co-équipiers"
 
-#: app/models.py:218
+#: app/models.py:219
 msgid "game master"
 msgstr "maître de jeu"
 
-#: app/models.py:219
+#: app/models.py:220
 msgid "game masters"
 msgstr "maîtres de jeu"
 
-#: app/models.py:227 app/models.py:261
+#: app/models.py:228 app/models.py:262
 msgid "name"
 msgstr "nom"
 
-#: app/models.py:233
+#: app/models.py:234
 msgid "parent"
 msgstr "parent"
 
-#: app/models.py:251 app/models.py:306
+#: app/models.py:252 app/models.py:307
 msgid "genre"
 msgstr "genre"
 
-#: app/models.py:252
+#: app/models.py:253
 msgid "genres"
 msgstr "genres"
 
-#: app/models.py:269
+#: app/models.py:270
 msgid "description"
 msgstr "description"
 
-#: app/models.py:279
+#: app/models.py:280
 msgid "master"
 msgstr "maître"
 
-#: app/models.py:289
+#: app/models.py:290
 msgid "status"
 msgstr "statut"
 
-#: app/models.py:298
+#: app/models.py:299
 msgid "level"
 msgstr "niveau"
 
-#: app/models.py:315
+#: app/models.py:316
 msgid "duration"
 msgstr "durée"
 
-#: app/models.py:321
+#: app/models.py:322
 msgid "highlight"
 msgstr "mise en lumière"
 
-#: app/models.py:327
+#: app/models.py:328
 msgid "emphasize"
 msgstr "mise en valeur"
 
-#: app/models.py:333
+#: app/models.py:334
 msgid "advertise"
 msgstr "promotion"
 
-#: app/models.py:339
+#: app/models.py:340
 msgid "recommend"
 msgstr "recommandation"
 
-#: app/models.py:372 app/models.py:382 app/models.py:494
+#: app/models.py:373 app/models.py:383 app/models.py:495
 msgid "game"
 msgstr "jeu"
 
-#: app/models.py:373
+#: app/models.py:374
 msgid "games"
 msgstr "jeux"
 
-#: app/models.py:391
+#: app/models.py:392
 msgid "question content"
 msgstr "contenu de la question"
 
-#: app/models.py:396 app/models.py:447
+#: app/models.py:397 app/models.py:448
 msgid "points"
 msgstr "points"
 
-#: app/models.py:409 app/models.py:433
+#: app/models.py:410 app/models.py:434 app/models.py:565
 msgid "question"
 msgstr "question"
 
-#: app/models.py:410
+#: app/models.py:411
 msgid "questions"
 msgstr "questions"
 
-#: app/models.py:442
+#: app/models.py:443
 msgid "answer content"
 msgstr "contenu de la réponse"
 
-#: app/models.py:461
+#: app/models.py:462 app/models.py:575
 msgid "answer"
 msgstr "réponse"
 
-#: app/models.py:462
+#: app/models.py:463
 msgid "answers"
 msgstr "réponses"
 
-#: app/models.py:503
+#: app/models.py:504
 msgid "creation datetime"
 msgstr "date de création"
 
-#: app/models.py:508
+#: app/models.py:509 app/models.py:590
 msgid "entries"
 msgstr "entriées"
 
-#: app/models.py:520
+#: app/models.py:521 app/models.py:555
 msgid "play"
 msgstr "partie"
 
-#: app/models.py:521
+#: app/models.py:522
 msgid "plays"
 msgstr "parties"
 
-#: app/models.py:539
+#: app/models.py:540
 msgid "stat games"
 msgstr "stat jeux"
 
-#: app/models.py:540
+#: app/models.py:541
 msgid "stats games"
 msgstr "stats jeux"
+
+#: app/models.py:589
+msgid "entry"
+msgstr "entrées"
 
 #: app/signals.py:57
 msgid "Question {}"
@@ -550,7 +565,7 @@ msgstr "Voir sur le site"
 #: app/templates/registration/password_reset_complete.html:7
 #: app/templates/registration/password_reset_confirm.html:7
 #: app/templates/registration/password_reset_done.html:7
-#: app/templates/registration/password_reset_form.html:7 app/views.py:34
+#: app/templates/registration/password_reset_form.html:7 app/views.py:40
 msgid "Home"
 msgstr "Accueil"
 
@@ -653,7 +668,7 @@ msgstr "Statut"
 msgid "Actions"
 msgstr "Actions"
 
-#: app/templates/app/game_list.html:36 app/templates/home.html:63
+#: app/templates/app/game_list.html:41 app/templates/home.html:63
 msgid "There is no game yet!"
 msgstr "Il n'y a pas encore de jeu !"
 
@@ -823,28 +838,41 @@ msgstr "Merci pour utiliser notre site !"
 msgid "The %(site_name)s team"
 msgstr "L'équipe de %(site_name)s."
 
-#: app/views.py:47
+#: app/views.py:53
 msgid "Games list"
 msgstr "Liste de jeux"
 
-#: app/views.py:57
+#: app/views.py:65
 msgid "Game: {}"
 msgstr "Jeu: {}"
 
-#: app/views.py:74 app/views.py:85
+#: app/views.py:84 app/views.py:95
 msgid "Update Game: {}"
 msgstr "Modifier le jeu: {}"
 
-#: app/views.py:99
+#: app/views.py:109
 msgid "Create a new game"
 msgstr "Créer un nouveau jeu"
 
-#: app/views.py:118
+#: app/views.py:128
 msgid "Delete Game: {}"
 msgstr "Supprimer le jeu: {}"
 
-#~ msgid "Cancel"
-#~ msgstr "Annuler"
+#: app/views.py:261
+msgid "Please authenticate to play"
+msgstr "Merci de vous authentifier pour jouer"
+
+#: app/views.py:264
+msgid "You do not have a player profile"
+msgstr "Vous n'avez pas de profil joueur"
+
+#: app/views.py:319
+msgid "Saved."
+msgstr "Sauvegardé."
+
+#: app/views.py:327
+msgid "Please answer all questions."
+msgstr "Merci de répondre à toutes les questions"
 
 #~ msgid "Voir"
 #~ msgstr "Voir"

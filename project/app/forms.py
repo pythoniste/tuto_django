@@ -1,18 +1,25 @@
 from datetime import timedelta
 
 from django import forms
+from django.forms import ModelChoiceField
+from django.forms.models import inlineformset_factory
+from django.template.loader import render_to_string
 from django.utils.translation import gettext_lazy as gettext
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import (
     Layout,
     Fieldset,
+    Field,
     Row,
     Column,
     Div,
     Submit,
     Reset,
     Button,
+    HTML,
+    LayoutObject,
+    TEMPLATE_PACK,
 )
 from crispy_forms.bootstrap import (
     FormActions,
@@ -28,8 +35,9 @@ from crispy_bootstrap5.bootstrap5 import (
     BS5Accordion,
     Switch,
 )
+from martor.utils import markdownify
 
-from .models import Game, Genre
+from .models import Game, Genre, Entry, Play, Question, Answer
 from .fields import TreeChoiceField
 
 
@@ -308,3 +316,127 @@ class BulkQuestionAnswerGenerationForm(forms.Form):
                 Button('default', gettext('Set default values'), css_class="btn-info", onclick="setDefaultValues()"),
             ),
         )
+
+
+class EntryForm(forms.ModelForm):
+
+    answer = ModelChoiceField(
+        widget=forms.RadioSelect,
+        queryset=Answer.objects.none()
+    )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields["answer"].queryset = self.instance.question.answer_set.all()
+        self.fields["answer"].label = self.instance.question.text
+
+        self.helper = FormHelper(self)
+        self.helper.form_tag = False
+        self.helper.form_class = 'form-horizontal'
+        self.helper.layout = Layout(
+            Div(
+                Row(
+                    HTML(
+                        self.instance.question.text
+                    )
+                ),
+                Row(
+                    Field("answer", css_class='input-xlarge', style="background: #FAFAFA; padding: 10px;"),
+                ),
+                FormActions(
+                    Submit('save', gettext('Validate answers')),
+                    Button('cancel', gettext('Cancel'), css_class="btn-danger"),
+                ),
+                css_class="container",
+            ),
+        )
+
+    class Meta:
+        model = Entry
+        fields = (
+            "play",
+            "answer",
+        )
+        widgets = {
+            "play": forms.HiddenInput(),
+        }
+
+
+PlayFormSet = inlineformset_factory(
+    Play,
+    Entry,
+    form=EntryForm,
+    fields=["play", 'answer'],
+    extra=0,
+    can_delete=False,
+    edit_only=True,
+)
+
+
+class PlayFormSetHelper(FormHelper):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.form_method = 'post'
+        self.layout = Layout(
+            Div(
+                Row(
+                    Field("answer", css_class='input-xlarge', style="background: #FAFAFA; padding: 10px;"),
+                ),
+                css_class="container",
+            ),
+        )
+
+
+class QuestionLayout(LayoutObject):
+    template = "app/play_formset.html"
+
+    def __init__(self, formset_name_in_context, template=None):
+        self.formset_name_in_context = formset_name_in_context
+        self.fields = []
+        if template:
+            self.template = template
+
+    def render(self, form, context, template_pack=TEMPLATE_PACK):
+        formset = context[self.formset_name_in_context]
+        helper = PlayFormSetHelper()
+        return render_to_string(self.template, {'formset': formset, "helper": helper})
+
+
+class PlayForm(forms.ModelForm):
+
+    entry_set = PlayFormSet()
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_tag = True
+        self.helper.form_class = 'form-horizontal'
+        self.helper.label_class = 'col-md-3 create-label'
+        self.helper.field_class = 'col-md-9'
+        self.helper.layout = Layout(
+            Div(
+                Row(
+                    HTML(
+                        gettext("<h5>You are playing the game <strong>{}</strong></h5>").format(
+                            self.instance.game.name
+                        )
+                    ),
+                ),
+                Row(
+                    HTML(markdownify(self.instance.game.description)),
+                ),
+                Row(
+                    QuestionLayout('entry_set'),
+                ),
+                FormActions(
+                    Submit('save', gettext('Validate answers')),
+                    Button('cancel', gettext('Cancel'), css_class="btn-danger"),
+                ),
+                css_class="container",
+            )
+        )
+
+    class Meta:
+        model = Play
+        fields = ()

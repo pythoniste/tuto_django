@@ -22,6 +22,7 @@ from .managers import (
     PlayManager,
     GenreManager,
     StatGameManager,
+    EntryManager,
 )
 from .mixins import (
     OrderingMixin,
@@ -504,7 +505,7 @@ class Play(TrackingMixin, models.Model):
         auto_now_add=True,
     )
 
-    entry_set = models.ManyToManyField(
+    answer_set = models.ManyToManyField(
         verbose_name=gettext("entries"),
         related_name="play_set",
         to=Answer,
@@ -544,3 +545,46 @@ class StatGame(Game):
     # @property
     # def nb_players(self):
     #     return self.play.count()
+
+
+class Entry(models.Model):
+
+    objects = EntryManager()
+
+    play = models.ForeignKey(
+        verbose_name=gettext("play"),
+        related_name="entry_set",
+        to=Play,
+        blank=False,
+        null=False,
+        db_index=True,
+        on_delete=models.CASCADE,
+    )
+
+    question = models.ForeignKey(
+        verbose_name=gettext("question"),
+        related_name="entry_set",
+        to=Question,
+        blank=False,
+        null=False,
+        db_index=True,
+        on_delete=models.CASCADE,
+    )
+
+    answer = models.ForeignKey(
+        verbose_name=gettext("answer"),
+        related_name="entry_set",
+        to=Answer,
+        blank=True,
+        null=True,
+        on_delete=models.CASCADE,
+    )
+
+    def __str__(self):
+        return f"{self.question} > {self.answer}"
+
+    class Meta:  # pylint: disable=too-few-public-methods
+        """Test Meta class"""
+
+        verbose_name = gettext("entry")
+        verbose_name_plural = gettext("entries")

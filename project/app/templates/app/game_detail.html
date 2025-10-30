@@ -40,6 +40,11 @@
                         {% icon_action 'update' game.pk %}
                         {% icon_action 'delete' game.pk %}
                         {% icon_action 'bulk_create_qr' game.pk %}
+                        {% if play %}
+                        {% icon_action 'play' play.pk %}
+                        {% else %}
+                        {% icon_action 'create_play' game.pk %}
+                        {% endif %}
                     </div>
                 </div>
             </div>

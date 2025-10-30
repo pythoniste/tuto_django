@@ -8,6 +8,8 @@ from .views import (
     GameDeleteView,
     GenreDatatableView,
     bulk_create_questions_answers,
+    create_play,
+    PlayUpdateView,
 )
 
 app_name = "game"
@@ -20,4 +22,6 @@ urlpatterns = [
     path('create/', GameCreateView.as_view(), name="create"),
     path('genre/', GenreDatatableView.as_view(), name="genre"),
     path('<int:pk>/bulk-create-qr/', bulk_create_questions_answers, name='bulk_create_qr'),
+    path('<int:pk>/play/create/', create_play, name="create_play"),
+    path('play/<int:pk>/', PlayUpdateView.as_view(), name="play"),
 ]
