@@ -84,3 +84,4 @@ Only steps of the current branch are displayed here. Change branch to see other 
   * v1.10.2 Crispy formsets
 * Tools
   * v1.11.0 Django commands
+  * v1.11.1 Middlewares
