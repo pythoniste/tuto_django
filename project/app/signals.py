@@ -109,8 +109,8 @@ def answer_points_consistency_on_save(
     if raw:
         return
 
-    if instance.points > instance.question.points:
-        instance.question.points = instance.points
+    if int(instance.points) > int(instance.question.points):
+        instance.question.points = int(instance.points)
         instance.question.save(update_fields=["points"])
 
 

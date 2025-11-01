@@ -51,4 +51,12 @@ messages:
 compile_messages:
 	poetry run python manage.py compilemessages
 
+.PHONY: import_games
+import_games:
+	poetry run python manage.py import_games
+
+.PHONY: export_games
+export_games:
+	poetry run python manage.py export_games
+
 # end

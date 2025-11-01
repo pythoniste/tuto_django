@@ -52,7 +52,7 @@ class AnswerSerializer(serializers.ModelSerializer):
 
 
 class QuestionSerializer(serializers.ModelSerializer):
-    answer_set = serializers.StringRelatedField(many=True)
+    answer_set = AnswerSerializer(read_only=True, many=True)
 
     class Meta:
         model = Question
@@ -62,8 +62,9 @@ class QuestionSerializer(serializers.ModelSerializer):
 
 class GameSerializer(serializers.ModelSerializer):
     question_set = QuestionSerializer(read_only=True, many=True)
+    genre = serializers.StringRelatedField()
 
     class Meta:
         model = Game
         depth = 3
-        fields = ["name", "duration", "status", "level", "question_set"]
+        fields = ["name", 'description', "duration", "status", "level", "genre", "question_set"]

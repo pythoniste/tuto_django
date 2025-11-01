@@ -92,4 +92,12 @@ messages:
 compile_messages:
 	docker compose run tuto_django make compile_messages
 
+.PHONY: import_games
+import_games:
+	docker compose run tuto_django make  import_games
+
+.PHONY: export_games
+export_games:
+	docker compose run tuto_django make  export_games
+
 # end
