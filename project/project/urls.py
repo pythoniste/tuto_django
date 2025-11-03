@@ -37,6 +37,7 @@ from example.views import (
 )
 
 from .ninja import api
+from .views import test_celery
 
 
 router = routers.DefaultRouter()
@@ -79,3 +80,6 @@ if 'debug_toolbar' in settings.INSTALLED_APPS:
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += [
+        path('test-celery/', test_celery, name='test_celery'),
+    ]

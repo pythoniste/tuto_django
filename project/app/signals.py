@@ -11,7 +11,19 @@ from django.db.models.signals import (
 from django.dispatch import receiver, Signal
 from django.utils.translation import gettext_lazy as gettext
 
-from .models import Game, Question, Answer, Play, Entry
+from .models import (
+    Game,
+    Question,
+    Answer,
+    Play,
+    Entry,
+    Player,
+    Guest,
+    Subscriber,
+    TeamMate,
+    GameMaster,
+)
+from .tasks import create_avatar
 
 
 __all__ = [
@@ -153,3 +165,18 @@ def question_create_entries_when_creating_play(
             for question in instance.game.question_set.all()
         ]
     )
+
+
+@receiver(post_save, sender=Player)
+@receiver(post_save, sender=Guest)
+@receiver(post_save, sender=Subscriber)
+@receiver(post_save, sender=TeamMate)
+@receiver(post_save, sender=GameMaster)
+def player_post_save_create_avatar(
+        sender: AppConfig,
+        instance: Player,
+        created: bool,
+        **kwargs
+):
+    if not instance.avatar:
+        create_avatar.delay(instance.pk)

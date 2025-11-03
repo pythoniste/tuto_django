@@ -21,6 +21,10 @@ dev:
 stop:
 	docker compose down
 
+.PHONY: restart
+restart:
+	docker compose restart tuto_django tuto_django_celery tuto_django_celery_beat
+
 .PHONY: bash
 bash:
 	docker compose run tuto_django bash
@@ -36,6 +40,14 @@ shell:
 .PHONY: logs
 logs:
 	docker compose logs tuto_django -f
+
+.PHONY: logs_celery
+logs_celery:
+	docker compose logs tuto_django_celery -f
+
+.PHONY: logs_beat
+logs_beat:
+	docker compose logs tuto_django_celery_beat -f
 
 .PHONY: create_admin
 create_admin:

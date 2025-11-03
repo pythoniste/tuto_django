@@ -59,6 +59,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'mptt',
     'polymorphic',
+    'django_celery_results',
+    'django_celery_beat',
     'django.contrib.postgres',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -176,6 +178,19 @@ if DEBUG:
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Celery
+CELERY_BROKER_URL = os.environ.get("CELERY_BROKER_URL")
+CELERY_RESULT_BACKEND = os.environ.get("CELERY_RESULT_BACKEND")
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Europe/Paris'
+CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
+CELERY_TASK_TIME_LIMIT = 30 * 60
+CELERY_TASK_SOFT_TIME_LIMIT = 30 * 60
+CELERY_ACKS_LATE = True
 
 
 # Jazzmin

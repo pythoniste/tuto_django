@@ -33,6 +33,11 @@ django-datatable-view = "^2.1.6"
 martor = "^1.7.15"
 django-crispy-forms = "^2.4"
 crispy-bootstrap5 = "^2025.6"
+celery = {extras = ["amqp"], version = "^5.5.3"}
+pika = "^1.3.2"
+amqp = "^5.3.1"
+django-celery-results = "^2.6.0"
+django-celery-beat = "^2.8.1"
 
 [build-system]
 requires = ["poetry-core"]
