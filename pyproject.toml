@@ -40,6 +40,9 @@ django-celery-results = "^2.6.0"
 django-celery-beat = "^2.8.1"
 factory-boy = "^3.3.3"
 faker = "^37.12.0"
+behave-django = "^1.7.0"
+pyhamcrest = "^2.1.0"
+beautifulsoup4 = "^4.14.2"
 
 [build-system]
 requires = ["poetry-core"]

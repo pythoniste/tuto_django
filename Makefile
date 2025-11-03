@@ -116,4 +116,13 @@ export_games:
 test_unit:
 	docker compose run tuto_django make test_unit
 
+.PHONY: test_e2e
+test_e2e:
+	docker compose run tuto_django make test_e2e
+
+.PHONY: test_all
+test_all:
+	make test_unit
+	make test_e2e
+
 # end

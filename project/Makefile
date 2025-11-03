@@ -63,4 +63,8 @@ export_games:
 test_unit:
 	poetry run python manage.py test --verbosity=3
 
+.PHONY: test_e2e
+test_e2e:
+	poetry run python manage.py behave
+
 # end

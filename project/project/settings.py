@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'polymorphic',
     'django_celery_results',
     'django_celery_beat',
+    'behave_django',
     'django.contrib.postgres',
     'django.contrib.admin',
     'django.contrib.auth',
