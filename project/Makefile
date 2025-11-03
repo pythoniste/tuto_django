@@ -59,4 +59,8 @@ import_games:
 export_games:
 	poetry run python manage.py export_games
 
+.PHONY: test_unit
+test_unit:
+	poetry run python manage.py test --verbosity=3
+
 # end

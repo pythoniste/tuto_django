@@ -88,3 +88,4 @@ Only steps of the current branch are displayed here. Change branch to see other 
   * v1.11.2 Celery
 * Tests
   * v1.12.0 Factories
+  * v1.12.1 Unit tests
