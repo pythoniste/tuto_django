@@ -86,3 +86,5 @@ Only steps of the current branch are displayed here. Change branch to see other 
   * v1.11.0 Django commands
   * v1.11.1 Middlewares
   * v1.11.2 Celery
+* Tests
+  * v1.12.0 Factories
