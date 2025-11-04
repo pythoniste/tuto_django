@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:18.0
+    restart: always
+    shm_size: 512mb
+    environment:
+      POSTGRES_PASSWORD: ${PG_PWD}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      default:
+        aliases:
+          - postgres
+
+  postgres-backup:
+    container_name: postgres-backup
+    image: prodrigestivill/postgres-backup-local:18-debian-d257e5d
+    restart: always
+    volumes:
+      - /path/to/backup/postgres:/backups
+    links:
+        - postgres
+    depends_on:
+        - postgres
+    networks:
+      default:
+    environment:
+      - POSTGRES_DB=${PG_DB}
+      - BACKUP_DIR=/backups
+      - TZ="Europe/Paris"
+      - POSTGRES_HOST=pg
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=${PG_PWD}
+      - POSTGRES_EXTRA_OPTS=-Z9 --schema=public --blobs
+      - SCHEDULE=@midnight
+      - BACKUP_KEEP_DAYS=7
+      - BACKUP_KEEP_WEEKS=4
+      - BACKUP_KEEP_MONTHS=3
+
+volumes:
+  pg_data:
+
+networks:
+  postgres:

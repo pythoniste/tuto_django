@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  restic-backup:
+    image: restic/restic
+    container_name: restic-backup
+    environment:
+      - RESTIC_REPOSITORY=/mnt/backup
+      - RESTIC_PASSWORD_FILE=/run/secrets/restic_password
+    volumes:
+      - /path/to/media:/mnt/data
+      - /path/to/backup/filesystem:/mnt/backup
+      - ./restic-password.txt:/run/secrets/restic_password:ro  # Restic password for encryption
+    entrypoint:
+      - /bin/sh
+      - -c
+      - |
+        # Wait for the volume to be mounted before running restic
+        sleep 10
+        restic backup /mnt/data --verbose
+    secrets:
+      - restic_password
+    networks:
+      - backup-network
+
+networks:
+  backup-network:
+
+secrets:
+  restic_password:
+    file: ./restic-password.txt

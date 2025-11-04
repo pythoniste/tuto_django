@@ -90,3 +90,5 @@ Only steps of the current branch are displayed here. Change branch to see other 
   * v1.12.0 Factories
   * v1.12.1 Unit tests
   * v1.12.2 E2E tests
+* Deployment
+  * v1.13.0 Deployment

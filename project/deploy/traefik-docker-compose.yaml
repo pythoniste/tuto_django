@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  traefik:
+    container_name: traefik
+    image: traefik:v3.5.4
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./traefik.toml:/etc/traefik/traefik.toml:ro
+      - ./acme/acme.json:/etc/traefik/acme.json
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    networks:
+      - external
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik-web.rule=Host(`traefik-ui.my_hostname.net`)"
+      - "traefik.http.routers.traefik-web.entrypoints=web"
+      - "traefik.http.routers.traefik-web.middlewares=traefik-redirect"
+      - "traefik.http.routers.traefik-websecured.rule=Host(`traefik-ui.my_hostname.net`)"
+      - "traefik.http.routers.traefik-websecured.entrypoints=websecure"
+      - "traefik.http.routers.traefik-websecured.tls=true"
+      - "traefik.http.routers.traefik-websecured.middlewares=traefik-auth"
+      - "traefik.http.routers.traefik-websecured.tls.certresolver=letsencrypt"
+      - "traefik.http.middlewares.traefik-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.traefik-auth.basicauth.users=${TRAEFIK_USER}:${TRAEFIK_PASSWORD}"
+      - "traefik.http.services.traefik.loadbalancer.server.port=8080"
+networks:
+  external:
+    name: external
+    external: true

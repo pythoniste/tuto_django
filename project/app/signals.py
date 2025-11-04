@@ -8,6 +8,7 @@ from django.db.models.signals import (
     post_save,
     post_delete,
 )
+from django.core.cache import cache
 from django.dispatch import receiver, Signal
 from django.utils.translation import gettext_lazy as gettext
 
@@ -180,3 +181,23 @@ def player_post_save_create_avatar(
 ):
     if not instance.avatar:
         create_avatar.delay(instance.pk)
+
+
+@receiver(post_save, sender=Player)
+@receiver(post_save, sender=Guest)
+@receiver(post_save, sender=Subscriber)
+@receiver(post_save, sender=TeamMate)
+@receiver(post_save, sender=GameMaster)
+@receiver(post_save, sender=Game)
+@receiver(post_delete, sender=Player)
+@receiver(post_delete, sender=Guest)
+@receiver(post_delete, sender=Subscriber)
+@receiver(post_delete, sender=TeamMate)
+@receiver(post_delete, sender=GameMaster)
+@receiver(post_delete, sender=Game)
+def invalidate_home_view_cache(
+    sender: AppConfig,
+    instance: Player | Game,
+    **kwargs
+):
+    cache.clear()

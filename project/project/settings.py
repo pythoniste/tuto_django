@@ -62,6 +62,16 @@ INSTALLED_APPS = [
     'django_celery_results',
     'django_celery_beat',
     'behave_django',
+    'health_check',
+    'health_check.db',
+    'health_check.cache',
+    'health_check.storage',
+    'health_check.contrib.migrations',
+    'health_check.contrib.celery',
+    'health_check.contrib.celery_ping',
+    'health_check.contrib.psutil',
+    'health_check.contrib.rabbitmq',
+    'health_check.contrib.redis',
     'django.contrib.postgres',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -75,6 +85,11 @@ INSTALLED_APPS = [
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+HEALTH_CHECK = {
+    'DISK_USAGE_MAX': 90,  # percent
+    'MEMORY_MIN': 100,  # in MB
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -175,6 +190,19 @@ LOGOUT_REDIRECT_URL = '/'
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
+REDIS_URL = os.environ.get("REDIS_URL")
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': f'{REDIS_URL}/1',  # Redis URL, DB 1 is commonly used for caching
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        },
+    }
+}
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
@@ -192,6 +220,9 @@ CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
 CELERY_TASK_TIME_LIMIT = 30 * 60
 CELERY_TASK_SOFT_TIME_LIMIT = 30 * 60
 CELERY_ACKS_LATE = True
+BROKER_URL = CELERY_BROKER_URL
+
+HEALTHCHECK_CACHE_KEY = "tuto_django_healthcheck_key"
 
 
 # Jazzmin

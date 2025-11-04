@@ -60,6 +60,7 @@ urlpatterns = [
     *i18n_patterns(path('admin/', admin.site.urls)),
     path('api-ninja/', api.urls),
     path('martor/', include('martor.urls')),
+    path('health/', include('health_check.urls')),
 ]
 
 if 'rest_framework' in settings.INSTALLED_APPS:

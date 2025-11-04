@@ -67,4 +67,8 @@ test_unit:
 test_e2e:
 	poetry run python manage.py behave
 
+.PHONY: health_check
+health_check:
+	poetry run python manage.py health_check
+
 # end

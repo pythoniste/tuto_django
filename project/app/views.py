@@ -15,7 +15,9 @@ from django.core.exceptions import ValidationError
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy, reverse
+from django.utils.decorators import method_decorator
 from django.utils.translation import gettext_lazy as gettext
+from django.views.decorators.cache import cache_page
 
 from datatableview.views import DatatableView
 from rest_framework import viewsets
@@ -31,6 +33,7 @@ from .serializers import GameSerializer, QuestionSerializer, AnswerSerializer
 User = get_user_model()
 
 
+@method_decorator(cache_page(60 * 15, key_prefix="home_view"), name="dispatch")
 class HomeView(TemplateView):
     template_name = "home.html"
 

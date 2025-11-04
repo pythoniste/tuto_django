@@ -1,76 +1,32 @@
+version: '3.8'
+
 services:
-
-  tuto_django_postgres:
-    container_name: tuto_django_postgres
-    image: postgres:14.6-alpine
-    environment:
-      - POSTGRES_DB=project
-      - POSTGRES_USER=django
-      - POSTGRES_PASSWORD=secret
-      - POSTGRES_PORT=5432
-    volumes:
-      - pg_data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
-    healthcheck:
-      test: pg_isready -d django
-      interval: 30s
-      timeout: 60s
-      retries: 5
-      start_period: 80s
-
-  tuto_django_rabbitmq:
-    container_name: tuto_django_rabbitmq
-    image: rabbitmq:management
-    ports:
-      - "5672:5672"
-      - "15672:15672"
-    environment:
-      - RABBITMQ_DEFAULT_USER=guest
-      - RABBITMQ_DEFAULT_PASS=guest
-      - RABBITMQ_LOGS=-
-    healthcheck:
-      test: rabbitmq-diagnostics -q ping
-      interval: 30s
-      timeout: 10s
-      retries: 3
-
-  tuto_django_redis:
-    container_name: tuto_django_redis
-    image: redis:latest
-    ports:
-      - "6379:6379"
-    healthcheck:
-      test: ["CMD", "redis-cli", "ping"]
-      interval: 10s
-      timeout: 5s
-      retries: 3
 
   tuto_django:
     container_name: tuto_django
-    build: .
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     user: "1000:1000"
-    command: make dev
+    command: gunicorn myproject.wsgi:application --bind 0.0.0.0:8000
+    tty: true
     volumes:
       - .:/opt/app
-    ports:
-      - "8000:8000"
-    depends_on:
-      tuto_django_postgres:
-        condition: service_healthy
-      tuto_django_rabbitmq:
-        condition: service_healthy
-      tuto_django_redis:
-        condition: service_healthy
+    restart: always
     environment:
-      - POSTGRES_HOST=tuto_django_postgres
-      - POSTGRES_DB=project
-      - POSTGRES_USER=django
-      - POSTGRES_PASSWORD=secret
-      - POSTGRES_PORT=5432
+      - DEBUG=False
+      - DJANGO_SECRET_KEY=${SECRET_KEY}
+      - POSTGRES_HOST=postgres
+      - POSTGRES_DB=tuto
+      - POSTGRES_USER=${PG_USER}
+      - POSTGRES_PASSWORD=${PG_PWD}
+      - SITE_URL=${SITE_URL}
       - CELERY_BROKER_URL=amqp://guest:guest@tuto_django_rabbitmq:5672/
       - CELERY_RESULT_BACKEND=django-db
       - REDIS_URL=redis://tuto_django_redis:6379
+    networks:
+      internal:
+      postgres:
     healthcheck:
       test: make health_check
       interval: 30s
@@ -101,6 +57,9 @@ services:
       - POSTGRES_PASSWORD=secret
       - POSTGRES_PORT=5432
       - REDIS_URL=redis://tuto_django_redis:6379
+    networks:
+      internal:
+      postgres:
     healthcheck:
       test: celery -b amqp://guest:guest@tuto_django_rabbitmq:5672/ inspect ping
       interval: 30s
@@ -131,6 +90,9 @@ services:
       - POSTGRES_PASSWORD=secret
       - POSTGRES_PORT=5432
       - REDIS_URL=redis://tuto_django_redis:6379
+    networks:
+      internal:
+      postgres:
     healthcheck:
       test: celery -b amqp://guest:guest@tuto_django_rabbitmq:5672/ inspect ping
       interval: 30s
@@ -138,5 +100,37 @@ services:
       retries: 3
       start_period: 60s
 
+  nginx:
+    depends_on:
+      - tuto_django
+    image: nginx:stable
+    volumes:
+      - nginxlogs:/var/log/nginx
+      - /path/to/static:/var/www/html/static
+      - /path/to/media:/var/www/html/media
+      - ./config/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./config/uwsgi_params:/etc/nginx/uwsgi_params:ro
+    networks:
+      - internal
+      - external
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.tuto-web.rule=Host(`my_hostname.fr`)"
+      - "traefik.http.routers.tuto-web.entrypoints=web"
+      - "traefik.http.routers.tuto-web.middlewares=traefik-redirect"
+      - "traefik.http.routers.tuto-websecured.rule=Host(`my_hostname.fr`)"
+      - "traefik.http.routers.tuto-websecured.entrypoints=websecure"
+      - "traefik.http.routers.tuto-websecured.tls=true"
+      - "traefik.http.routers.tuto-websecured.tls.certresolver=letsencrypt"
+      - "traefik.http.middlewares.tuto-redirect.redirectscheme.scheme=https"
+
 volumes:
-  pg_data:
+  postgresdata:
+  nginxlogs:
+
+networks:
+  external:
+    name: external
+    external: true
+  internal:
+  postgres:

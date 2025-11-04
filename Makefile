@@ -49,6 +49,14 @@ logs_celery:
 logs_beat:
 	docker compose logs tuto_django_celery_beat -f
 
+.PHONY: logs_rabbitmq
+logs_rabbitmq:
+	docker compose logs tuto_django_rabbitmq -f
+
+.PHONY: logs_redis
+logs_redis:
+	docker compose logs tuto_django_redis -f
+
 .PHONY: create_admin
 create_admin:
 	docker compose run tuto_django make create_admin
@@ -124,5 +132,9 @@ test_e2e:
 test_all:
 	make test_unit
 	make test_e2e
+
+.PHONY: health_check
+health_check:
+	docker compose run tuto_django make health_check
 
 # end
